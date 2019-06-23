@@ -1,0 +1,479 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Delphi CHARGE  file generated with par_all22_prot.inp 
+! and  top_all22_prot.inp files (version c25a1)
+! Charges correpond to pH 7.
+! 4-charachter H-symbols are correct.
+! Files contains charges for both standart (NTER; CTER)
+! and neutral (ACE, CT3) termini.
+! 12/15/97
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+atom__resnumbc_charge_
+C     ALA        0.510
+O     ALA       -0.510
+N     ALA       -0.470
+HN    ALA        0.310
+CA    ALA        0.070
+HA    ALA        0.090
+CB    ALA       -0.270
+HB1   ALA        0.090
+HB2   ALA        0.090
+HB3   ALA        0.090
+C     ALA        0.510
+O     ALA       -0.510
+N     ARG       -0.470
+HN    ARG        0.310
+CA    ARG        0.070
+HA    ARG        0.090
+CB    ARG       -0.180
+HB1   ARG        0.090
+HB2   ARG        0.090
+CG    ARG       -0.180
+HG1   ARG        0.090
+HG2   ARG        0.090
+CD    ARG        0.200
+HD1   ARG        0.090
+HD2   ARG        0.090
+NE    ARG       -0.700
+HE    ARG        0.440
+CZ    ARG        0.640
+NH1   ARG       -0.800
+HH11  ARG        0.460
+HH12  ARG        0.460
+NH2   ARG       -0.800
+HH21  ARG        0.460
+HH22  ARG        0.460
+C     ARG        0.510
+O     ARG       -0.510
+N     ASN       -0.470
+HN    ASN        0.310
+CA    ASN        0.070
+HA    ASN        0.090
+CB    ASN       -0.180
+HB1   ASN        0.090
+HB2   ASN        0.090
+CG    ASN        0.550
+OD1   ASN       -0.550
+ND2   ASN       -0.620
+HD21  ASN        0.320
+HD22  ASN        0.300
+C     ASN        0.510
+O     ASN       -0.510
+N     ASP       -0.470
+HN    ASP        0.310
+CA    ASP        0.070
+HA    ASP        0.090
+CB    ASP       -0.280
+HB1   ASP        0.090
+HB2   ASP        0.090
+CG    ASP        0.620
+OD1   ASP       -0.760
+OD2   ASP       -0.760
+C     ASP        0.510
+O     ASP       -0.510
+N     CYS       -0.470
+HN    CYS        0.310
+CA    CYS        0.070
+HA    CYS        0.090
+CB    CYS       -0.110
+HB1   CYS        0.090
+HB2   CYS        0.090
+SG    CYS       -0.230
+HG1   CYS        0.160
+C     CYS        0.510
+O     CYS       -0.510
+N     GLU       -0.470
+HN    GLU        0.310
+CA    GLU        0.070
+HA    GLU        0.090
+CB    GLU       -0.180
+HB1   GLU        0.090
+HB2   GLU        0.090
+CG    GLU       -0.280
+HG1   GLU        0.090
+HG2   GLU        0.090
+CD    GLU        0.620
+OE1   GLU       -0.760
+OE2   GLU       -0.760
+C     GLU        0.510
+O     GLU       -0.510
+N     GLN       -0.470
+HN    GLN        0.310
+CA    GLN        0.070
+HA    GLN        0.090
+CB    GLN       -0.180
+HB1   GLN        0.090
+HB2   GLN        0.090
+CG    GLN       -0.180
+HG1   GLN        0.090
+HG2   GLN        0.090
+CD    GLN        0.550
+OE1   GLN       -0.550
+NE2   GLN       -0.620
+HE21  GLN        0.320
+HE22  GLN        0.300
+C     GLN        0.510
+O     GLN       -0.510
+N     GLY       -0.470
+HN    GLY        0.310
+CA    GLY       -0.020
+HA1   GLY        0.090
+HA2   GLY        0.090
+C     GLY        0.510
+O     GLY       -0.510
+N     HSE       -0.470
+HN    HSE        0.310
+CA    HSE        0.070
+HA    HSE        0.090
+NE2   HSE       -0.360
+HE2   HSE        0.320
+CD2   HSE       -0.050
+HD2   HSE        0.090
+ND1   HSE       -0.700
+CG    HSE        0.220
+CE1   HSE        0.250
+HE1   HSE        0.130
+CB    HSE       -0.080
+HB1   HSE        0.090
+HB2   HSE        0.090
+C     HSE        0.510
+O     HSE       -0.510
+N     HSD       -0.470
+HN    HSD        0.310
+CA    HSD        0.070
+HA    HSD        0.090
+ND1   HSD       -0.360
+HD1   HSD        0.320
+CG    HSD       -0.050
+CB    HSD       -0.090
+HB1   HSD        0.090
+HB2   HSD        0.090
+NE2   HSD       -0.700
+CD2   HSD        0.220
+HD2   HSD        0.100
+CE1   HSD        0.250
+HE1   HSD        0.130
+C     HSD        0.510
+O     HSD       -0.510
+N     HIS       -0.470
+HN    HIS        0.310
+CA    HIS        0.070
+HA    HIS        0.090
+ND1   HIS       -0.360
+HD1   HIS        0.320
+CG    HIS       -0.050
+CB    HIS       -0.090
+HB1   HIS        0.090
+HB2   HIS        0.090
+NE2   HIS       -0.700
+CD2   HIS        0.220
+HD2   HIS        0.100
+CE1   HIS        0.250
+HE1   HIS        0.130
+C     HIS        0.510
+O     HIS       -0.510
+N     ILE       -0.470
+HN    ILE        0.310
+CA    ILE        0.070
+HA    ILE        0.090
+CB    ILE       -0.090
+HB    ILE        0.090
+CG2   ILE       -0.270
+HG21  ILE        0.090
+HG22  ILE        0.090
+HG23  ILE        0.090
+CG1   ILE       -0.180
+HG11  ILE        0.090
+HG12  ILE        0.090
+CD    ILE       -0.270
+HD1   ILE        0.090
+HD2   ILE        0.090
+HD3   ILE        0.090
+C     ILE        0.510
+O     ILE       -0.510
+N     LEU       -0.470
+HN    LEU        0.310
+CA    LEU        0.070
+HA    LEU        0.090
+CB    LEU       -0.180
+HB1   LEU        0.090
+HB2   LEU        0.090
+CG    LEU       -0.090
+HG    LEU        0.090
+CD1   LEU       -0.270
+HD11  LEU        0.090
+HD12  LEU        0.090
+HD13  LEU        0.090
+CD2   LEU       -0.270
+HD21  LEU        0.090
+HD22  LEU        0.090
+HD23  LEU        0.090
+C     LEU        0.510
+O     LEU       -0.510
+N     LYS       -0.470
+HN    LYS        0.310
+CA    LYS        0.070
+HA    LYS        0.090
+CB    LYS       -0.180
+HB1   LYS        0.090
+HB2   LYS        0.090
+CG    LYS       -0.180
+HG1   LYS        0.090
+HG2   LYS        0.090
+CD    LYS       -0.180
+HD1   LYS        0.090
+HD2   LYS        0.090
+CE    LYS        0.210
+HE1   LYS        0.050
+HE2   LYS        0.050
+NZ    LYS       -0.300
+HZ1   LYS        0.330
+HZ2   LYS        0.330
+HZ3   LYS        0.330
+C     LYS        0.510
+O     LYS       -0.510
+N     MET       -0.470
+HN    MET        0.310
+CA    MET        0.070
+HA    MET        0.090
+CB    MET       -0.180
+HB1   MET        0.090
+HB2   MET        0.090
+CG    MET       -0.140
+HG1   MET        0.090
+HG2   MET        0.090
+SD    MET       -0.090
+CE    MET       -0.220
+HE1   MET        0.090
+HE2   MET        0.090
+HE3   MET        0.090
+C     MET        0.510
+O     MET       -0.510
+N     PHE       -0.470
+HN    PHE        0.310
+CA    PHE        0.070
+HA    PHE        0.090
+CB    PHE       -0.180
+HB1   PHE        0.090
+HB2   PHE        0.090
+CG    PHE        0.000
+CD1   PHE       -0.115
+HD1   PHE        0.115
+CD2   PHE       -0.115
+HD2   PHE        0.115
+CE1   PHE       -0.115
+HE1   PHE        0.115
+CE2   PHE       -0.115
+HE2   PHE        0.115
+CZ    PHE       -0.115
+HZ    PHE        0.115
+C     PHE        0.510
+O     PHE       -0.510
+N     PRO       -0.290
+CA    PRO        0.020
+HA    PRO        0.090
+CD    PRO        0.000
+HD1   PRO        0.090
+HD2   PRO        0.090
+CB    PRO       -0.180
+HB1   PRO        0.090
+HB2   PRO        0.090
+CG    PRO       -0.180
+HG1   PRO        0.090
+HG2   PRO        0.090
+C     PRO        0.510
+O     PRO       -0.510
+N     SER       -0.470
+HN    SER        0.310
+CA    SER        0.070
+HA    SER        0.090
+CB    SER        0.050
+HB1   SER        0.090
+HB2   SER        0.090
+OG    SER       -0.660
+HG1   SER        0.430
+C     SER        0.510
+O     SER       -0.510
+N     THR       -0.470
+HN    THR        0.310
+CA    THR        0.070
+HA    THR        0.090
+CB    THR        0.140
+HB    THR        0.090
+OG1   THR       -0.660
+HG1   THR        0.430
+CG2   THR       -0.270
+HG21  THR        0.090
+HG22  THR        0.090
+HG23  THR        0.090
+C     THR        0.510
+O     THR       -0.510
+N     TRP       -0.470
+HN    TRP        0.310
+CA    TRP        0.070
+HA    TRP        0.090
+CB    TRP       -0.180
+HB1   TRP        0.090
+HB2   TRP        0.090
+CG    TRP       -0.030
+CD2   TRP       -0.020
+CD1   TRP        0.035
+HD1   TRP        0.115
+NE1   TRP       -0.610
+HE1   TRP        0.380
+CE2   TRP        0.130
+CE3   TRP       -0.115
+HE3   TRP        0.115
+CZ2   TRP       -0.115
+HZ2   TRP        0.115
+CZ3   TRP       -0.115
+HZ3   TRP        0.115
+CH2   TRP       -0.115
+HH2   TRP        0.115
+C     TRP        0.510
+O     TRP       -0.510
+N     TYR       -0.470
+HN    TYR        0.310
+CA    TYR        0.070
+HA    TYR        0.090
+CB    TYR       -0.180
+HB1   TYR        0.090
+HB2   TYR        0.090
+CG    TYR        0.000
+CD1   TYR       -0.115
+HD1   TYR        0.115
+CD2   TYR       -0.115
+HD2   TYR        0.115
+CE1   TYR       -0.115
+HE1   TYR        0.115
+CE2   TYR       -0.115
+HE2   TYR        0.115
+CZ    TYR        0.110
+OH    TYR       -0.540
+HH    TYR        0.430
+C     TYR        0.510
+O     TYR       -0.510
+N     VAL       -0.470
+HN    VAL        0.310
+CA    VAL        0.070
+HA    VAL        0.090
+CB    VAL       -0.090
+HB    VAL        0.090
+CG1   VAL       -0.270
+HG11  VAL        0.090
+HG12  VAL        0.090
+HG13  VAL        0.090
+CG2   VAL       -0.270
+HG21  VAL        0.090
+HG22  VAL        0.090
+HG23  VAL        0.090
+C     VAL        0.510
+O     VAL       -0.510
+CAY             -0.270 ! Acetylated N-teminus
+HY1              0.090 ! (ace); charge: 0.0
+HY2              0.090 !
+HY3              0.090 !
+CY               0.510 !
+OY              -0.510 !!!!!!!!!!!!!!
+NT              -0.470 ! N-methylamide C-term
+HNT              0.310 ! (ct3); charge: 0.0 
+CAT             -0.110 !
+HT1              0.090 !
+HT2              0.090 !
+HT3              0.090 !!!!!!!!!!!!!!!
+CT2              0.550 ! Amidated C-term (ct2)
+ONT2            -0.550 !
+NT2             -0.620 !
+HT21             0.320 !
+HT22             0.300 !!!!!!!!!!!!!!!!!
+NN              -0.300 ! Standart N-terminus
+HT1N             0.330 ! NTER; charge: +1
+HT2N             0.330 ! Note: added "N"
+HT3N             0.330 ! for all symbols
+CAN              0.210 !
+HAN              0.100 !!!!!!!!!!!!!!!!
+NN    GLY       -0.300 !
+HT1N  GLY        0.330 !
+HT2N  GLY        0.330 !  N-terminal GLY
+HT3N  GLY        0.330 !
+CAN   GLY        0.130 !
+HA1N  GLY        0.090 !
+HA2N  GLY        0.090 !!!!!!!!!!!!!!!!!!!!!!
+NN    PRO       -0.070 !
+HN1   PRO        0.240 !  N-terminal PRO
+HN2   PRO        0.240 !
+CDN   PRO        0.160 !
+CAN   PRO        0.160 !!!!!!!!!!!!!!!!!
+CC               0.340 ! Standart C-terminus
+OT1             -0.670 ! CTER; charge: -1
+OT2             -0.670 ! Note: C->CC !!!!!
+N     PTR       -0.470 !!!!!!!!!!!!!!!!!!!!
+HN    PTR        0.310 ! phosphorilated Tyr
+CA    PTR        0.070 !charge: -2
+HA    PTR        0.090 !
+CB    PTR       -0.180 !
+HB1   PTR        0.090 !
+HB2   PTR        0.090 !
+CG    PTR        0.000 !
+CD1   PTR       -0.115 !
+HD1   PTR        0.115 !
+CD2   PTR       -0.115 !
+HD2   PTR        0.115 !
+CE1   PTR       -0.210 ! 
+HE1   PTR        0.210 !   
+CE2   PTR       -0.210 !   
+HE2   PTR        0.210 !   
+CZ    PTR       -0.280 !   
+OH    PTR       -0.280 !   
+P1    PTR        1.440 !  
+O2    PTR       -0.960 !   
+O3    PTR       -0.960 !   
+O4    PTR       -0.960 !   
+C     PTR        0.510 !
+O     PTR       -0.510 !!!!!!!!!!!!!!!!!!!!!!
+MG               2.000
+CAL              2.000
+C4'   GDP        0.160
+H4'   GDP        0.090
+O4'   GDP       -0.500
+C1'   GDP        0.160
+H1'   GDP        0.090
+N9    GDP       -0.020
+C4    GDP        0.260
+N2    GDP       -0.680
+H21   GDP        0.320
+H22   GDP        0.350
+N3    GDP       -0.740
+C2    GDP        0.750
+N1    GDP       -0.340
+H1    GDP        0.260
+C6    GDP        0.540
+O6    GDP       -0.510
+C5    GDP        0.000
+N7    GDP       -0.600
+C8    GDP        0.250
+H8    GDP        0.160
+C2'   GDP        0.140
+H2''  GDP        0.090
+O2'   GDP       -0.660
+H2'   GDP        0.430
+C3'   GDP        0.140
+H3'   GDP        0.090
+O3'   GDP       -0.660
+H3T   GDP        0.430
+C5'   GDP       -0.080
+H5'   GDP        0.090
+H5''  GDP        0.090
+O5'   GDP       -0.620
+PA    GDP        1.500
+O1A   GDP       -0.820
+O2A   GDP       -0.820
+O3A   GDP       -0.740
+PB    GDP        1.100
+O1B   GDP       -0.900
+O2B   GDP       -0.900
+O3B   GDP       -0.900
+AL    ALF        3.000
+F1    ALF       -1.000
+F2    ALF       -1.000
+F3    ALF       -1.000
+F4    ALF       -1.000

@@ -1,0 +1,25 @@
+scale=2.5
+
+gsize=187
+
+
+in(pdb,file="../barstar.pdb")
+in(siz,file="../c22.siz")
+in(crg,file="../c22.crg")
+
+acent(28.459,36.960,8.674)
+
+indi=2
+exdi=80.0
+prbrad=1.4
+salt=0.2
+
+bndcon=2
+maxc=0.0001
+linit=3000
+maxwarn=-1
+
+energy(s,c,g, ion)
+
+
+

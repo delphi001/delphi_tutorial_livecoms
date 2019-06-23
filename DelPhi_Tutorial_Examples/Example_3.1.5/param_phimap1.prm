@@ -1,0 +1,14 @@
+scale=1.0
+perfil=70.0
+in(pdb,file="barnase.pdb")
+in(crg,file="amber.crg)
+in(siz,file="amber.siz)
+out(phi,file="phimap1.cube",format=cube)
+out(modpdb4,file="barnase.pqr",format=pqr)
+indi=2.0
+exdi=80.0
+prbrad=1.4
+ionrad=2.0
+bndcon=2
+maxc=0.0001
+energy(g)

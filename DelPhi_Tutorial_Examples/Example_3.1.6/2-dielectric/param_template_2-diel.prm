@@ -1,0 +1,28 @@
+scale=2.5
+perfil=70
+!gsize=751
+
+
+in(pdb,file="../${molecule}.pdb")
+in(siz,file="../c22.siz")
+in(crg,file="../c22.crg")
+
+acent(28.459,36.960,8.674)
+
+
+indi=2
+exdi=80.0
+prbrad=1.4
+salt=${salt}
+bndcon=2
+maxc=0.0001
+linit=3000
+maxwarn=-1
+!pressurecoeff=0.063
+
+
+! ------ ENERGY OUTPUT ----- 
+energy(s,c,g, ion)
+out(energy,file="./${molecule}_2-diel_salt-${salt}.dat")
+
+

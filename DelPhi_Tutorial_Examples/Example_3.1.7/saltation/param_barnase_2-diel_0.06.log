@@ -1,0 +1,150 @@
+
+ Time> Program started on 2019-6-17 at 15:2:59
+                                                                    
+   ______________________DelPhi C++ V. 8.5________________________  
+  |                                                               | 
+  | DelPhi Fortran program was originally developed in Barry Honig| 
+  | lab to compute electrostatic potential and energies. The      | 
+  | current C++ version is object oriented code, capable of       | 
+  | performing the calculations in sequential, OpenMP and MPI     | 
+  | regimes and the MPI version utilizes distributed memory       | 
+  | technology. Particular novelty is the Gaussian-based smooth   | 
+  | dielectric function that accounts for heterogeneity of the    | 
+  | solute and solute-solvent interface.                          | 
+  |                                                               | 
+  |                                                               | 
+  |                                                               | 
+  | >>>>>>>>>>>> TRAJECTORY ANALYSIS <<<<<<<<<<                   | 
+  |                                                               | 
+  | >>>>>>>>>>>> VOLUME AND SURFACE AREA<<<<<<<                   | 
+  |                                                               | 
+  | The following reference should be quoted if the use of Delphi | 
+  | V. 8.0 results to a publication:                              | 
+  |                                                               | 
+  |    Li, L.; Li, C. A.; Sarkar, S.; Zhang, J.; Witham, S.;      | 
+  |    Zhang, Z.; Wang, L.; Smith, N.; Petukh, M.; Alexov, E.     | 
+  |    Bmc Biophys 2012, 5.                                       | 
+  |                                                               | 
+  |               For questions and help, visit                   | 
+  |              http://compbio.clemson.edu/forum/                | 
+  |               or email to delphi@g.clemson.edu                | 
+  |                                                               | 
+  |             Jul 2018, by DelPhi Development Team              | 
+  |                        Chuan  Li                              | 
+  |                         Zhe Jia                               | 
+  |                    Arghya Chakravorty                         | 
+  |____________________                   ________________________| 
+                        DelPhi C++ V. 8.5                           
+                                                                    
+
+ Time> Program started on 2019-6-17 at 15:2:59
+ No DELPHI keyword, assuming Delphi Format number = 0
+   
+ Time> Read in and/or assign rad/chrg done at      2019-6-17 at 15:3:0
+
+ Direct mapping of epsilon                    : 1/Y
+ Grid size                                    : 187
+ Percent of box occupied                      : 70.707
+ Scale,in grids (1/A)                         : 2.500     
+ xmin,xmax (A)                                : 2.156     44.380
+ ymin,ymax (A)                                : 24.540     59.678
+ zmin,zmax (A)                                : -11.601     33.727
+ x,y,z range (A)                              : 42.224     35.138     45.328
+ System geometric center (A)                  : 23.268     42.109     11.063
+ Grid box is centered (A)                     : 28.459     36.960      8.674
+ Object centre offset (gu)                    : 0.000      0.000      0.000
+ Outer dielectric                             : 80.000
+ Dielectric in Medium 1                       : 2.000
+ First kind salt [C] (M)                      : 0.060
+ Valences salt 1 are                          : 1         1
+ Ionic strength (M)                           : 0.060
+ Debye length (A)                             : 12.530
+ Absolute temperature (K)                     : 297.334
+ Ion exclusion [r] (A)                        : 2.000
+ Probe[r] facing water (A)                    : 1.400
+ Probe[r] internal (A)                        : 1.400
+ Boundary conditions                          : DIPOLAR
+ # of linear iterations                       : 3000
+ Convergence by rms change                    : 0.000e+00 kT
+ Convergence by max change                    : 1.000e-04 kT
+ # of non-linear iterations                   : 0
+ Non-linear energy calc.                      : 0
+ Manual relaxation para.                      : 0
+ GAUSSIAN module                              : OFF
+ Surface potential calculations               : OFF
+ Non-polar energy calculation                 : OFF
+
+ Total number of assigned charges             : 1713
+ Net assigned charge                          :  2.000e+00
+ Assigned positive charge                     :  2.190e+02
+ Centred at (gu)                              : 7.374e+01  1.115e+02  1.029e+02
+ Assigned negative charge                     : -2.170e+02
+ Centred at (gu)                              : 7.370e+01  1.114e+02  1.033e+02
+
+ Time> iepsmp to db, and charging done on 2019-6-17 at 15:3:1
+
+ Number of grid points assigned charge        : 13672
+ Estimated iterations to convergence          : 318
+
+ Time> Setup time done on 2019-6-17 at 15:3:1
+
+ Time> Now iterating on 2019-6-17 at 15:3:1
+
+ ----------------------------------------------------------------
+       rms-change   max change       #iterations
+ ----------------------------------------------------------------
+        5.010e+00  2.783e+02  at  10    iterations
+        2.987e+00  1.137e+02  at  20    iterations
+        1.795e+00  6.280e+01  at  30    iterations
+        1.075e+00  4.062e+01  at  40    iterations
+        6.447e-01  2.276e+01  at  50    iterations
+        3.854e-01  1.244e+01  at  60    iterations
+        2.308e-01  7.770e+00  at  70    iterations
+        1.384e-01  4.483e+00  at  80    iterations
+        8.266e-02  2.632e+00  at  90    iterations
+        4.970e-02  1.582e+00  at  100   iterations
+        2.964e-02  1.009e+00  at  110   iterations
+        1.777e-02  6.081e-01  at  120   iterations
+        1.068e-02  3.671e-01  at  130   iterations
+        6.381e-03  2.203e-01  at  140   iterations
+        3.830e-03  1.357e-01  at  150   iterations
+        2.291e-03  8.832e-02  at  160   iterations
+        1.373e-03  4.990e-02  at  170   iterations
+        8.232e-04  3.028e-02  at  180   iterations
+        4.922e-04  1.617e-02  at  190   iterations
+        2.954e-04  9.813e-03  at  200   iterations
+        1.773e-04  5.830e-03  at  210   iterations
+        1.060e-04  3.559e-03  at  220   iterations
+        6.378e-05  2.128e-03  at  230   iterations
+        3.807e-05  1.426e-03  at  240   iterations
+        2.292e-05  7.142e-04  at  250   iterations
+        1.377e-05  5.394e-04  at  260   iterations
+        8.254e-06  2.611e-04  at  270   iterations
+        4.943e-06  1.861e-04  at  280   iterations
+        2.966e-06  1.068e-04  at  290   iterations
+        1.781e-06  6.407e-05  at  300   iterations
+ ----------------------------------------------------------------
+ Info> Iteration ended with final rms-change of 1.781e-06
+ Info> Run converged in the provided limits
+
+ Time> Finished qdiffx linear iterations 2019-6-17 at 15:3:8
+ ----------------------------------------------------------------
+
+ Energy> Total grid energy                             :     73514.14 kT
+ Energy> Corrected reaction field energy               :     -1020.75 kT
+ Energy> Coulombic energy                              :    -25009.84 kT
+ Energy arising from solvent and boundary pol.      -1021.64 kT
+ Energy> All required energy terms but grid energy     :    -26031.48 kT
+
+
+ Time> Total CPU time is  36.40   sec 
+
+ Time> Delphi exited on 2019-6-17 at 15:3:36
+
+
+ .........  PROGRAM EXITS SUCCESSFULLY : WITH TOTAL 1 WARNING(S) ........
+
+ .....................  SHOWING 1 OUT OF 1 WARNING(S) ...................
+   [1;34m
+[WARNING #1] THIS PART IS STILL UNDER TESTING. 
+[0m
