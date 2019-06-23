@@ -1,0 +1,16 @@
+scale=2.0
+perfil=70.0
+in(modpdb4,file="1emv_A.pqr",format=pqr)
+acenter(1.9214,1.0905,41.4588)
+indi=2.0
+exdi=80.0
+prbrad=1.4
+salt=0.15
+bndcon=2
+maxc=0.0001
+linit=1600
+gaussian=1
+srfcut=20
+sigma=0.9
+energy(g)
+

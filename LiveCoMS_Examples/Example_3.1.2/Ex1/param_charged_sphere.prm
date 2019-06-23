@@ -1,0 +1,16 @@
+!gsize=95 
+perfil=60
+scale=4.0 
+in(pdb,file="born.pdb")
+in(siz,file="born.siz")
+in(crg,file="born.crg")
+indi=1.0
+exdi=${exdi}
+prbrad=1.4
+ionrad=0.0
+salt=${salt}
+bndcon=2
+maxc=0.0001
+linit=8000
+energy(s,c,g)
+
