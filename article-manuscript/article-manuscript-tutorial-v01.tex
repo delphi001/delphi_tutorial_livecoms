@@ -38,28 +38,18 @@
 \author[1]{Mahesh Koirala}
 \author[1]{Swagata Pahari}
 \author[1]{Arghya Chakrvorty}
-\author[2]{Yunhui Peng}
-\author[3]{Lin Li}
-\author[4]{Zhe Jia}
-\author[5]{Chuan Li}
-\author[1*]{Emil Alexov}
-\affil[1]{Department of Physics, Clemson University, Clemson, SC 29634, USA}
-\affil[2]{Institution 2}
-\affil[3]{Institution 3}
-\affil[4]{Institution 4}
-\affil[5]{Institution 5}
+\author[1]{Yunhui Peng}
+\author[2]{Lin Li}
+\author[1]{Zhe Jia}
+\author[3]{Chuan Li}
+\author[1,*]{Emil Alexov}
+\affil[1]{Department of Physics and Astronomy, Clemson University, Clemson, SC 29634}
+\affil[2]{Department of Physics, University of Texas at EI Paso, TX 79968}
+\affil[3]{Department of Mathematics, West Chester University of Pennsylvania, West Chester, PA 19383}
+
 
 \corr{ealexov@g.clemson.edu}{EA}  % Correspondence emails.  FMS and FS are the appropriate authors initials.
 
-
-\orcid{Author 1 name}{AAAA-BBBB-CCCC-DDDD}
-\orcid{Author 2 name}{EEEE-FFFF-GGGG-HHHH}
-
-\contrib[\authfn{1}]{These authors contributed equally to this work}
-\contrib[\authfn{2}]{These authors also contributed equally to this work}
-
-\presentadd[\authfn{3}]{Department, Institute, Country}
-\presentadd[\authfn{4}]{Department, Institute, Country}
 
 \blurb{This LiveCoMS document is maintained online on GitHub at \githubrepository; to provide feedback, suggestions, or help improve it, please visit the GitHub repository and participate via the issue tracker.}
 
@@ -91,13 +81,13 @@
 
 \begin{abstract}
 
-Electrostatics pay indispensable role in practically any process in molecular biology. Indeed, at distances larger than several Angstroms all other forces are negligible small and electrostatic force dominates. However, modeling electrostatics in molecular biology is a complicated task due to presence of water phase, mobile ions and irregularly shaped inhomogeneous biological macromolecules. A particular approach to calculating electrostatics in such systems is to apply Poisson-Boltzmann equation (PBE). Here we provide a tutorial for the popular DelPhi package that solves PBE using finite-difference method and delivers the electrostatic potential distribution throughout the modeling box. The tutorial comes with detailed description of different tasks that DelPhi can handle, an assessment of the accuracy against cases with analytical solution and recommendations about DelPhi usage. Furthermore, since electrostatics is a key component of virtually any modeling in molecular biology, we have created many additional resources utilizing DelPhi to model various biology relevant quantities. Tutorials for these resources are also provided along with examples of their usage. 
+Electrostatics play indispensable role in practically any process in molecular biology. Indeed, at distances larger than several Angstroms all other forces are negligibly small and electrostatic force dominates. However, modeling electrostatics in molecular biology is a complicated task due to presence of water phase, mobile ions and irregularly shaped inhomogeneous biological macromolecules. A particular approach to calculating electrostatics in such systems is to apply Poisson-Boltzmann equation (PBE). Here we provide a tutorial for the popular DelPhi package that solves PBE using finite-difference method and delivers the electrostatic potential distribution throughout the modeling box. The tutorial comes with detailed description of different tasks that DelPhi can handle, an assessment of the accuracy against cases with analytical solution and recommendations about DelPhi usage. Furthermore, since electrostatics is a key component of virtually any modeling in molecular biology, we have created many additional resources utilizing DelPhi to model various biology relevant quantities. Tutorials for these resources are also provided along with examples of their usage. 
 \end{abstract}
 
 \end{frontmatter}
 
 \section{Introduction}
-Poisson-Boltzmann equation (PBE) is widely used to describe the electrostatic potential distribution in systems made of biological macromolecules in water phase in presence of mobile ions\cite{xiao2017continuum,li2013progress,jurrus2018improvements,nguyen2017accurate}. Since in this approach the macromolecules are considered using their atomistic 3D structures, it represents an excellent trade off between the speed and the necessary details for accurate description of the relevant phenomena. The traditional implementation of PBE in molecular biology considers that biological macromolecules are low dielectric cavities immersed in water phase which is described as continuum medium with large dielectric constant. Ions are modeled in such a protocol as point charges that obey Boltzmann distribution and can be present outside of so termed Stern Layer (Fig. 1a). Such an implementation of PBE will be termed traditional PBE. In parallel, we have implemented Gaussian-based smooth dielectric function in DelPhi that treats the solute and solvent on the same footage and the entire computational space is described via continuous dielectric function\cite{chakravorty2018gaussian,jia2017treating,li2014modeling,li2013dielectric}. Thus, the macromolecules are considered to be inhomogeneous objects and there is no sharp boundary between solute-solvent. Ions in such a scenario are considered as point charges obeying Boltzmann distribution, but the argument of the Boltzmann function has a desolvation penalty which does not allow ions to propagate into macromolecular interior unless there is a cavity (Fig. 1b). This approach will be termed Gaussian PBE. Both approaches have need used in various computational algorithms aimed at computing biologically important quantities and these resources will be described here as well along with appropriate tutorials.
+Poisson-Boltzmann equation (PBE) is widely used to describe the electrostatic potential distribution in systems made of biological macromolecules in water phase in presence of mobile ions\cite{xiao2017continuum,li2013progress,jurrus2018improvements,nguyen2017accurate}. Since in this approach the macromolecules are considered using their atomistic 3D structures, it represents an excellent trade off between the speed and the necessary details for accurate description of the relevant phenomena. The traditional implementation of PBE in molecular biology considers that biological macromolecules are low dielectric cavities immersed in water phase which is described as continuum medium with large dielectric constant. Ions are modeled in such a protocol as point charges that obey Boltzmann distribution and can be present outside of so termed Stern Layer (Figure \ref{fig:Figure_1}a). Such an implementation of PBE will be termed traditional PBE. In parallel, we have implemented Gaussian-based smooth dielectric function in DelPhi that treats the solute and solvent on the same footage and the entire computational space is described via continuous dielectric function\cite{chakravorty2018gaussian,jia2017treating,li2014modeling,li2013dielectric}. Thus, the macromolecules are considered to be inhomogeneous objects and there is no sharp boundary between solute-solvent. Ions in such a scenario are considered as point charges obeying Boltzmann distribution, but the argument of the Boltzmann function has a desolvation penalty which does not allow ions to propagate into macromolecular interior unless there is a cavity (Figure \ref{fig:Figure_1}b). This approach will be termed Gaussian PBE. Both approaches have been used in various computational algorithms aimed at computing biologically important quantities and these resources will be described here as well along with appropriate tutorials.
 
 The DelPhi software and associated resources are available free of charge for either download as a stand-alone code or used as webservers. The general access URL is \url{http://compbio.clemson.edu}. 
 
@@ -107,9 +97,9 @@ The tutorials presented here range in difficulty and in their objectives. We wil
 
 \subsection{Key definitions}
 
-\subsubsection{Continuum electrostatics quantities} The key electrostatic quantity discussed in this tutorial is electrostatic potential distribution throughout the space. The space is occupied by macromolecule(s) and water phase. In terms of continuum electrostatics, the macromolecules and water phase are considered as continuum media. For such a system, the electrostatic potential obeys various differential equations, which will be described below. Essential term in these equations is so termed dielectric “constant” or dielectric function. In some models the dielectric function is a constant in macromolecular and water media, while in other models it is a smooth continuous function. The macromolecules are considered at atomistic level of details, and atomistic radii and charges are assigned according appropriate force field parameters. Finally, the mobile ions presented in the water phase are considered point charges and their distribution is governed by the Boltzmann law. Below we outline two major models of partitioning the computational space. 
+\subsubsection{Continuum electrostatics quantities} The key electrostatic quantity discussed in this tutorial is electrostatic potential distribution throughout the space. The space is occupied by macromolecule(s) and water phase. In terms of continuum electrostatics, the macromolecules and water phase are considered as continuum media. For such a system, the electrostatic potential obeys various differential equations, which will be described below. Essential term in these equations is so termed dielectric “constant” or dielectric function. In some models the dielectric function is a constant in macromolecular and water media, while in other models it is a smooth continuous function. The macromolecules are considered at atomistic level of details, and atomistic radii and charges are assigned according appropriate force field parameters. Finally, the mobile ions present in the water phase are considered point charges and their distribution is governed by the Boltzmann law. Below we outline two major models of partitioning the computational space. 
 
-\subsubsection{Space partitioning in case of standard two-dielectric model\cite{rocchia2002rapid,baker2001electrostatics}}. Figure 1a shows the space partitioning and the corresponding differential equations being solved in case of traditional PBE. The space is split into three regions labeled as $ \Omega_1 $, $ \Omega_2 $ and $ \Omega_3 $ in Figure \ref{fig:Figure_1}a. The first space region, the $\Omega_1$ is occupied by the macromolecule(s) and its boundary is defined as the molecular surface. It is considered to be a low dielectric cavity with dielectric constant of $\epsilon_1$. Molecular surface itself may be constructed via various approaches, which are not subject of this manuscript. The outer space region, the $\Omega_3$ region, is taken by the bulk water, considered to be continuum medium with dielectric constant of $\epsilon_3$. In-between is space region $\Omega_2$, which is termed Stern layer. This region has the same dielectric properties as the bulk water, but ions are not allowed to penetrate there (Figure \ref{fig:Figure_1}a).
+\subsubsection{Space partitioning in case of standard two-dielectric model\cite{rocchia2002rapid,baker2001electrostatics}}. The space partitioning and the corresponding differential equations being solved in case of traditional PBE involve splitting the space into three regions labeled as $ \Omega_1 $, $ \Omega_2 $ and $ \Omega_3 $ in Figure \ref{fig:Figure_1}a. The first space region, the $\Omega_1$ is occupied by the macromolecule(s) and its boundary is defined as the molecular surface. It is considered to be a low dielectric cavity with dielectric constant of $\epsilon_1$. Molecular surface itself may be constructed via various approaches, which are not subject of this manuscript. The outer space region, the $\Omega_3$ region, is taken by the bulk water, considered to be continuum medium with dielectric constant of $\epsilon_3$. In-between is space region $\Omega_2$, which is termed Stern layer. This region has the same dielectric properties as the bulk water, but ions are not allowed to penetrate there (Figure \ref{fig:Figure_1}a).
 
 \begin{figure*}[hbt!]
 \includegraphics[width=0.95\linewidth]{Figure_1.png}
@@ -117,21 +107,24 @@ The tutorials presented here range in difficulty and in their objectives. We wil
 \label{fig:Figure_1}
 \end{figure*}
 
-The first region or  is occupied by the macromolecule(s) and its boundary is defined as the molecular surface. This region is considered as a low dielectric cavity of dielectric constant with permanent charges that belong to the macromolecular atoms. Since it does not contain solvent or mobile ions, its potential distribution ($\phi(\Vec{r})$) is governed purely by Poisson equation, as shown:
-$$ 
-\nabla . \left[ \epsilon(\Vec{r})\nabla\phi(\Vec{r}) \right] = -4\pi\rho(\Vec{r}) 
-$$
+The first region of space $ \Omega_1 $, is occupied by the macromolecule(s) and its boundary is defined as the molecular surface. This region is considered as a low dielectric cavity of dielectric constant with permanent charges that belong to the macromolecular atoms. Since it does not contain solvent or mobile ions, its potential distribution ($\phi(\Vec{r})$) is governed purely by Poisson equation, as shown:
+
+\begin{equation}
+ \nabla . \left[ \epsilon(\Vec{r})\nabla\phi(\Vec{r}) \right] = -4\pi\rho(\Vec{r})    
+\end{equation} 
 which can also be rewritten as:
-$$ 
+\begin{equation}
 \nabla^2\phi(\Vec{r}) = \frac{-4\pi\rho(\Vec{r})}{\epsilon_1} 
-$$
+\end{equation}
 where $ \rho(\Vec{r}) $ denotes the charge density of the fixed charges of the macromolecule(s) in question and $ \epsilon_1 $ is the dielectric constant of macromolecule (typically referred as internal dielectric constant). 
 
-The outer space region or the $ \Omega_3 $ is occupied by the bulk of the solvent (typically water) which represents a continuum medium with a dielectric value $ \epsilon_3 $. The solvent continuum can also contain mobile ions whose effects are implicitly taken into account using the Boltzmann law. The potential distribution in this regions is governed by the Poisson-Boltzmann equation (PBE). Therefore, here, the charge density, $ \rho_3(\Vec{r}) $, due to the mobile ions (with concentration M) generates a potential distribution that can be expressed as following:
+The outer space region or the $ \Omega_3 $ is occupied by the bulk of the solvent (typically water) which represents a continuum medium with a dielectric value $ \epsilon_3 $. The solvent continuum can also contain mobile ions whose effects are implicitly taken into account using the Boltzmann law. The potential distribution in this regions is governed by the Poisson-Boltzmann equation (PBE). Therefore, here, the charge density, $ \rho_3(\Vec{r}) $, due to the mobile ions (with concentration M) generates a potential distribution that can be expressed as Eqn. \ref{eqn:pbe_1}.
+
 \begin{equation}\label{eqn:pbe_1}
 \nabla^2\phi(\Vec{r}) = \frac{-4\pi\rho_3(\Vec{r})}{\epsilon_3} 
 \end{equation}
-The charge density can be rewritten as:
+
+The charge density can be rewritten as Eqn. \ref{eqn:pbe_2}:
 \begin{align}\label{eqn:pbe_2}
 \rho_3(\Vec{r}) &= M_+ e_c - M_- e_c \nonumber \\
 &= e_c M \left(exp\left[ - \frac{e_c\phi(\Vec{r})}{k_BT}\right] - exp\left[  \frac{e_c\phi(\Vec{r})}{k_BT}\right]\right) \nonumber \\
@@ -145,7 +138,7 @@ In these equations, the mobile ion charge density is composed of positive and ne
 
 This can be further modified to express the potential in terms of the modified Debye-Hückel parameter ($\kappa^2$).
 
-In the above equations, $ e_c $ is the elementary charge, $ k_B $ is the Boltzmann constant and $ T $ is the temperature.
+In the above equations, $ e_c $ is the elementary charge, $ k_B $ is the Boltzmann constant and $ T $ is the absolute temperature.
 In between these two regions exists the ion-exclusion layer (shown as $ \Omega_2 $) which the mobile ions are not allowed to access. Due to the lack of mobile ions as well as the absence of permanent solute charges, this region is governed by Laplace’s equation.
 \begin{equation}
 \nabla^2\phi(\Vec{r}) = 0
@@ -154,10 +147,10 @@ The ion-exclusion layer or the Stern layer has the same dielectric properties as
 
 \subsubsection{Space partitioning with the Gaussian-based smooth dielectric model}
 The Gaussian-based smooth dielectric model is designed to deliver a continuous distribution of dielectric values in space as opposed to representing it as a union of two media with distinct dielectric constants. 
-The smooth distribution reflects the effect of restrictions on the mobility of the macromolecular and solvent regions on their polarizability or the dielectric value. The distribution is assigned based on the macromolecular atomic packing density in a given region. Its formulation ensures that the dielectric value is the lowest ($ \epsilon_1 $) at the center of the macromolecular atoms and is the highest ( $ \epsilon_2 $ ) in the bulk. Through this assignment, regions close to the macromolecular atom centers attain a lower dielectric value and those farther way from the macromolecule attain a higher value. Overall, buried or highly densely packed regions of the system feature a lower dielectric value than those which are less packed (details are provided in refs\cite{chakravorty2019grid,decherchi2013between}). This is illustrated in Figure \ref{fig:Figure_1}b.
+The smooth distribution reflects the effect of restrictions on the mobility of the macromolecular and solvent regions on their polarizability or the dielectric value. The distribution is assigned based on the macromolecular atomic packing density in a given region. Its formulation ensures that the dielectric value is the lowest ($ \epsilon_1 $) at the center of the macromolecular atoms and is the highest ( $ \epsilon_2 $ ) in the bulk. Through this assignment, regions close to the macromolecular atom centers attain a lower dielectric value and those farther away from the macromolecule attain a higher value. Overall, buried or highly densely packed regions of the system feature a lower dielectric value than those which are less packed (details are provided in refs\cite{chakravorty2019grid,decherchi2013between}). This is illustrated in Figure \ref{fig:Figure_1}b.
 
 
-The key features of Gaussian-based smooth dielectric functions are that the strict surface (like the molecular surface shown in Figure 1a) is replaced by a smooth transition of the dielectric values from the macromolecular interior ($ \Omega_1 $ in Figure 1) to the bulk ($ \Omega_3 $ in Figure 1). The transient values of the dielectric at the solute-solvent interface collectively reflects the increased polarizability of solvent exposed atoms of the macromolecule (compared to those in the core regions) and decreased polarizability of the solvent in their vicinity (compared to those in the bulk). This occurs by virtue of the solute-solvent interactions that play a critical role in balancing the effects of (de)solvation and intramolecular interactions of the solvent exposed macromolecular atoms. 
+The key features of Gaussian-based smooth dielectric functions are that the strict surface (like the molecular surface shown in Figure \ref{fig:Figure_1}a) is replaced by a smooth transition of the dielectric values from the macromolecular interior $ \Omega_1 $ to the bulk $ \Omega_3 $ as shown in Figure \ref{fig:Figure_1}). The transient values of the dielectric at the solute-solvent interface collectively reflects the increased polarizability of solvent exposed atoms of the macromolecule (compared to those in the core regions) and decreased polarizability of the solvent in their vicinity (compared to those in the bulk). This occurs by virtue of the solute-solvent interactions that play a critical role in balancing the effects of (de)solvation and intramolecular interactions of the solvent exposed macromolecular atoms. 
 Due to the continuous dielectric distribution, a clear distinction of macromolecular and solvent regions is no longer necessary and therefore, the same differential equation (PE or PBE) can be used homogeneously. However, the lack of a dielectric boundary invites a modification in the way by which the screening effect of mobile ions is taken into account. In the traditional 2-dielectric approach, the presence of a mobile ion at a point in space (depending on its accessibility) is guided by the electrostatic potential at that point which is expressed using a Boltzmann distribution function (Eqn. \ref{eqn:pbe_2}). In the Gaussian-based approach, an additional penalty term is added to its potential energy at any point in space (for more details see Ref\cite{jia2017treating}). The penalty term is based on the Born-formalism of the energy of transfer of a centrosymmetric ion across two dielectric media. In the case of the Gaussian-model, the penalty term, $ \Delta G_{penalty} $, is the energy of transfer of an ion of valence $ z $ and Van der Waals radius $ R $ from the solvent (with dielectric $ \epsilon(\Vec{r})$) to a point  (with dielectric ) and is expressed in SI units as:
 
 \begin{equation}
@@ -170,7 +163,7 @@ $ N_A $ is the Avogadro number and $ \epsilon_0 $ is the value of permittivity o
 \nabla^2\phi(\Vec{r}) = \kappa^2 \left (\frac{k_BT}{e_c} \right) \sinh\left({\frac{e_c\phi(\Vec{r})}{k_BT}} \right) e^{-\frac{\Delta G_{penalty}}{k_B T}}
 \end{equation}
 
-In Figure \ref{fig:plot_saltation_penalty}, the penalty term as a function of position is shown for a solute with a very simple geometry (one sphere of 2Å radius). As one approaches the vicinity of the solute, the penalty increases dramatically, ensuring that the mobile ions cannot penetrate in the regions dominated by solute’s dielectric values. Farther out in the bulk, the penalty term diminishes to 0, thus retrieving the properties of the 2-dielecric approach.
+In Figure \ref{fig:plot_saltation_penalty}, the penalty term as a function of position is shown for a solute with a very simple geometry (one sphere of 2 \text{\AA} radius). As one approaches the vicinity of the solute, the penalty increases dramatically, ensuring that the mobile ions cannot penetrate in the regions dominated by solute’s dielectric values. Farther out in the bulk, the penalty term diminishes to zero, thus retrieving the properties of the 2-dielecric approach.
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_2.png}
@@ -180,11 +173,11 @@ In Figure \ref{fig:plot_saltation_penalty}, the penalty term as a function of po
 
 \subsubsection{Finite difference algorithm}
 The Poisson-Boltzmann equation is a non-linear $2^{nd}$ order differential equation that is typically solved using numerical schemes since analytical solutions are only possible for cases with very simple geometry. Inhomogeneity of charge distribution and complex geometrical features are prerogative of biomolecules, therefore, different methods of numerically solving the PBE for biomolecular systems have been developed \cite{klapper1986focusing,davis1989solving,cortis1997numerical,baker2001electrostatics,shestakov2002solution,miertuvs1981electrostatic,totrov2001rapid,lu2009adaptive}. 
-Delphi solves the PBE using the finite difference (FD) algorithm. The approach rests on discretization of the entire space, $ \Omega=(\Omega_1 \cup \Omega_2 \cup \Omega_3)$, into a set of adjacent cubes, all of the same side length. Along each of the three Cartesian orthogonal directions, identical number of these cubes are placed and their union forms a larger cube which is also referred to as the computational box. Points where two or more cubes meet are known as the grid points and they are the locations where the electrostatic potentials and electric fields are determined.  Between two adjacently placed grid-points, a mid-point is located where the dielectric values are assigned. Collectively, the grid-points and mid-points are all placed within the bounds of the computational box. Figure 3 provides an illustration of this discretization and a computational box with ‘$ M $’ cubes per side, each with a side length of ‘$ h $’. 
+DelPhi solves the PBE using the finite difference (FD) algorithm. The approach rests on discretization of the entire space, $ \Omega=(\Omega_1 \cup \Omega_2 \cup \Omega_3)$, into a set of adjacent cubes, all of the same side length. Along each of the three Cartesian orthogonal directions, identical number of these cubes are placed and their union forms a larger cube which is also referred to as the computational box. Points where two or more cubes meet are known as the grid points and they are the locations where the electrostatic potentials and electric fields are determined.  Between two adjacently placed grid-points, a mid-point is located where the dielectric values are assigned. Collectively, the grid-points and mid-points are all placed within the bounds of the computational box. Figure \ref{fig:grid-scheme-representation}, provides an illustration of this discretization and a computational box with ‘$ M $’ cubes per side, each with a side length of ‘$ h $’. 
 
 \begin{figure*}
 \includegraphics[width=0.95\linewidth]{Figure_3.png}
-\caption{Discretization of the space containing the solvated biomolecule. For the finite-difference approach of solving the PBE, Delphi divides the total space by adjacently placing equal numbers of cubes, each of side length ‘h’, along all the three Cartesian orthogonal directions as shown in \textbf{(a)}. The vertices of a cube are known as the grid-points and are shown in \textbf{(b)} using solid black points. The points in between two adjacent grid-points are called the mid-points where the values of dielectric constants are assigned. They are shown using grey points in \textbf{(c)}.}
+\caption{Discretization of the space containing the solvated biomolecule. For the finite-difference approach of solving the PBE, DelPhi divides the total space by adjacently placing equal numbers of cubes, each of side length ‘h’, along all the three Cartesian orthogonal directions as shown in \textbf{(a)}. The vertices of a cube are known as the grid-points and are shown in \textbf{(b)} using solid black points. The points in between two adjacent grid-points are called the mid-points where the values of dielectric constants are assigned. They are shown using grey points in \textbf{(c)}.}
 \label{fig:grid-scheme-representation}
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure*}
@@ -231,7 +224,7 @@ The linearized version of the PBE in case of the Gaussian-based dielectric model
 \nabla . \left[ \epsilon(\Vec{r})\nabla\phi(\Vec{r})\right] = \Bar{\kappa}(\Vec{r})\phi(\Vec{r})e^{-\left(\frac{\Delta G_{penalty}}{k_BT} \right)} - 4\pi\sum_{i} {q_i \delta(\Vec{r} - \Vec{r_i})}
 \end{equation}
 
-By performing a finite volume integration of the above linear PBE and projecting the results in the discretized space, one can derive a numerical formula that establishes a relation of the electrostatic potential, $ \phi_0 $, on a grid-point with that of the six of its neighboring grid-points (see Fig 3(c)). The value also depends on the charge ($ q_0 $) and the modified Debye-Hückel parameter ($ \Bar{\kappa}^2 $) on the grid-point and also on the dielectric values at the six midpoints surrounding it. The numerical formula has the following form:
+By performing a finite volume integration of the above linear PBE and projecting the results in the discretized space, one can derive a numerical formula that establishes a relation of the electrostatic potential, $ \phi_0 $, on a grid-point with that of the six of its neighboring grid-points (see Figure \ref{fig:grid-scheme-representation}(c)). The value also depends on the charge ($ q_0 $) and the modified Debye-Hückel parameter ($ \Bar{\kappa}^2 $) on the grid-point and also on the dielectric values at the six midpoints surrounding it. The numerical formula has the following form:
 \begin{equation}
     \phi_0 = 
     \left[ 
@@ -241,7 +234,7 @@ By performing a finite volume integration of the above linear PBE and projecting
              {\sum_i^6{\epsilon_i} + \Bar{\kappa}^2h^2}
     \right]
 \end{equation}
-When the Gaussian-based smooth dielectric model is invoked, the FD formula remains the same expression except that it incorporates a space dependent penalty term (equation ???) imposed on the mobile ions. The modified expression has the following form:
+When the Gaussian-based smooth dielectric model is invoked, the FD formula remains the same expression except that it incorporates a space dependent penalty term imposed on the mobile ions. The modified expression has the following form:
 
 \begin{equation}
     \phi_0 = 
@@ -265,48 +258,43 @@ where $ p_i $ is the charge of grid point ‘$ i $’ and $ \phi_i $ is the grid
 The total electrostatic energy of the system can be decomposed into three energy terms\cite{rocchia2001extending}, coulombic, polar solvation and saltation energies. In case of traditional two-dielectric model, this is described in Ref. \cite{rocchia2001extending}. Thus, the coulombic term is the product between real charges over the distance, and it is computed via Coulombic formula:
 
 \begin{equation}
-    G_{grid} = 0.5 \left[ \sum_i^{\text{number of charges}}{\frac{q_i q_j}{\epsilon_{in}r_{ij}}} \right]
+    G_{Coul} = 0.5 \left[ \sum_i^{\text{number of charges}}{\frac{q_i q_j}{\epsilon_{in}r_{ij}}} \right]
 \end{equation}	
 where $ q_i $ are the real charges, $r_{ij} $ is the distance between charge ‘$i$’ and ‘$j$’ and $ \epsilon_{in} $ is the internal dielectric constant. 
 
 The second energy term is the polar solvation energy, which in DelPhi is called “corrected reaction field energy, or $ G_{rxn} $”. Following original development due to Anthony Nicholls, this energy is calculated via induced charges on the molecular surface. Thus, 
 
-\begin{equation}
-    G_{rxn} = 0.5 \left[ \sum_i^{\text{number of charges/induced charges}}{\frac{q_i \sigma_j}{\epsilon_{out}r_{ij}}} \right]
+\begin{equation}\label{eqn:G_rxn}
+    G_{rxn} = 0.5 \left[ \sum_{i, j}^{\text{number of charges/induced charges}}{\frac{q_i \sigma_j}{\epsilon_{out}r_{ij}}} \right]
 \end{equation}
 where $ \sigma_j $ are induced surface charges. 
 
-The third term represents the energy of interactions between permanent charges and mobile ions. Formally it can be described by formula similar to eq. (3) where instead of induced charges one takes excess ion density. However, this approach was abandoned in the newest DelPhi version because it is very slow and requires small “percent fill”. Instead, we recommend using grid energy difference between runs with salt and without salt. 
-\begin{equation}\label{eqn:electro_osmostic_press}
-    \Delta \Pi = \sum_i{c_i(e^{-\frac{z_ie\phi(\Vec{r})}{k_BT}} - 1)}
-\end{equation}
+The third term represents the energy of interactions between permanent charges and mobile ions. Formally it could be described by formula similar to Eqn. \ref{eqn:G_rxn}, where instead of induced charges one takes excess ion density. However, this approach was abandoned in the newest DelPhi version because it is very slow and requires small “percent fill”. Instead, we recommend using grid energy difference between runs with salt and without salt. 
 
-Finally, if one invokes non-linear PBE, two additional energy terms should be added to the total electrostatic energy. Following the work of Sharp and Honig\cite{sharp1990electrostatic}, they are termed “osmotic pressure” (see Eqn. \ref{eqn:electro_osmostic_press}) and electrostatic "stress”
-
+Finally, if one invokes non-linear PBE, two additional energy terms should be added to the total electrostatic energy. Following the work of Sharp and Honig\cite{sharp1990electrostatic}, they are termed “osmotic pressure” and electrostatic "stress”.
 
 
 \section{Prerequisites}
 
 DelPhi uses FD algorithm to solve the PBE and thus to deliver the electrostatic potential distribution. The first step in the algorithm requires that one provides a coordinate file of the biomolecules and nano-objects in PDB or PQR formats. In the second case, the input PQR files provides the coordinates of all atoms along with their radii and charges. In the first case, the user needs to provide two additional files, the “size” and “charge” files. These files contain information about the atomic radii and charges. If PDB format file is provided, then DelPhi matches the names of the atoms/residues toward the names/radii in the corresponding “size” and “charge” files and thus generates information for each atom position, radius and charge (note that if the PDB file contains atomic names/residues not available in the corresponding “size” and “charge” files, then DelPhi will generate warning message prompting the users that these names/residues are not recognized). Once the atomic coordinates and radii are available DelPhi builds grid presentation of the geometrical and dielectric properties of the system. By default, it is done by positioning the macromolecule(s) geometrical center at the center of the computational box and using “scale”, “grid size” and “percent fill”. 
 
-\newcommand{\angstrom}{\text{\normalfont\AA}}
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_4.png}
-\caption{The schematic representation of relationship between "percent fill" (\ttvar{perfil}), "grid size" (\ttvar{gsize}), and \ttvar{scale}. The parameter \ttvar{gsize} decides number of grid lines in each direction e.g. \ttvar{gsize} is 9 in given cartoon. The parameter \ttvar{scale} decides number of grid lines per \SI{\angstrom}. If we assume perfil $ pf\% $ and maximum dimension in X-, Y- directions be $ L_{xp} $ \SI{\angstrom} and $ L_{yp} $ \SI{\angstrom} as shown in cartoon, then the size of the grid box $ L_x $ in \SI{\angstrom} is computed using relation $ L_x = \frac{max(L_{xp}, L_{yp}) \times 100}{pf} $.The value of \ttvar{scale} in this case would be $ \ttvar{scale} = \frac{L_x}{\ttvar{gsize}} = \frac{L_x}{9} $.}
+\caption{The schematic representation of relationship between "percent fill" (\ttvar{perfil}), "grid size" (\ttvar{gsize}), and \ttvar{scale}. The parameter \ttvar{gsize} decides number of grid lines in each direction e.g. \ttvar{gsize} is 9 in given cartoon. The parameter \ttvar{scale} decides number of grid lines per \text{\AA}. If we assume perfil $ pf\% $ and maximum dimension in X-, Y- directions be $ L_{xp} $ \text{\AA} and $ L_{yp} $ \text{\AA} as shown in cartoon, then the size of the grid box $ L_x $ in \text{\AA} is computed using relation $ L_x = \frac{max(L_{xp}, L_{yp}) \times 100}{pf} $. The value of \ttvar{scale} in this case would be $ \ttvar{scale} = \frac{L_x}{\ttvar{gsize}} = \frac{L_x}{9} $.}
 \label{fig:perfil-gsize-scale}
 \end{figure}
 
-Note that these three parameters, “scale”, “grid size” and “percent fill” are interdependent (Figure \ref{fig:perfil-gsize-scale}). Only two are needed. Users are advised to use “scale” and “percent fill” (\ttvar{perfil}) and to let DelPhi decide the “grid size” (\ttvar{gsize}). In the traditional two-dielectric model, the computational box is split into low dielectric cavities occupied by macromolecule(s) and water phase and appropriate dielectric constant values are assigned to the mid-point belonging to the corresponding phases. In the Gaussian model, coordinates and radii are sued to construct a smooth Gaussian-based dielectric function for the entire computational box without distinguishing be macromolecule(s) from the water phase (for mode details see Refs \cite{li2014modeling,li2013dielectric}). Once this is completed, DelPhi initiates FD iterations to compute electrostatic potential distribution and to calculate the corresponding energy, as it will be outlined below. Several practical advice about DelPhi parameters are given here:
+Note that these three parameters, “scale”, “grid size” and “percent fill” are interdependent (Figure \ref{fig:perfil-gsize-scale}). Only two are needed. Users are advised to use “scale” and “percent fill” (\ttvar{perfil}) and to let DelPhi decide the “grid size” (\ttvar{gsize}). In the traditional two-dielectric model, the computational box is split into low dielectric cavities occupied by macromolecule(s) and water phase and appropriate dielectric constant values are assigned to the mid-point belonging to the corresponding phases. In the Gaussian model, coordinates and radii are used to construct a smooth Gaussian-based dielectric function for the entire computational box without distinguishing the macromolecule(s) from the water phase (for mode details see Refs \cite{li2014modeling,li2013dielectric}). Once this is completed, DelPhi initiates FD iterations to compute electrostatic potential distribution and to calculate the corresponding energy, as it will be outlined below. Several practical advice about DelPhi parameters are given here:
 
 \begin{enumerate}
     \item How to decide on geometry? One wants the macromolecule(s) to occupy significant percent of the computational box space so the calculations to focus on important part of the system. However, doing modeling with very high “percent fill” may result in positioning some of the macromolecule(s) atoms too close to the edges of the computational box and thus to introduce an error. We recommend “percent fill” of about 70\%. 
 
-    \item How to decide on the dielectric “constants? Most of the modeling involves biological macromolecules in water, so natural choice of the dielectric constant of solvent is the dielectric constant of bulk water, typically takes as 80. Regarding internal dielectric constant: (a) in case of traditional two-dielectric model, one selects the value of internal dielectric constant depending on the modeling protocol. If one models rigid structures or snap shots taken from MD simulations, the internal dielectric constant value is typically set to 1.0. However, in other modelings one may select values that are higher with the goal to match experimental data or to mimic for conformational flexibility not accounted in the protocol (b) in case of smooth Gaussian-based dielectric function, one selects the reference value of internal dielectric constant based on bench marking (see refs\cite{li2014modeling,li2013progress,wang2015pka,wang2015delphipka} for more details).  
+    \item How to decide on the "dielectric constants"? Most of the modeling involves biological macromolecules in water, so natural choice of the dielectric constant of solvent is the dielectric constant of bulk water, typically takes as 80. Regarding internal dielectric constant: (a) in case of traditional two-dielectric model, one selects the value of internal dielectric constant depending on the modeling protocol. If one models rigid structures or snap shots taken from MD simulations, the internal dielectric constant value is typically set to 1.0. However, in other modelings one may select values that are higher with the goal to match experimental data or to mimic for conformational flexibility not accounted in the protocol (b) in case of smooth Gaussian-based dielectric function, one selects the reference value of internal dielectric constant based on bench marking (see refs\cite{li2014modeling,li2013progress,wang2015pka,wang2015delphipka} for more details).  
 
     \item Criteria for convergence. The FD algorithm is iterative algorithm and its convergence is monitored via several parameters as “maxc”, which is the largest change of the potential from iteration ‘i’ to ‘i+1’; or “rmsc”, which root mean square change of the potential. In both cases, it is recommended to use small, but reasonable criteria of 0.0001. 
 
-    \item Linear versus non-linear PBE. DelPhi allows the user to select what form of PBE to be solved: linear or non-linear. Solving non-linear PBE is typically more time consuming and should be avoided if not necessary. Typically, if the system does not have large net charge, there is no need to invoke non-linearity\cite{talley2008electrostatic,chakavorty2016electrostatic}. Another way to assess the importance of non-linearity is to
+    \item Linear versus non-linear PBE. DelPhi allows the user to select what form of PBE to be solved: linear or non-linear. Solving non-linear PBE is typically more time consuming and should be avoided if not necessary. Typically, if the system does not have large net charge, there is no need to invoke non-linearity\cite{talley2008electrostatic,chakavorty2016electrostatic}.
 \end{enumerate}
 
 \subsection{Background knowledge}
@@ -314,7 +302,7 @@ DelPhi takes as an input various files and the corresponding parameters. The mos
 
 As it will be discussed in detail in following sections, the user may has to provide additional PDB-like files either in case of modeling interactions between macromolecules or computing the electrostatic potential at given point(s) in space. 
 
-User responsibility is to select appropriate set of force field parameters. There is no preference regarding force field parameters, however, it is strongly recommended to keep consistence: if structures are energy minimized or subjected to MD simulations with a given force field (Charmm, Amber etc.) the same force field parameters should be used for Delphi calculations.
+User responsibility is to select appropriate set of force field parameters. There is no preference regarding force field parameters, however, it is strongly recommended to keep consistence: if structures are energy minimized or subjected to MD simulations with a given force field (Charmm, Amber etc.) the same force field parameters should be used for DelPhi calculations.
 
 \subsection{Software/system requirements}
 DelPhi website provides download links to multiple versions (Fortran77, Fortran95 and C++) of the DelPhi program. It is recommended to all users to download the latest C++ version of the DelPhi program to enjoy all features supported by the DelPhi program. DelPhi website also provides precompiled binary executables. However, it is recommended to download the source code and compile the source code in user’s individual environment to generate the executable. Taking the latest DelPhiC++ 8.4.1 as an example, the following software and system requirements must be met in order to successfully compile and run the DelPhi program(s).
@@ -359,29 +347,29 @@ as Ubuntu 16.4.3 and above &
 
 \section{Content and links}
 
-DelPhi source code and stand-alone precompiled executable can be downloaded from \url{http://compbio.clemson.edu/delphi}. The force filed parameter files, size and charge files, examples and tutorial can be downloaded from \url{http://compbio.clemson.edu/delphi}. All the example cases discussed in present article with all the required files can be obtain from \githubrepository. All the examples are kept in \ttvar{LiveCoMS_Examples/} directory of the repository. After cloning this repository to local computer, change current directory to \ttvar{LiveCoMS_Examples/} and execute below command once:
+DelPhi source code and stand-alone precompiled executable can be downloaded from \url{http://compbio.clemson.edu/delphi}. The force field parameter files, size and charge files, examples and tutorial can be downloaded from \url{http://compbio.clemson.edu/delphi}. All the example cases discussed in present article with all the required files can be obtained from \githubrepository. All the examples are kept in \ttvar{LiveCoMS_Examples/} directory of the repository. After cloning this repository to local computer, change current directory to \ttvar{LiveCoMS_Examples/} and execute below command once. It will define the \ttvar{$DELPHI_EXE} environment variable in \ttvar{~/.bashrc} file. 
 
-\begin{verbatime}
+\begin{verbatim}
 bash set-delphi-path.sh
-\end{verbatime}
+\end{verbatim}
 
 Now close your terminal and restart terminal. Now user shall be able to perform calculations discussed in all of the examples compiled in directory \ttvar{LiveCoMS_Examples/}. All the paths mentioned in individual sections are relative to this directory.
 
 \subsection{Set of tutorials for DelPhi stand-alone package}
-Delphi read parameters, instructions and other necessary details from a parameter file. The parameter file contains names of files providing coordinates of biomolecules and if necessary the files with atomic charges and radii. Detailed instructions about the syntax of parameter file are provided in the user manual. Below we describe set of examples that show the users how to set up parameter and other files to compute various electrostatic quantities. 
+DelPhi reads parameters, instructions and other necessary details from a parameter file. The parameter file contains names of files providing coordinates of biomolecules and if necessary the files with atomic charges and radii. Detailed instructions about the syntax of parameter file are provided in the user manual. Below we describe set of examples that show the users how to set up parameter and other files to compute various electrostatic quantities. 
 
 \subsubsection{Computing solvation energy} 
-In this section we describe how to calculate electrostatic component of solvation energy i.e. $ \Delta G_p $ for a single atom and a real protein. 
+In this section we describe how to calculate electrostatic component of solvation energy i.e. $ \Delta G_p $ for a single atom and a real protein as shown in Figure \ref{fig:scheme_polar_solvation}. 
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_5.png}
 \caption{The schematic representation of computation of solvation for  \textbf{(a)} a charged sphere and \textbf{(b)} a protein. The solvation of a molecular system consists of two  components, non-polar component $ \Delta G_{np} $ and polar component $ \Delta G_p $. The non-polar components accounts for the energy required to create a cavity to accomodate the molecular system (solute) in the solution or moving solute from gas phase into solvent keeping solute atoms partial charges turned off, and polar component accounts energy required to turn on the partial charges of solute atoms in the solvent.}
-\label{fig:solvation}
+\label{fig:scheme_polar_solvation}
 \end{figure}
 
 The case of single atom (a charged sphere) is considered because there is an analytical solution via Born formula of charged ion, and the numerical solution provided by DelPhi can be compared with the analytical. In this section we also provide examples of computing electrostatic solvation energy using traditional two-dielectric model as well as the Gaussian-smooth dielectric function PBE. The corresponding files can be found in directory \ttvar{Example_3.1.1/} and sub directories there in.
 
-We will begin with the simplest case of charge sphere (see \ttvar{Example_3.1.1/Ex1}) using traditional two-dielectric model. Consider a charged sphere of radius 3 Å carrying a charge +1 eu. Let’s consider that internal and external dielectric constants are 1 and 80, respectively. Thus, the analytical solution is -92.50kT. DelPhi can be executed using the files provided in above mentioned directories as:
+We will begin with the simplest case of charge sphere (see \ttvar{Example_3.1.1/Ex1/}) using traditional two-dielectric model. Consider a charged sphere of radius 3 Å carrying a charge +1 eu. Let’s consider that internal and external dielectric constants are 1 and 80, respectively. Thus, the analytical solution is -92.50kT. DelPhi can be executed using the files provided in above mentioned directories as:
 
 \begin{verbatim}
 $DELPHI_EXE param_charged_sphere.prm \
@@ -410,7 +398,7 @@ Energy> Corrected reaction field energy : -211.20 kT
 
 Note that that the computed energy depends on two parameters: \texttt{sigma=0.9} and \texttt{srfcut=20.0} and any change of these parameters will result in a different energy. 
 
-The other example of how to calculate polar solvation energy of a protein, all the related files are kept in directory  and \ttvar{Example_3.1.1/Ex2/}. The DelPhi run for computing it via traditional 2-dielectric approach can be initiated using command below:
+The other example of how to calculate polar solvation energy of a protein, all the related files are kept in the directory \ttvar{Example_3.1.1/Ex2/}. The DelPhi run for computing it via traditional 2-dielectric approach can be initiated using command below:
 
 \begin{verbatim}
 $DELPHI_EXE param_protein.prm > protein.log
@@ -437,11 +425,13 @@ Energy> Corrected reaction field energy : -3583.05 kT
 
 \subsubsection{Computing "saltation energy"}
 
-The schematic representation of the process of computing saltation energy is shown in Figure \ref{fig:scheme_saltation}. In order to compute the saltation energy of a system at a given salt concentration two different DelPhi runs are required, first to compute the $ \Delta G_{z} $ the energy of the system at zero salt concentration in the solvent and second to $ \Delta G_{nz}([salt]) $ and the energy at the given salt concentration $[salt]$, here grid energy of the DelPhi is the energy. Then saltation energy is $ \Delta\Delta G_{nz}([salt]) = \Delta G_{nz}([salt]) - \Delta G_{z}$. In this section we will discuss two cases (I) saltation of a spherical charge whose analytical solution is also known and DelPhi results will be compared against analytical, and (II) saltation of a real protein (barnase-barstar complex).
+The schematic representation of the process of computing saltation energy is shown in Figure \ref{fig:scheme_saltation}. In order to compute the saltation energy of a system at a given salt concentration two different DelPhi runs are required, first to compute the $ \Delta G_{z} $ the energy of the system at zero salt concentration in the solvent and second to $ \Delta G_{nz}([salt]) $ , the energy at the given salt concentration $[salt]$, here energy refers to grid energy of the DelPhi. Then saltation energy is $ \Delta\Delta G_{nz}([salt]) = \Delta G_{nz}([salt]) - \Delta G_{z}$. In this section we will discuss two cases (I) saltation of a spherical charge whose analytical solution is also known and DelPhi results will be compared against analytical, and (II) saltation of a real protein (barnase-barstar complex).
+\newline
+\newline
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_6.png}
-\caption{Schematic representation of process of computing saltation energy. In the figure spherical charge is shown as circle in panel (a) and protein with cartoon representation in (b), blue and yellow dots in boxes at bottom represent positive and negative ions of the salt. The saltation energy represents energy required to transfer the solute from a pure solvent (no salt) to a solution with salt concentration [salt] M.}
+\caption{Schematic representation of process of computing saltation energy. In the figure spherical charge is shown as circle in panel \textbf{(a)} and protein with cartoon representation in \textbf{(b)}, blue and yellow dots in boxes at bottom represent positive and negative ions of the salt. The saltation energy represents energy required to transfer the solute from a pure solvent (no salt) to a solution with salt concentration [salt] M.}
 \label{fig:scheme_saltation}
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure}
@@ -469,27 +459,28 @@ I_B = \frac{e_c^2}{(4\pi\epsilon_0\epsilon_{ext}k_BT)}
 
 where $I_B$ is Bjerrum length, $ c $ is ionic strength in M, $ k_B $ is Boltzman constant, $ T $ is absolute temperature, $ e_c $ is the electronic charge, $ \kappa^{-1} $ is Debye length, $ \epsilon_0 $ is the electric permittivity of free space, $ \epsilon_{ext} $ is the external dielectric constant of the medium, $ R $ is the radius of charged sphere, $ \Delta G_{nz}([salt], R) $ is electrical energy of charged sphere in solvent with salt, $ \Delta G_z(R) $ is the electrical energy of charged sphere in solvent without salt, $ \Delta\Delta G_{nz}([salt]) $ is the saltation energy of charged sphere.
 
-Thus, using the following parameters R=10 Å, internal and external dielectric constants 1 and 80, respectively,  and varying salt concentration from 0.02 M until 0.2 M, the analytical and numerical (using Delphi) solutions are calculated and plotted against logarithm of salt concentration (Figure \ref{fig:plot_saltation_spherical_charge}). For example, with salt concentration 0.02 M and external dielectric constant 80 the analytical and numerical (using Delphi) solutions for the saltation energy of the charged sphere are -3.27 kT and -3.66 kT, respectively.
+Thus, using the following parameters R=10 Å, internal and external dielectric constants 1 and 80, respectively,  and varying salt concentration from 0.02 M until 0.2 M, the analytical and numerical (using DelPhi) solutions are calculated and plotted against logarithm of salt concentration (Figure \ref{fig:plot_saltation_spherical_charge}). For example, with salt concentration 0.02 M and external dielectric constant 80 the analytical and numerical (using DelPhi) solutions for the saltation energy of the charged sphere are -2.77 kT and -2.92 kT, respectively.
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_7.png}
-\caption{Analytical and Delphi result for the saltation energy of the charged sphere in different salt concentration and different external dielectric constants.}
+\caption{Analytical and DelPhi result for the saltation energy of the charged sphere in different salt concentration and different external dielectric constants.}
 \label{fig:plot_saltation_spherical_charge}
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure}
 
 
-These calculations are done by using prepared files in the folder \ttvar{Example_3.1.2/Ex1}. To run these examples on your own machine, open python script \ttvar{Run-saltation-charged-sphere.py} and update Delphi executable path and run this file as:
+These calculations are done by using prepared files in the folder \ttvar{Example_3.1.2/Ex1/}. To run these examples on your own machine, execute python script \ttvar{Run-saltation-charged-sphere.py} as:
 
 \begin{verbatim}
 python3 Run-saltation-charged-sphere.py
 \end{verbatim}
 
-On Running this script, the above mentioned analytical and Delphi calculations are performed and plot (\ttvar{plot-salt-ele-sphere.png}) and csv(\ttvar{saltation_charged_sphere.csv}) file containing results are created. As is shown in the Figure \ref{fig:plot_saltation_spherical_charge}, the calculated “saltation energy” is in excellent agreement with the analytical solution.
+On Running this script, the above mentioned analytical and DelPhi calculations are performed and plot (\ttvar{plot-salt-ele-sphere.png}) and csv(\ttvar{saltation_charged_sphere.csv}) file containing results are created. As is shown in the Figure \ref{fig:plot_saltation_spherical_charge}, the calculated “saltation energy” is in excellent agreement with the analytical solution.
 
+\newline
 \textbf{(II) Saltation energy of a protein}
 
-In present case, we will discuss about computing the "saltation energy" of a real protein (barnase-barstar complex; PDB Id: 1BRS). This example is given as \ttvar{Example_3.1.2/Ex2} in the example suit. As discussed in the previous section, to compute the saltation energy at a given salt concentration, we are required to obtain the total grid energy for the molecular system at non-zero salt concentration and zero salt concentration, followed by taking their difference. Again, in this case we have computed saltation energy for this system at varying salt concentrations from 0.02M until 0.2M in steps of 0.02M and same way for three different external dielectric (80, 60, and 40) mediums. The python script \ttvar{Run-saltation-protein.py} provided in the directory creates parameter files for the DelPhi run, executes it and parses results to obtain saltation energy which is then written to file \ttvar{saltation_protein.csv}. In addition it also plots saltation energy vs. $log([salt])$ where $ [salt] $ is salt concentration in $ M $. 
+In present case, we will discuss about computing the "saltation energy" of a real protein (barnase-barstar complex; PDB Id: 1BRS). This example is given as \ttvar{Example_3.1.2/Ex2/} in the example suit. As discussed in the previous section, to compute the saltation energy at a given salt concentration, we are required to obtain the total grid energy for the molecular system at non-zero salt concentration and zero salt concentration, followed by taking their difference. Again, in this case we have computed saltation energy for this system at varying salt concentrations from 0.02M until 0.2M in steps of 0.02M and same way for three different external dielectric (80, 60, and 40) mediums. The python script \ttvar{Run-saltation-protein.py} provided in the directory creates parameter files for the DelPhi run, executes it and parses results to obtain saltation energy which is then written to file \ttvar{saltation_protein.csv}. In addition it also plots saltation energy vs. $log([salt])$ where $ [salt] $ is salt concentration in $ M $. 
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_8.png}
@@ -499,7 +490,7 @@ In present case, we will discuss about computing the "saltation energy" of a rea
 \end{figure}
 
 
-User may have to define the environment variable \ttvar{\$DELPHI_EXE} to match the full path of the DelPhi executable file in the shell. Then python script can be executed as below:
+User may have to define the environment variable \ttvar{$DELPHI_EXE} to match the full path of the DelPhi executable file in the shell. This python script can be executed as below:
 
 \begin{verbatim}
 python3 Run-saltation-protein.py
@@ -507,7 +498,7 @@ python3 Run-saltation-protein.py
 
 The results of saltation of barnase-barstar complex is shown in Figure \ref{fig:plot_saltation_protein}.
 
-\subsubsection{Computing electrostatic potential on a surface (Zeta potential)} Delphi’s SURFPOT module allows one to obtain the electrostatic potential values on some surface located at some distance from a molecule’s van der Waals (vdW) surface. The details of its implementation and specific usage can be found in a published work\cite{chakravorty2017new}. A major utility of this kind of calculation is the determination of the zeta($\zeta$)-potential of a molecule or any object for that matter. 
+\subsubsection{Computing electrostatic potential on a surface (Zeta potential)} DelPhi’s SURFPOT module allows one to obtain the electrostatic potential values on some surface located at some distance from a molecule’s van der Waals (vdW) surface. The details of its implementation and specific usage can be found in a published work\cite{chakravorty2017new}. A major utility of this kind of calculation is the determination of the zeta($\zeta$)-potential of a molecule or any object for that matter. 
 
 To perform surface potential calculations, an user is required to provide the following lines in the input parameter file:
 
@@ -516,7 +507,7 @@ SURFPOT=1   !OR SU=1 (0 be default)
 SURFDIST=7  !OR SD=7
 \end{verbatim}
 
-Parameter \texttt{SURFPOT=1} invokes the \texttt{SURFPOT} module which is not turned on by default. \texttt{SURDIST=7} specifies a distance, in Å, from the solute’s vdW surface where the surface is to be drawn and potentials reported. If \texttt{SURFDIST} is not provided with \texttt{SURFPOT=1} statement, then a default value of 0 is assigned to it. That would mean that the potential on the vdW surface is reported. Delphi restricts the value of the \textt{SURFDIST} between 0 and 10Å. It must also be noted that with larger \texttt{SURFDIST} values, the computation time (or DelPhi’s runtime) also increases. 
+Parameter \texttt{SURFPOT=1} invokes the \texttt{SURFPOT} module which is not turned on by default. \texttt{SURDIST=7} specifies a distance, in Å, from the solute’s vdW surface where the surface is to be drawn and potentials reported. If \texttt{SURFDIST} is not provided with \texttt{SURFPOT=1} statement, then a default value of 0 is assigned to it. That would mean that the potential on the vdW surface is reported. DelPhi restricts the value of the \textt{SURFDIST} between 0 and 10Å. It must also be noted that with larger \texttt{SURFDIST} values, the computation time (or DelPhi’s runtime) also increases. 
 
 DelPhi doesn’t print out the surface potential values on the terminal. Instead, it prints out the 3D Cartesian coordinates of the grid-points that constitute the desired surface along with the potentials on it into an ascii-text file. Be default, whenever \texttt{SURFPOT=1} is, a file called ‘\texttt{sample.zphi}’ is printed. This file will be referred to as a \texttt{zphi} file for the sake of understanding. A user can also alter the name of the \texttt{zphi} file by supplying the following statement in the input parameter file
 
@@ -526,7 +517,7 @@ OUT(ZPHI, FILE=”_NAME_OF_A_FILE_”)
 
 Along with \texttt{SURFPOT=1} and \texttt{SURFDIST=7} (for example), a zphi format file by the name mentioned via the string replacing \texttt{\_NAME\_OF\_A\_FILE\_} is printed out. A folder with all necessary files is provided as \ttvar{Example_3.1.3/}. 
 
-A \textt{zphi} format file contains 4 columns – 3 for the x, y and z coordinates of the grid-points (each 10 character long) and 1 for the potential values (15 character long). The units of the coordinates and potential are Å and $ k_BT/e $, respectively. All the lines in the file starting with ‘#REMARK’ string provide auxiliary information. For example, at the end of the file, Delphi prints the average value of the potentials on the grid points on that surface as well as the geometric center of the computational box, in the following way:
+A \textt{zphi} format file contains 4 columns – 3 for the x, y and z coordinates of the grid-points (each 10 character long) and 1 for the potential values (15 character long). The units of the coordinates and potential are Å and $ k_BT/e $, respectively. All the lines in the file starting with ‘#REMARK’ string provide auxiliary information. For example, at the end of the file, DelPhi prints the average value of the potentials on the grid points on that surface as well as the geometric center of the computational box, in the following way:
 
 \begin{verbatim}
 #REMARK SIMPLE AVERAGE SURFACE 
@@ -550,12 +541,12 @@ This will load all the functions into the process memory of VMD\cite{humphrey199
 % seeSurface _NAME_OF_ZPHI_FILE_
 \end{verbatim}
 
-Replace \texttt{\_NAME\_OF\_ZPHI\_FILE\_} with the path to the \texttt{zphi} file. After the command is executed, it prints several information on the console and then draws a surface by drawing the individual points. Each point is assigned a color. The points with the most negative and positive potential value are assigned red and blue colors respectively. The gradient traverses from the minimum to maximum potential by assigning grid-points red, white and blue colors. An illustration of surfaces, drawn at 3 separate distances around a protein (PDB: 2NVH) is shown in Figure 2. The surface are placed at distances of 3, 6 and 9Å from its vdW surface. For better visualization, the protein’s structure is also loaded and represented using the MSMS surface representation. 
+Replace \texttt{\_NAME\_OF\_ZPHI\_FILE\_} with the path to the \texttt{zphi} file. After the command is executed, it prints several information on the console and then draws a surface by drawing the individual points. Each point is assigned a color. The points with the most negative and positive potential value are assigned red and blue colors respectively. The gradient traverses from the minimum to maximum potential by assigning grid-points red, white and blue colors. An illustration of surfaces, drawn at 3 separate distances around a protein (PDB: 2NVH) is shown in Figure \ref{fig:zeta-potential}. The surface are placed at distances of 3, 6 and 9Å from its vdW surface. For better visualization, the protein’s structure is also loaded and represented using the MSMS surface representation. 
 
 \begin{figure*}
 \includegraphics[width=0.95\linewidth]{Figure_9.png}
-\caption{SURFPOT module of Delphi. (a) Schematic showing the placement of surfaces located at increasing distance from the vdW surface of a protein like object (colored in red). (b) An illustration of potential distribution on three distinct surfaces located 3, 6 and 9Å away from the VdW surface of the protein (PDB ID: 2NVH). The red colored grid-points indicate regions with negative potentials and the blue-colored ones indicate regions with positive potentials. The ‘blue’ colored patch on the left shows the small region dominated by positive potentials while the rest of the surface is predominantly positive.}
-\label{fig:grid-scheme-representation}
+\caption{SURFPOT module of DelPhi. (a) Schematic showing the placement of surfaces located at increasing distance from the vdW surface of a protein like object (colored in red). (b) An illustration of potential distribution on three distinct surfaces located 3, 6 and 9Å away from the VdW surface of the protein (PDB ID: 2NVH). The red colored grid-points indicate regions with negative potentials and the blue-colored ones indicate regions with positive potentials. The ‘blue’ colored patch on the left shows the small region dominated by positive potentials while the rest of the surface is predominantly positive.}
+\label{fig:zeta-potential}
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure*}
 
@@ -569,7 +560,7 @@ Replace \texttt{\_NAME\_OF\_ZPHI\_FILE\_} with the path to the \texttt{zphi} fil
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure}
 
-In the parameter file we need to add command “\texttt{site (argument)}”, specifically in this case \texttt{site(a,p,f)}. This makes DelPhi to report the potentials and electrostatic field components at the positions of the subsets of atoms in the \texttt{frc} file. This calculation needs two sets of \texttt{pdb} files, one is “\texttt{atoms.pdb}” which contains coordinates of all atoms which contribute to the electostaic potential and another is “\texttt{atom-1.pdb}” which contains the dummy atom to specify the coordinate at which the electrostatic potential an electric fields are required to be computed. The charge and size information for all the atoms present in file \ttvar{atoms.pdb} have to be provided in charge and size files \ttvar{atoms.crg} and \ttvar{atoms.siz} respectively. In present case, we attempt to calculate electrostatic potential and electrostatic field at the origin due to a system of two atoms A1 and A2  whose charges are $ q_1 = 10 e_c$ and $ q_2 = 20 e_c $ respectively, the size of both atoms is 1.0 \text{\AA}, and coordinates of A1 and A2 are $ \left(5.0, 5.0, 0.0 \right) $ in and $ \left(5.0, 0.0, 0.0\right) $  respectively. Here charges are in unit of charge of a proton i.e. $ e_c $ and distances and coordinates are in \text{\AA}. An schematic representation of the system is  shown in Figure \ref{fig:elec_force}. The analytical expression for such a simplistic system is known (see Eqn. \ref{eqn:frc_at_point}). Therefore, we can benchmark DelPhi results against the analytical value. Since, DelPhi unit of energy is $ \frac{k_BT}{e} $, we shall convert the analytical energy also in $ \frac{k_BT}{e} $ for comparison. Using Boltzmann constant $ k_B = 1.38\times 10^{-23} JK^{-1}$, absolute temperature $ T = 297.33 K $,  elementary charge $ e_c = 1.6 \times 10 ^ {-19} C $, and external dielectric constant $ \epsilon_{ext} = 80 $ the potential computed from Eqn. \ref{eqn:frc_at_point} comes to be 38.035 $ \frac{k_BT}{e_c} $, while potential computed  from DelPhi is 38.1317 $ \frac{k_BT}{e_c} $, which shows a relative error $ \epsilon = \left | \frac{\phi -\phi_{DelPhi}}{\phi} \right | \approx 10^{-3} $ showing an excellent agreement to analytical value. Similarly, analytical values of the X- and Y- components of electric field $ E_x $ and $ E_y $ at position of A3 (see coordinates in \ttvar{atom-1.pdb}) due to  system of charges A1 and A2 are  $ -6.613 \frac{k_BT}{e_c\text{\AA}} $ and $-0.993 \frac{k_BT}{e_c\text{\AA}} $, while values computed from DelPhi are   $ -6.7208 \frac{k_BT}{e_c\text{\AA}} $ and  $ -1.0031 \frac{k_BT}{e_c\text{\AA}} $, respectively, which are also in good agreement to analytical values. All the required files are provided in the directory \ttvar{Example_3.1.4/}
+In the parameter file we need to add command “\texttt{site (argument)}”, specifically in this case \texttt{site(a,p,f)}. This makes DelPhi to report the potentials and electrostatic field components at the positions of the subsets of atoms in the \texttt{frc} file. This calculation needs two sets of \texttt{pdb} files, one is “\texttt{atoms.pdb}” which contains coordinates of all atoms which contribute to the electostaic potential and another is “\texttt{atom-1.pdb}” which contains the dummy atom to specify the coordinate at which the electrostatic potential and electric fields are required to be computed. The charge and size information for all the atoms present in file \ttvar{atoms.pdb} have to be provided in charge and size files \ttvar{atoms.crg} and \ttvar{atoms.siz} respectively. In present case, we attempt to calculate electrostatic potential and electrostatic field at the origin due to a system of two atoms A1 and A2  whose charges are $ q_1 = 10 e_c$ and $ q_2 = 20 e_c $ respectively, the size of both atoms is 1.0 \text{\AA}, and coordinates of A1 and A2 are $ \left(5.0, 5.0, 0.0 \right) $  and $ \left(5.0, 0.0, 0.0\right) $  respectively. Here charges are in unit of charge of a proton i.e. $ e_c $ and distances and coordinates are in \text{\AA}. An schematic representation of the system is  shown in Figure \ref{fig:elec_force}. The analytical expression for such a simplistic system is known (see Eqn. \ref{eqn:frc_at_point}). Therefore, we can benchmark DelPhi results against the analytical value. Since, DelPhi unit of energy is $ \frac{k_BT}{e} $, we shall convert the analytical energy also in $ \frac{k_BT}{e} $ for comparison. Using Boltzmann constant $ k_B = 1.38\times 10^{-23} JK^{-1}$, absolute temperature $ T = 297.33 K $,  elementary charge $ e_c = 1.6 \times 10 ^ {-19} C $, and external dielectric constant $ \epsilon_{ext} = 80 $, the potential computed from Eqn. \ref{eqn:frc_at_point} comes to be 38.035 $ \frac{k_BT}{e_c} $, while potential computed  from DelPhi is 38.1317 $ \frac{k_BT}{e_c} $, which shows a relative error $ \epsilon = \left | \frac{\phi -\phi_{DelPhi}}{\phi} \right | \approx 10^{-3} $ showing an excellent agreement to analytical value. Similarly, analytical values of the X- and Y- components of electric field $ E_x $ and $ E_y $ at position of A3 (see coordinates in \ttvar{atom-1.pdb}) due to  system of charges A1 and A2 are  $ -6.613 \frac{k_BT}{e_c\text{\AA}} $ and $-0.993 \frac{k_BT}{e_c\text{\AA}} $, while values computed from DelPhi are   $ -6.7208 \frac{k_BT}{e_c\text{\AA}} $ and  $ -1.0031 \frac{k_BT}{e_c\text{\AA}} $, respectively, which are also in good agreement to analytical values. All the required files are provided in the directory \ttvar{Example_3.1.4/}
 
 \begin{equation}\label{eqn:frc_at_point}
     \phi = \frac{1}{4\pi\epsilon_0\epsilon_{ext}} \left ( \frac{q_1}{d_1} + \frac{q_2}{d_2} \right)
@@ -583,7 +574,7 @@ $DELPHI_EXE param_frc.prm > delphi_frc.log
 
 The output \ttvar{frc} file i.e. \ttvar{atoms.frc} contains necessary lines with all the information regarding potential and components of electric field. They can be further used to calculate energy of interaction and force between two atoms. Note that the user can change grid size and scale according to their need.
 
-\subsubsection{How to do focusing?}  The focusing method is used for computing electrostatic potential and electric field for a molecular system at higher precision by using two or more runs where first run is done with moderate grid resolution for entire molecular system (typically \texttt{scale=1} or \texttt{scale=2}) followed by second run with fine grid resolution (typically \texttt{scale=4}) for only most relevant region of the system.  Thus, the two runs focusing scheme allows to obtain electrostatic potential and electric field with comparable precision to single high grid resolution (\texttt{scale=4}) run incurring comparably lesser computational resources. The schematic representation of focusing is shown in Figure \ref{fig:focusing}. Another, advantage of this scheme is that for larger molecular systems high grid resolutions may require very large number of grids hence large memory is needed for computation which may not be available on the computer used. However, focusing scheme drastically reduces the number of grid points. If the first run is done with scale=1 the memory needed would be ~1/64\textsuperscript{th} of the memory needed for run with \texttt{scale=4}. 
+\subsubsection{How to do focusing?}  The focusing method is used for computing electrostatic potential and electric field for a molecular system at higher precision by using two or more runs where first run is done with moderate grid resolution for entire molecular system (typically \texttt{scale=1} or \texttt{scale=2}) followed by second run with fine grid resolution (typically \texttt{scale=4}) for only most relevant region of the system.  Thus, the two runs focusing scheme allows to obtain electrostatic potential and electric field with comparable precision to single high grid resolution (\texttt{scale=4}) run incurring comparably lesser computational resources. The schematic representation of focusing is shown in Figure \ref{fig:focusing}. Another, advantage of this scheme is that for larger molecular systems high grid resolutions may require very large number of grids hence large memory is needed for computation which may not be available on the computer used. However, focusing scheme drastically reduces the number of grid points. If the first run is done with scale=1 the memory needed would be \ttvar{~}1/64\textsuperscript{th} of the memory needed for run with \texttt{scale=4}. 
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_11.png}
@@ -618,19 +609,19 @@ total energy = -3.39614 kt
 
 
 \subsubsection{Electrostatic component of binding energy} \label{sec:elec_binding}
-To demonstrate how to use Delphi for computing electrostatic component of protein-protein binding we have taken barnase-barstar as the system. First we are required to prepare the coordinate, charge, size and parameter files for each of the three cases one for each complex (here barnase-barstar complex), receptor(protein-1 here say barnase) and ligand (protein-2 here say barstar). The required files are provided in directory \ttvar{Example_3.1.6/}. This folder should have the following five files (\ttvar{barnase-barstar.pdb}, \ttvar{barnase.pdb}, \ttvar{barstar.pdb}, \ttvar{c22.crg} and \ttvar{c22.siz}) and two directories (\ttvar{2-dielectric/} and \ttvar{gaussian/}). The \ttvar{.pdb} and \ttvar{.crg} files contain the coordinate information and partial charge of the all atoms respectively for the barnase-barstar, barnase and barstar systems. In the present example we will use partial atomic charges and atomic van der Waals radii from provided \ttvar{c22.crg} and \ttvar{c22.siz} files respectively for constituent atoms in the systems. 
+To demonstrate how to use DelPhi for computing electrostatic component of protein-protein binding we have taken barnase-barstar as the system. First we are required to prepare the coordinate, charge, size and parameter files for each of the three cases one for each complex (here barnase-barstar complex), receptor(protein-1 here say barnase) and ligand (protein-2 here say barstar). The required files are provided in directory \ttvar{Example_3.1.6/}. This folder should have the following five files (\ttvar{barnase-barstar.pdb}, \ttvar{barnase.pdb}, \ttvar{barstar.pdb}, \ttvar{c22.crg} and \ttvar{c22.siz}) and two directories (\ttvar{2-dielectric/} and \ttvar{gaussian/}). The \ttvar{.pdb} and \ttvar{.crg} files contain the coordinate information and partial charge of the all atoms respectively for the barnase-barstar, barnase and barstar systems. In the present example we will use partial atomic charges and atomic van der Waals radii from provided \ttvar{c22.crg} and \ttvar{c22.siz} files respectively for constituent atoms in the systems. 
 
 \begin{figure*}
 \centering{
 \includegraphics[width=0.75\linewidth]{Figure_12.png}
 }
-\caption{Two methods for computing the electrostatic component of binding free energy.}
+\caption{Two methods for computing the electrostatic component of binding free energy. The black dot in Figure represent the \texttt{acenter} for DelPhi runs.}
 \label{fig:elec_comp_bind_energy}
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure*}
 
 \textbf{Electrostatic component of binding energy using traditional 2-dielectric approach}.
-The electrostatic component of binding energy can be obtained by two methods, Method-1 uses difference in grid energies, and Method-2 uses energy partitioning. In this process, three DelPhi runs are required as follows; the first run will be on the complex, second on the barnase and the third on the barstar molecules. One should keep the molecules at the same positions in all runs (this is required for Method 1 calculations, since it uses grid energy differences and artificial grid energy terms must be canceled out). The scheme for two method is shown in Figure \ref{fig:elec_comp_bind_energy}.
+The electrostatic component of binding energy can be obtained by two methods, Method-1 uses difference in grid energies, and Method-2 uses energy partitioning. In this process, three DelPhi runs are required as follows; the first run will be on the complex, second on the barnase and the third on the barstar molecules. One should keep the molecules at the same positions in all runs (this is mandatory for Method 1 calculations, since it uses grid energy differences and artificial grid energy terms must be canceled out). The scheme for two method is shown in Figure \ref{fig:elec_comp_bind_energy}.
 The files used in this example are present in \ttvar{Example_3.1.6/} and \ttvar{Example_3.1.6/2-dielectric/} directories, change current working directory to \ttvar{Example_3.1.6/2-dielectric/}. Now we can do the DelPhi run using following command.
 
 \begin{verbatim}
@@ -642,7 +633,7 @@ $DELPHI_EXE param_barstar_2-diel.prm \
     > param_barstar_2-diel.log
 \end{verbatim}
 
-The energy details for each of three runs is written in \ttvar{barnase-barstar_2-diel.dat}, \ttvar{barnase_2-diel.dat} and \ttvar{barstar_2-diel.dat} files respectively. The contents of the three \ttvar{.dat} files are as below.
+The energy details for each of three runs is written in \ttvar{barnase-barstar_2-diel.dat}, \ttvar{barnase_2-diel.dat} and \ttvar{barstar_2-diel.dat} files respectively. The relevant contents of the three \ttvar{.dat} files are as below.
 \begin{verbatim}
 The content of barnase-barstar_2-diel.dat
 Total grid energy               : 132916.29 kT
@@ -712,11 +703,11 @@ $DELPHI_EXE param_barstar_gauss.prm \
 \end{verbatim}
 The total grid energies for barnase-barstar complex, barnase and barstar are found from the respective .dat files and the electrostatic component of binding is computed as below via Method-1.
 16762.09 - (8892.54 +7035.56) kT = 833.99 kT.
-In the present case, note that the electrostatic component of binding energy is very different from two approaches as 2-dielectric and Gaussian are assigning very different dielectric values for regions of space for the case.
+In the present case, note that the electrostatic component of binding energy is very different from two approaches as 2-dielectric and Gaussian are assigning very different dielectric values for regions of space for the case. However, it should be noted that these values also depend on values of parameters \texttt{sigma} and \texttt{srfcut} used for DelPhi run.
 
 
 \subsubsection{Salt dependence of binding energy using traditional 2-dielectric model}
-Charges of salt ions introduce extra sources of electric field and affect the electrostatic potentials between the molecules. This example is designed to capture this salt dependence of binding energy using traditional 2-dielectric model. The required files for this example are provided in folders \ttvar{Example_3.1.7} and \ttvar{Example_3.1.7/saltation/}. The electrostatic component of binding energy using traditional 2-dielectric approach via difference of grid energies  is used. In order to calculate the salt dependence of binding energy we are needed to compute binding energy twice, once at zero salt concentration and second time at desired non-zero salt concentration. The difference of binding energy between non-zero salt case and zero-salt case is the required salt dependence of the binding energy at given salt concentration. However, to find out the relationship between the change in binding energy due to varying salt concentration, here binding energy is calculated at multiple salt concentrations starting from 0.02M to 0.2M in steps of 0.02M and difference from zero-salt binding energy is recorded. The salt dependence of binding energy is plotted against the logarithm of the salt concentration, in addition the linear fit in the two quantities are also performed and coefficients of fit are reported in Figure \ref{fig:plot_saltation_pp_binding}.
+Charges of salt ions introduce extra sources of electric field and affect the electrostatic potentials between the molecules. This example is designed to capture this salt dependence of binding energy using traditional 2-dielectric model. The required files for this example are provided in folders \ttvar{Example_3.1.7/} and \ttvar{Example_3.1.7/saltation/}. The electrostatic component of binding energy using traditional 2-dielectric approach via difference of grid energies  is used. In order to calculate the salt dependence of binding energy we are needed to compute binding energy twice, once at zero salt concentration and second time at desired non-zero salt concentration. The difference of binding energy between non-zero salt case and zero-salt case is the required salt dependence of the binding energy at given salt concentration. However, to find out the relationship between the change in binding energy due to varying salt concentration, here binding energy is calculated at multiple salt concentrations starting from 0.02M to 0.2M in steps of 0.02M and difference from zero-salt binding energy is recorded. The salt dependence of binding energy is plotted against the logarithm of the salt concentration, in addition the linear fit in the two quantities are also performed and coefficients of fit are reported in Figure \ref{fig:plot_saltation_pp_binding}.
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_13.png}
@@ -756,7 +747,7 @@ The salt dependence of binding free energy can be calculated under Gaussian smoo
 
 Each calculation of the binding free energy under given salt concentration is the same as the calculation of electrostatic component of binding free energy (see \ref{sec:elec_binding}). After multiple repeats of the calculation under different salt concentration, the change of binding free energy over salt concentration is the salt dependence of binding free energy.
 
-In DelPhi basic example 9, the salt dependence is calculated using binding free energy under two different salt concentrations, 0 and 0.15M. Rather than solvation energy, grid energy is recommended when calculating salt dependence. The output from Delphi should be as following,
+In DelPhi basic example 9, the salt dependence is calculated using binding free energy under two different salt concentrations, 0 and 0.15M. Rather than solvation energy, grid energy is recommended when calculating salt dependence. The output from DelPhi should be as following,
 
 \begin{verbatim}
 Salt: 0M 
@@ -783,7 +774,7 @@ Salt: 0.15M
 
 
 \subsection{Set of tutorials for DelPhi associated resources}
-\subsubsection{Delphi Force}
+\subsubsection{DelPhi Force}
 DelPhiForce\cite{li2017delphiforce} is developed and made available within DelPhi distribution to calculate electric field, forces, and energy for a two-molecule system. It can be download from the DelPhi webpage at \url{http:// compbio.clemson.edu/downloadDir/delphiforce.tar.gz}. The DelPhiForce web server is available at \url{http://compbio.clemson.edu/delphi-force/}. Using DelPhiForce output files, the electrostatic forces can be visualized in VMD\cite{humphrey1996vmd}. Once \texttt{DelPhiForce.tar.gz} is downloaded, In the \texttt{DelPhiForce/bin} folder, there are several files e.g. 
 \texttt{DelPhiForrce.sh}, \texttt{ForceGen.sh}, \texttt{draw\_arrow.tcl} which will be used in this example.
 
@@ -827,7 +818,7 @@ The DFMD method combines accurate long-range electrostatic force calculations vi
 In DFMD, ligand is placed at a distance away from the receptor assuring that long-range electrostatic force are dominating the driving of binding. Then the electrostatic forces acting on the each atom of the ligand by the receptor are computed with DelPhiForce\cite{li2017delphiforce}. The forces are given to steered MD module of NAMD and then short steered MD simulation is carried out. A new position and orientation after the shot simulation are subjected to DelPhiForce to update the atomic forces and iterations are then repeated for another cycle.
 
 Files needed in user’s directory:
-Input pdb files for receptor, Input pdb files for target, and Amber prepi and frcmod files for ligands: These files are topology files for MD simulation of ligand and can be generated by antechamber in Amber tools. These files should be put in SOURCE/parameters. The \texttt{DelphiForce\_MD.py} also need to read the MD parameters files in SOURCE folder. If the path to the SOURCE folder is changed, the new path should be specified using original arguments \texttt{–p}.
+Input pdb files for receptor, Input pdb files for target, and Amber prepi and frcmod files for ligands: These files are topology files for MD simulation of ligand and can be generated by antechamber in Amber tools. These files should be put in SOURCE/parameters. The \texttt{DelhiForce\_MD.py} also need to read the MD parameters files in SOURCE folder. If the path to the SOURCE folder is changed, the new path should be specified using original arguments \texttt{–p}.
 
 Parameters of DFMD simulations:
 \begin{enumerate}
@@ -837,7 +828,7 @@ Parameters of DFMD simulations:
 \item Cut off distance: The cut-off distance used in GBIS MD.
 \item Diffusion Constant of the Simulation: In the simulation, Langevin dynamics is applied for the modeling of dynamics in the molecular system, where the diffusion effects are simulated via random applied forces and velocity dependent frictions. We provide users with an option to adjust the damping coefficient if needed.
 \item Simulation Mode: Based on types of simulation users want to run three different simulation modes are provided: Accelerated mode, such the atomic DefPhiForce are calculated constantly until the end of the simulation; Cut-off mode, such that the atomic DelPhiFoces are calculated only for ligand atoms far away from the receptor than the cut-off distance in MD simulations ; Scaled mode, such that atomic DelPhiForces are corrected for force calculated via GB, which guarantees that there is no double counting of electrostatic force in MD.
-\item Path to the parameter files: Path to the NAMD and Delphi Executable files and MD parameter files are required. These files are originally in SOURCE folder. If the path to the SOURCE folder changed, new path should be provided.
+\item Path to the parameter files: Path to the NAMD and DelPhi Executable files and MD parameter files are required. These files are originally in SOURCE folder. If the path to the SOURCE folder changed, new path should be provided.
 \item Path to VMD: DFMD require VMD for trajectory analysis, so path to the executable VMD should be provided.
 \item 
 Procedures to run the simulations:
@@ -1008,43 +999,25 @@ In case of Mutant proteins, in addition to the above-mentioned information, ther
 % See the policies ``Policies on Authorship'' section of https://livecoms.github.io
 % for more information on deciding on authorship and author order.
 %%%%%%%%%%%%%%%%
-
-(Explain the contributions of the different authors here)
+C.L. developed parallelised DelPhi and contributed to DelPhi C++ version; Z.J. developed memory distribution code in DelPhi and salt treatment in case of Gaussian-based DelPhi; L.L. developed Gaussian-based DelPhi and contributed to DelPhi C++ version; A.C. developed surface potential module and contributed to DelPhi C++ development;  S.K.P. contributed to DelPhi development; Y.P. developed SAMPDI; S.P.  contributed to SAAMBE and SAAFEC maintenance; M. S. and M. K. contributed to testing and example developments; E.A supervised the work. All authors wrote the manuscript. 
 
 % We suggest you preserve this comment:
 For a more detailed description of author contributions,
 see the GitHub issue tracking and changelog at \githubrepository.
-
-\section{Other Contributions}
-%%%%%%%%%%%%%%%
-% You should include all people who have filed issues that were
-% accepted into the paper, or that upon discussion altered what was in the paper.
-% Multiple significant contributions might mean that the contributor
-% should be moved to authorship at the discretion of the a
-%
-% See the policies ``Policies on Authorship'' section of https://livecoms.github.io for
-% more information on deciding on authorship and author order.
-%%%%%%%%%%%%%%%
-
-(Explain the contributions of any non-author contributors here)
-% We suggest you preserve this comment:
-For a more detailed description of contributions from the community and others, see the GitHub issue tracking and changelog at \githubrepository.
 
 \section{Potentially Conflicting Interests}
 %%%%%%%
 %Declare any potentially competing interests, financial or otherwise
 %%%%%%%
 
-Declare any potentially conflicting interests here, whether or not they pose an actual conflict in your view.
+None.
 
 \section{Funding Information}
 %%%%%%%
 % Authors should acknowledge funding sources here. Reference specific grants.
 %%%%%%%
-EA acknowledges the support of NSF grant .....
+The work on DelPhi was supported by a grant from NIH, R01GM093937. 
 
-\section*{Author Information}
-\makeorcid
 
 \bibliography{manuscript-v01}
 
