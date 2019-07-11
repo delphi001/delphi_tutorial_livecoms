@@ -15,4 +15,5 @@ gaussian=1
 srfcut=20
 sigma=0.9
 energy(s)
+out(phi,file="phimap.cube",format=cube)
 

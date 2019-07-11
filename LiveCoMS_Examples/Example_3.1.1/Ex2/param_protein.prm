@@ -11,4 +11,5 @@ bndcon=2
 maxc=0.0001
 linit=800
 energy(s,c,g)
+out(phi,file="phimap.cube",format=cube)
 

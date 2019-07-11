@@ -16,12 +16,11 @@ For other molecules such as DNA, RNA, etc, the method is similar.
 amber.crg and amber.siz files contain the charge and size information, respectively.
 After the run, in log file you will see the result shown as below:
 
- Energy> Corrected reaction field energy               :     -1005.07 kT
- Energy> Coulombic energy                              :    -28450.24 kT
- Energy> All required energy terms but grid energy     :    -29455.31 kT
+ Energy> Total grid energy                             :     32580.86 kT
+ Energy> Corrected reaction field energy               :     -3583.05 kT
 
 The "Corrected reaction field energy" is the electrostatic component of solvation energy; 
-"Coulambic energy" is the coulambic interaction energy between charged atoms in homoginious medium with an internal dielectric constant of indi
+"Coulambic energy" is the coulombic interaction energy between charged atoms in homogeneous medium with an internal dielectric constant of indi
 In this particular instance, indi is set as 2.0
 "All required energy terms but grid energy" is the sum of the above two energy terms and represents the total electrostatic energy of the protein. 
 

@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
 import math
 import string
 import pandas as pnd
@@ -132,4 +126,3 @@ plt.title('"Saltation energy" profile for charged sphere', fontsize=15)
 plt.tight_layout()
 plt.savefig("plot-salt-ele-sphere.png", figsize=(3.0, 2.4), dpi=300)
 plt.show()
-

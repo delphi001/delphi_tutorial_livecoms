@@ -99,7 +99,7 @@ The tutorials presented here range in difficulty and in their objectives. We wil
 
 \subsubsection{Continuum electrostatics quantities} The key electrostatic quantity discussed in this tutorial is electrostatic potential distribution throughout the space. The space is occupied by macromolecule(s) and water phase. In terms of continuum electrostatics, the macromolecules and water phase are considered as continuum media. For such a system, the electrostatic potential obeys various differential equations, which will be described below. Essential term in these equations is so termed dielectric “constant” or dielectric function. In some models the dielectric function is a constant in macromolecular and water media, while in other models it is a smooth continuous function. The macromolecules are considered at atomistic level of details, and atomistic radii and charges are assigned according appropriate force field parameters. Finally, the mobile ions present in the water phase are considered point charges and their distribution is governed by the Boltzmann law. Below we outline two major models of partitioning the computational space. 
 
-\subsubsection{Space partitioning in case of standard two-dielectric model\cite{rocchia2002rapid,baker2001electrostatics}}. The space partitioning and the corresponding differential equations being solved in case of traditional PBE involve splitting the space into three regions labeled as $ \Omega_1 $, $ \Omega_2 $ and $ \Omega_3 $ in Figure \ref{fig:Figure_1}a. The first space region, the $\Omega_1$ is occupied by the macromolecule(s) and its boundary is defined as the molecular surface. It is considered to be a low dielectric cavity with dielectric constant of $\epsilon_1$. Molecular surface itself may be constructed via various approaches, which are not subject of this manuscript. The outer space region, the $\Omega_3$ region, is taken by the bulk water, considered to be continuum medium with dielectric constant of $\epsilon_3$. In-between is space region $\Omega_2$, which is termed Stern layer. This region has the same dielectric properties as the bulk water, but ions are not allowed to penetrate there (Figure \ref{fig:Figure_1}a).
+\subsubsection{Space partitioning in case of standard two-dielectric model}. The space partitioning\cite{rocchia2002rapid,baker2001electrostatics} and the corresponding differential equations being solved in case of traditional PBE involve splitting the space into three regions labeled as $ \Omega_1 $, $ \Omega_2 $ and $ \Omega_3 $ in Figure \ref{fig:Figure_1}a. The first space region, the $\Omega_1$ is occupied by the macromolecule(s) and its boundary is defined as the molecular surface. It is considered to be a low dielectric cavity with dielectric constant of $\epsilon_1$. Molecular surface itself may be constructed via various approaches, which are not subject of this manuscript. The outer space region, the $\Omega_3$ region, is taken by the bulk water, considered to be continuum medium with dielectric constant of $\epsilon_3$. In-between is space region $\Omega_2$, which is termed Stern layer. This region has the same dielectric properties as the bulk water, but ions are not allowed to penetrate there (Figure \ref{fig:Figure_1}a).
 
 \begin{figure*}[hbt!]
 \includegraphics[width=0.95\linewidth]{Figure_1.png}
@@ -369,7 +369,7 @@ In this section we describe how to calculate electrostatic component of solvatio
 
 The case of single atom (a charged sphere) is considered because there is an analytical solution via Born formula of charged ion, and the numerical solution provided by DelPhi can be compared with the analytical. In this section we also provide examples of computing electrostatic solvation energy using traditional two-dielectric model as well as the Gaussian-smooth dielectric function PBE. The corresponding files can be found in directory \ttvar{Example_3.1.1/} and sub directories there in.
 
-We will begin with the simplest case of charge sphere (see \ttvar{Example_3.1.1/Ex1/}) using traditional two-dielectric model. Consider a charged sphere of radius 3 Å carrying a charge +1 eu. Let’s consider that internal and external dielectric constants are 1 and 80, respectively. Thus, the analytical solution is -92.50kT. DelPhi can be executed using the files provided in above mentioned directories as:
+We will begin with the simplest case of charge sphere (see \ttvar{Example_3.1.1/Ex1/}) using traditional two-dielectric model. Consider a charged sphere of radius 3 Å carrying a charge +1 eu. Let’s consider that internal and external dielectric constants are 1 and 80, respectively. Thus, the analytical solution is -92.33kT. DelPhi can be executed using the files provided in above mentioned directories as:
 
 \begin{verbatim}
 $DELPHI_EXE param_charged_sphere.prm \
@@ -476,7 +476,6 @@ python3 Run-saltation-charged-sphere.py
 \end{verbatim}
 
 On Running this script, the above mentioned analytical and DelPhi calculations are performed and plot (\ttvar{plot-salt-ele-sphere.png}) and csv(\ttvar{saltation_charged_sphere.csv}) file containing results are created. As is shown in the Figure \ref{fig:plot_saltation_spherical_charge}, the calculated “saltation energy” is in excellent agreement with the analytical solution.
-
 \newline
 \textbf{(II) Saltation energy of a protein}
 
@@ -507,7 +506,7 @@ SURFPOT=1   !OR SU=1 (0 be default)
 SURFDIST=7  !OR SD=7
 \end{verbatim}
 
-Parameter \texttt{SURFPOT=1} invokes the \texttt{SURFPOT} module which is not turned on by default. \texttt{SURDIST=7} specifies a distance, in Å, from the solute’s vdW surface where the surface is to be drawn and potentials reported. If \texttt{SURFDIST} is not provided with \texttt{SURFPOT=1} statement, then a default value of 0 is assigned to it. That would mean that the potential on the vdW surface is reported. DelPhi restricts the value of the \textt{SURFDIST} between 0 and 10Å. It must also be noted that with larger \texttt{SURFDIST} values, the computation time (or DelPhi’s runtime) also increases. 
+Parameter \texttt{SURFPOT=1} invokes the \texttt{SURFPOT} module which is not turned on by default. \texttt{SURDIST=7} specifies a distance, in Å, from the solute’s vdW surface where the surface is to be drawn and potentials reported. If \texttt{SURFDIST} is not provided with \texttt{SURFPOT=1} statement, then a default value of 0 is assigned to it. That would mean that the potential on the vdW surface is reported. DelPhi restricts the value of the \texttt{SURFDIST} between 0 and 10Å. It must also be noted that with larger \texttt{SURFDIST} values, the computation time (or DelPhi’s runtime) also increases. 
 
 DelPhi doesn’t print out the surface potential values on the terminal. Instead, it prints out the 3D Cartesian coordinates of the grid-points that constitute the desired surface along with the potentials on it into an ascii-text file. Be default, whenever \texttt{SURFPOT=1} is, a file called ‘\texttt{sample.zphi}’ is printed. This file will be referred to as a \texttt{zphi} file for the sake of understanding. A user can also alter the name of the \texttt{zphi} file by supplying the following statement in the input parameter file
 
@@ -517,7 +516,7 @@ OUT(ZPHI, FILE=”_NAME_OF_A_FILE_”)
 
 Along with \texttt{SURFPOT=1} and \texttt{SURFDIST=7} (for example), a zphi format file by the name mentioned via the string replacing \texttt{\_NAME\_OF\_A\_FILE\_} is printed out. A folder with all necessary files is provided as \ttvar{Example_3.1.3/}. 
 
-A \textt{zphi} format file contains 4 columns – 3 for the x, y and z coordinates of the grid-points (each 10 character long) and 1 for the potential values (15 character long). The units of the coordinates and potential are Å and $ k_BT/e $, respectively. All the lines in the file starting with ‘#REMARK’ string provide auxiliary information. For example, at the end of the file, DelPhi prints the average value of the potentials on the grid points on that surface as well as the geometric center of the computational box, in the following way:
+A \texttt{zphi} format file contains 4 columns – 3 for the x, y and z coordinates of the grid-points (each 10 character long) and 1 for the potential values (15 character long). The units of the coordinates and potential are Å and $ k_BT/e $, respectively. All the lines in the file starting with '\#REMARK' string provide auxiliary information. For example, at the end of the file, DelPhi prints the average value of the potentials on the grid points on that surface as well as the geometric center of the computational box, in the following way:
 
 \begin{verbatim}
 #REMARK SIMPLE AVERAGE SURFACE 
@@ -730,7 +729,7 @@ python3 plot-saltation.py
 
             
 \subsubsection{Salt dependence of the binding energy using Gaussian model}
-Charges of salt ions introduce extra sources of electric field and affect the electrostatic potentials between the molecules.  Take the example of the protein-protein complex, ‘COLICIN E9 DNAse Domain with its Cognate Immunity Protein Im9’ (PDB ID: 1EMV) involving the interaction of two helical (all-α) chains, A and B. The salt dependence of binding free energy can be given by the change of binding free energy under variance of salt concentrations in the solvent. Step one, the ‘total grid energy’ is to be computed for both the free chains (A, B) as well as the complex (AB), two times; first, at ‘zero’ salt and then at another salt concentration, e.g. physiological salt (0.15 M). Let these terms be $ \Delta G_{nz_{AB}}$, $ \Delta G_{nz_A}$, $ \Delta G_{nz_B}$ (for AB, A and B chains at non-zero salt), $ \Delta G_{z_{AB}}$, $ \Delta G_{z_A} $, and $ \Delta G_{z_B}$ (at zero salt). From these terms, the de-saltation energy component is:
+Charges of salt ions introduce extra sources of electric field and affect the electrostatic potentials between the molecules.  Take the example of the protein-protein complex, ‘COLICIN E9 DNAse Domain with its Cognate Immunity Protein Im9’ (PDB ID: 1EMV) involving the interaction of two helical (all-$ \alpha $) chains, A and B. The salt dependence of binding free energy can be given by the change of binding free energy under variance of salt concentrations in the solvent. Step one, the ‘total grid energy’ is to be computed for both the free chains (A, B) as well as the complex (AB), two times; first, at ‘zero’ salt and then at another salt concentration, e.g. physiological salt (0.15 M). Let these terms be $ \Delta G_{nz_{AB}}$, $ \Delta G_{nz_A}$, $ \Delta G_{nz_B}$ (for AB, A and B chains at non-zero salt), $ \Delta G_{z_{AB}}$, $ \Delta G_{z_A} $, and $ \Delta G_{z_B}$ (at zero salt). From these terms, the de-saltation energy component is:
 \begin{equation}
  \Delta\Delta G_{saltation}= \Delta\Delta G_{salt_{AB}}  - \left( \Delta\Delta G_{salt_A}  + \Delta\Delta G_{salt_B} \right)
 \end{equation}
@@ -765,7 +764,7 @@ Salt: 0.15M
 
 \begin{equation}
 \begin{aligned}
-\Delta\Delta G_{salt_{complex}} - (\Delta G_{nz_{complex}} + \DeltaG_{z_{complex}}) &: -1204.04 \nonumber \\
+\Delta \Delta G_{salt_{complex}} - (\Delta G_{nz_{complex}} + \Delta G_{z_{complex}}) &: -1204.04 \nonumber \\
 \Delta\Delta G_{salt_{mol1}} - (\Delta G_{nz_{mol1}} + \Delta G_{z_{mol1}}) &: -444.961 \nonumber \\
 \Delta\Delta G_{salt_{mol2}} - (\Delta G_{nz_{mol2}} + \Delta G_{z_{mol2}}) &: -776.19 \nonumber \\
 \Delta\Delta G_{saltation} &: 17.11 \nonumber 

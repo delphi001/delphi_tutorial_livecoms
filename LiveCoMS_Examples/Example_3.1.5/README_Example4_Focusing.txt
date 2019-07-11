@@ -14,11 +14,13 @@ How to run:
 Check that if you have all the input files: barnase.pdb, amber.crg, amber.siz, param_phimap1.prm, param_phimap2_focus.txt, frc_in.pdb
 
 To run it, type: 
-Run1: <path>/delphi param_phimap1.prm > focusing1.log
+Run1: 
+$DELPHI_EXE param_phimap1.prm > focusing1.log
 This will output phimap1.cube which is then read by the second parameter file (param_phimap2_focus.prm)
-Run2: <path>/delphi param_phimap2_focus.prm > focusing2.log
+Run2: 
+$DELPHI_EXE param_phimap2_focus.prm > focusing2.log
 Output files: frc.out
-*Note: <path> is the full path where the delphi executable is located
+*Note: $DELPHI_EXE is the full path where the delphi executable is located
 
 Details after the run: 
 
@@ -55,7 +57,5 @@ HB3  ASP   39           4.3396    0.5483   -0.5301    0.0870
 HB2  ASP   39           5.1324    0.0829   -0.2063   -0.0216  
 total energy = -3.39614 kt
 
-You may like to compare the output of the current 'focusing' technique (frc.out) with that of the earlier example (example 3).
-For this purpose, increase the resolution (scale) in example 3 to match that of the current example (i.e., scale=4).
 
 
