@@ -445,7 +445,7 @@ Here we refer energy of interaction between equilibrated mobile ions and permane
 I_B = \frac{e_c^2}{(4\pi\epsilon_0\epsilon_{ext}k_BT)} 
 \end{equation}
 \begin{equation}
-\kappa^{-1} = \sqrt{\left(\frac{\epsilon_0\epsilon_{ext}k_BT}{2 \times 10^3N_Ae_c^2} \right)}
+\kappa^{-1} = \sqrt{\left(\frac{\epsilon_0\epsilon_{ext}k_BT}{2 \times 10^3N_Ae_c^2 I} \right)}
 \end{equation}
 \begin{equation}
 \Delta G_{nz}([salt], R) = \frac{1}{2}k_B T \left(\frac{Q}{e_c}\right)^2\frac{I_B \kappa^{-1}}{R(R+\kappa^{-1})}
@@ -457,7 +457,7 @@ I_B = \frac{e_c^2}{(4\pi\epsilon_0\epsilon_{ext}k_BT)}
 \Delta\Delta G_{nz}([salt]) = \Delta G_{nz}([salt], R) - \Delta G_z(R)
 \end{equation}
 
-where $I_B$ is Bjerrum length, $ c $ is ionic strength in M, $ k_B $ is Boltzman constant, $ T $ is absolute temperature, $ e_c $ is the electronic charge, $ \kappa^{-1} $ is Debye length, $ \epsilon_0 $ is the electric permittivity of free space, $ \epsilon_{ext} $ is the external dielectric constant of the medium, $ R $ is the radius of charged sphere, $ \Delta G_{nz}([salt], R) $ is electrical energy of charged sphere in solvent with salt, $ \Delta G_z(R) $ is the electrical energy of charged sphere in solvent without salt, $ \Delta\Delta G_{nz}([salt]) $ is the saltation energy of charged sphere.
+where $I_B$ is Bjerrum length, $ c $ is ionic strength in M, $ k_B $ is Boltzman constant, $ T $ is absolute temperature, $ e_c $ is the electronic charge, $ I $ is the ionic strength (or salt concentration) in molar unit i.e. mol/L, $ \kappa^{-1} $ is Debye length, $ \epsilon_0 $ is the electric permittivity of free space, $ \epsilon_{ext} $ is the external dielectric constant of the medium, $ R $ is the radius of charged sphere, $ \Delta G_{nz}([salt], R) $ is electrical energy of charged sphere in solvent with salt, $ \Delta G_z(R) $ is the electrical energy of charged sphere in solvent without salt, $ \Delta\Delta G_{nz}([salt]) $ is the saltation energy of charged sphere.
 
 Thus, using the following parameters R=10 Å, internal and external dielectric constants 1 and 80, respectively,  and varying salt concentration from 0.02 M until 0.2 M, the analytical and numerical (using DelPhi) solutions are calculated and plotted against logarithm of salt concentration (Figure \ref{fig:plot_saltation_spherical_charge}). For example, with salt concentration 0.02 M and external dielectric constant 80 the analytical and numerical (using DelPhi) solutions for the saltation energy of the charged sphere are -2.77 kT and -2.92 kT, respectively.
 
