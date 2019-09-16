@@ -18,6 +18,7 @@
 \usepackage{siunitx}
 \DeclareSIUnit\Molar{M}
 \usepackage[italic]{mathastext}
+\usepackage{hyperref}
 \graphicspath{{figures/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -534,7 +535,7 @@ A \texttt{zphi} format file contains 4 columns – 3 for the x, y and z coordina
 \end{verbatim}
 
 \textit{Visualization of the surface and its potentials}:
-The \texttt{zphi} file with the potential and coordinate information can be used for visualizing the surface and the distribution of the potentials on it. It can also be used for other statistical analysis a user might be interested in. To visualize the surface on VMD\cite{humphrey1996vmd}, a TCL script is available for download from \url{http://common/compbio/delphi}. The name of the downloaded file \texttt{seeSurface.tcl}
+The \texttt{zphi} file with the potential and coordinate information can be used for visualizing the surface and the distribution of the potentials on it. It can also be used for other statistical analysis a user might be interested in. To visualize the surface on VMD\cite{humphrey1996vmd}, a TCL script is available for download from \url{http://compbio.clemson.edu/downloadDir/seeSurface.tcl}. The name of the downloaded file \texttt{seeSurface.tcl}
 
 After opening VMD, open its TK Console and type
 
@@ -559,7 +560,7 @@ Replace \texttt{\_NAME\_OF\_ZPHI\_FILE\_} with the path to the \texttt{zphi} fil
 
 
 \subsubsection{Computing electrostatic potential, energy of interaction and forces between two sets of atoms}
-In this section, we will describe how to calculate the electrostatic potential, energy of interaction, and force between two sets of atoms using ‘\texttt{frc}’ option. Scheme is shown in Figure \ref{fig:elec_force}.
+In this section, we will describe how to calculate the electrostatic potential, energy of interaction and force between two sets of atoms using ‘\texttt{frc}’ option. Scheme is shown in Figure \ref{fig:elec_force}.
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_10.png}
@@ -602,7 +603,7 @@ The first run, less resolution run, is called a parent run. It is executed as:
 $DELPHI_EXE param_phimap1.prm > focusing1.log
 \end{verbatim}
 
-This will output \ttvar{phimap1.cube} which is then read by the second “child” run. The acenter to be set to the center of Asp39 of barstar in the child run parameter file. The child run reads the \ttvar{phimap1.cube} and outputs \ttvar{phimap2.cube}. The resolution of the child run is higher than in the parent run (\texttt{scale=4.0}) and the calculation box is smaller; the \texttt{acenter} option is used to indicate where is the center of the child box; the boundary condition is set as 3 to indicate the boundary values are calculated based on the input \texttt{phimap1.cube}; an frc option is used to calculate the potential and field on residue Asp39 from barstar. 
+This will output \ttvar{phimap1.cube} which is then read by the second “child” run. The acenter to be set to the center of Asp39 of barstar in the child run parameter file. The child run reads the \ttvar{phimap1.cube} and outputs \ttvar{phimap2.cube}. The resolution of the child run is higher than in the parent run (\texttt{scale=4.0}) and the calculation box is smaller; the \texttt{acenter} option is used to indicate where is the center of the child box; the boundary condition is set as 3 to indicate the boundary values are calculated based on the input \texttt{phimap1.cube}; an frc option is used to calculate the potential and field on residue Asp39 of barstar. 
 The child run can be done as below.
 
 \begin{verbatim}
@@ -691,7 +692,7 @@ The electrostatic component of binding energy using Method-2 can be obtained fro
 Note that the calculated electrostatic component of binding energy via Method-1 and Method-2 is different. This is due to the fact that Method-1 does not fully cancel so termed ``artificial grid energy'' arising from real charges partitioning onto the grid. Thus, we recommend using Method-2, the energy partitioning method in case of energy calculations with zero salt. The reason is that current version of DelPhi does not support the option of explicit calculations of the energy of interactions between mobile ions and permanent charges (see \cite{rocchia2001extending} for more details).
 
 \textbf{Electrostatic component of binding energy Gaussian approach}.
-In the Gaussian approach there is not a strict solvent-solute boundary which separates the mediums of two different dielectric, rather the regions in solute and solvent are described by a smooth dielectric function. Because of this fact, energy partitioning described in previous paragraph is not applicable. Therefore, the grid energy of the system which implicitly accounts Coulombic and polar component of the solvation energy is used in this case. However, to be able to obtain electrostatic component of binding, we must use the same point as grid center and same number of grid sizes and scale for complex and monomers. To keep the same point as grid center, one can compute the center of complex and use \ttvar{acenter} input command as \texttt{acenter(xc, yc, zc)} (where \ttvar{xc}, \ttvar{yc}, \ttvar{zc} are the x, y, z coordinates of center for the complex) in all the three calculations. In addition, we are required to activate the Gaussian module by providing \texttt{gaussian=1} in the parameter and the \texttt{sigma=0.65} parameter for the gaussian.
+In the Gaussian approach there is no strict solvent-solute boundary which separates the mediums of two different dielectric, rather the regions in solute and solvent are described with smooth dielectric function. Because of this fact, energy partitioning described in previous paragraph is not applicable. Therefore, the grid energy of the system which implicitly accounts Coulombic and polar component of the solvation energy is used in this case. However, to be able to obtain electrostatic component of binding, we must use the same point as grid center and same number of grid sizes and scale for complex and monomers. To keep the same point as grid center, one can compute the center of complex and use \ttvar{acenter} input command as \texttt{acenter(xc, yc, zc)} (where \ttvar{xc}, \ttvar{yc}, \ttvar{zc} are the x, y, z coordinates of center for the complex) in all the three calculations. In addition, we are required to activate the Gaussian module by providing \texttt{gaussian=1} in the parameter and the \texttt{sigma=0.65} parameter for the gaussian.
 We can add the following set of parameters and their respective values to the parameter files for Gaussian run using Delphi for present example.
 \begin{verbatim}
 acent(28.459,36.960,8.674)
@@ -708,7 +709,7 @@ $DELPHI_EXE param_barnase_gauss.prm \
 $DELPHI_EXE param_barstar_gauss.prm \
                    > param_barstar_gauss.log
 \end{verbatim}
-The total grid energies for barnase-barstar complex, barnase and barstar are found from the respective .dat files and the electrostatic component of binding is computed as below via Method-1. 15975.45 - (8825.55 + 7165.57) kT = -15.66 kT. In the present case, note that the electrostatic component of binding energy is very different from the energy calculated with traditional two-dielectric approach. This is due to different dielectric distribution applied in these two approaches. One should use the traditional two-dielectric if modeling involves rigid structures (energy minimized or snapshots from MD simulations). The Gaussian approach is applicable for cases when one wants to use single structure to generate ensemble average quantity (see \cite{chakravorty2018gaussian} for more details).
+The total grid energies for barnase-barstar complex, barnase and barstar are found from the respective .dat files and the electrostatic component of binding is computed as below via Method-1. 15975.45 - (8825.55 + 7165.57) kT = -15.67 kT. In the present case, note that the electrostatic component of binding energy is very different from the energy calculated with traditional two-dielectric approach. This is due to different dielectric distribution applied in these two approaches. One should use the traditional two-dielectric if modeling involves rigid structures (energy minimized or snapshots from MD simulations). The Gaussian approach is applicable for cases when one wants to use single structure to generate ensemble average quantity (see \cite{chakravorty2018gaussian} for more details).
 
 
 \subsubsection{Salt dependence of binding energy using traditional two-dielectric model}
@@ -752,7 +753,13 @@ The salt dependence of binding free energy can be calculated under Gaussian smoo
 
 Each calculation of the binding free energy under given salt concentration is the same as the calculation of electrostatic component of binding free energy (see \ref{sec:elec_binding}). After multiple repeats of the calculation under different salt concentration, the change of binding free energy over salt concentration is the salt dependence of binding free energy.
 
-In DelPhi basic example 9, the salt dependence is calculated using binding free energy under two different salt concentrations, 0 and 0.15M. Usage of grid energy is recommended when calculating salt dependence. The output from DelPhi should be as following,
+In the \texttt{Example\_3.1.8}, the salt dependence is calculated using binding free energy under two different salt concentrations, 0 and 0.15M. Usage of grid energy is recommended when calculating salt dependence. One can do DelPhi calculations at varying salt concentration by executing the provided bash script \ttvar{run.sh} as given below:
+
+\begin{verbatim}
+bash run.sh
+\end{verbatim}
+
+The output from DelPhi should be as following,
 
 \begin{verbatim}
 Salt: 0M 
@@ -804,13 +811,14 @@ Note that in case of NLPBE, the electrostatic energy has two additional componen
 
 \subsubsection{DelPhi Force}
 
-DelPhiForce\cite{li2017delphiforce} is developed and made available within DelPhi distribution to calculate electric field, forces, and energy for a two-molecule system. It can be download from the DelPhi webpage at \url{http:// compbio.clemson.edu/downloadDir/delphiforce.tar.gz}. The DelPhiForce web server is available at \url{http://compbio.clemson.edu/delphi-force/}. Using DelPhiForce output files, the electrostatic forces can be visualized in VMD\cite{humphrey1996vmd}. Once \texttt{DelPhiForce.tar.gz} is downloaded, In the \texttt{DelPhiForce/bin} folder, there are several files e.g. 
+DelPhiForce\cite{li2017delphiforce} is developed and made available within DelPhi distribution to calculate electric field, forces, and energy for a two-molecule system. It can be downloaded from the DelPhi webpage at \url{http:// compbio.clemson.edu/downloadDir/delphiforce.tar.gz}. The DelPhiForce web server is available at \url{http://compbio.clemson.edu/delphi-force/}. Using DelPhiForce output files, the electrostatic forces can be visualized in VMD\cite{humphrey1996vmd}. Once \texttt{DelPhiForce.tar.gz} is downloaded. In the \texttt{DelPhiForce/bin} folder, there are several files e.g. 
 \texttt{DelPhiForrce.sh}, \texttt{ForceGen.sh}, \texttt{draw\_arrow.tcl} which will be used in this example.
 
-The two input files required to run DelPhiForce are reference molecule (file1) and probe molecule (file2), both of which are in \texttt{.pqr} format. To run the DelPhiForce, go to the working folder, copy all files from the DelPhiForce/bin/ folder to it, then run DelPhiForce using command below:
+The two input files required to run DelPhiForce are reference molecule (\ttvar{file1}) and probe molecule (\ttvar{file2}), both of which are in \texttt{.pqr} format. To run the DelPhiForce, go to the example folder, copy all files from the DelPhiForce/bin/ folder to it, then run DelPhiForce using command below:
 
 \begin{verbatim}
-./DelPhiForce.sh file1 file2 out
+./DelPhiForce.sh -1 file1 -2 file2 \
+    -e absolute_path_to/delphicpp -o out
 \end{verbatim}
 
 After the run, you will get following output files:
@@ -823,7 +831,7 @@ After the run, you will get following output files:
 
 \texttt{out.tcl}: It is generated for the visualization of the total electrostatic force of the probe molecule in VMD\cite{humphrey1996vmd}.
 
-In order to visualize the forces, first launch VMD, open file2. Then, in the VMD Tk Console, run the commands: 
+In order to visualize the forces, first launch VMD, open \ttvar{file2}. Then, in the VMD Tk Console, run the commands: 
 
 \begin{verbatim}
 source draw_arrow.tcl
@@ -831,11 +839,11 @@ source out_residue.tcl
 source out.tcl
 \end{verbatim}
 
-Then open the file1 in VMD. The electrostatic force will be displayed.  Each arrow illustrates an electrostatic force on a residue of probe molecule. The tail of an arrow is the mass center of the corresponding residue. The length of an arrow indicates the magnitude of the force.
+Then open the \ttvar{file1} in VMD. The electrostatic force will be displayed.  Each arrow illustrates an electrostatic force on a residue of probe molecule. The tail of an arrow is the mass center of the corresponding residue. 
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_14.png}
-\caption{Electrostatic forces shown with blue arrows on residues of dynein computed by DelPhiForce. For clarity the dynein is positioned 15 $\text{\AA}$ away from it's bound position.}
+\caption{Electrostatic forces generated by tubulin dimer (cyan colored cartoon representation) on to kinesin microtubule binding domain (line representation), placed 15 $\text{\AA}$ away from its bound position. Orange arrows represent forces acting on each residue, while the green arrow shows total resultant force. The length of arrow reflects the calculated magnitude of the force.}
 \label{fig:delphiforce}
 \end{figure}
 
@@ -858,9 +866,9 @@ Parameters of DFMD simulations:
 
 \item Cut off distance: The cut-off distance used in GBIS MD.
 
-\item Diffusion constant of the simulation: In the simulation, Langevin dynamics is applied for the modeling of dynamics in the molecular system, where the diffusion effects are simulated via random applied forces and velocity dependent frictions. We provide users with an option to adjust the damping coefficient if needed.
+\item Diffusion constant of the simulation: In the simulation, Langevin dynamics is applied for the modeling of dynamics of the molecular system, where the diffusion effects are simulated via randomly applied forces and velocity dependent frictions. We provide users with an option to adjust the damping coefficient if needed.
 
-\item Simulation mode: Based on type of simulation users are provided with three different simulation modes: Accelerated mode, such that the atomic DefPhiForce are calculated constantly until the end of the simulation; Cut-off mode, such that the atomic DelPhiForces are calculated only for ligand atoms far away from the receptor than the cut-off distance in MD simulations ; Scaled mode, such that atomic DelPhiForces are corrected for force calculated via GB, which guarantees that there is no double counting of electrostatic force in MD.
+\item Simulation mode: Based on type of simulation users are provided with three different simulation modes: Accelerated mode, such that the atomic DefPhiForce are calculated constantly until the end of the simulation; Cut-off mode, such that the atomic DelPhiForces are calculated only for ligand atoms far away from the receptor than the cut-off distance in MD simulations ; Scaled mode, such that the atomic DelPhiForces are corrected for force calculated via GB, which guarantees that there is no double counting of electrostatic force in MD.
 
 \item Path to the parameter files: Path to the NAMD and DelPhi Executable files and MD parameter files are required. These files are originally in SOURCE folder. If the path to the SOURCE folder changed, new path should be provided.
 
@@ -896,16 +904,16 @@ in the TCL interface of the VMD. Users are also recommend to compute the RMSD of
 \end{enumerate}
 
 \subsubsection{SAAMBE}
-The Single Amino Acid Mutation based change in Binding free Energy (SAAMBE)\cite{petukh2015predicting} web-server predicts the change of protein binding free energy due to a mutation. The web-server\cite{petukh2015predicting,petukh2016saambe} can be accessed via \url{http://compbio.clemson.edu/saambe_web-server/}. 
+The Single Amino Acid Mutation based change in Binding free Energy (SAAMBE)\cite{petukh2015predicting} web-server predicts the change of protein binding free energy due to a mutation. The web-server\cite{petukh2015predicting,petukh2016saambe} can be accessed via \url{http://compbio.clemson.edu/saambe_webserver/}. 
 The user input section is categorized into three sections:
 \begin{enumerate}
     \item PDB selection: In this section, user need to provide a structure file by uploading a PDB file from their local file system.
     
-    \item Partner selection: There are two inputs (Partner 1 and Partner 2) in this section. User must supply the chain of partner 1 and chain of partner 2 respectively as the input. If multiple chains construct partner 1 or partner 2, user needs to provide all the chains. For example, if chain A and chain B construct partner 1, then user must mention AB in place of Partner 1.
+    \item Partner selection: There are two inputs (Partner 1 and Partner 2) in this section. User must supply the chain of partner 1 and chain of partner 2 respectively as the input. If multiple chains construct partner 1 or partner 2, user needs to provide all the chains. For example, if chain A and chain B construct partner 1, then user must provide AB in place of Partner 1.
     
     \item Mutation: This section contains four sub sections:
     \begin{enumerate}
-	    \item Position: position of the particular residue i.e. the residue number, which is replaced in the mutant, need to be provided in the box.
+	    \item Position: position of the particular residue, i.e. the residue number, which is replaced in the mutant, need to be provided in the box.
 	    
 	    \item Chain: chain ID at which mutation occurs.
 	    
@@ -935,7 +943,7 @@ Protein–DNA interactions are essential for many important cellular processes a
 
 The front page of SAMPDI provides a link to download a PDB file (IMSE.pdb), which is a structure of protein-DNA complex. Here this PDB file is used for training purposes. The link guides the user how to use the file, and what are expected results. In summary, if one submits PDB file (IMSE.pdb) and request residue ASN at position 139 to be mutated to GLU, the SAMPDI predicts that this mutation will de-stabilize the complex by $ \Delta\Delta G_{pred} =$ 0.67 kcal/mol. The corresponding experimentally determined $ \Delta\Delta G_{exp} $ is 1.3 kcal/mol, which is very close to predicted one.
 
-\subsubsection{SAAFEC} Single Amino Acid Folding free Energy Changes (SAAFEC) program\cite{getov2016saafec} predicts the folding free energy changes due to missense mutation. SAAFEC is available as a web server and accessible via http://compbio.clemson.edu/SAAFEC/. SAAFEC runs on Clemson University’s Palmetto Supercomputer cluster. Once user click the Use SAAFEC button, it would direct to a page containing Input Parameter Form. To run a job in SAAFEC, user needs to provide following four job input parameters:
+\subsubsection{SAAFEC} Single Amino Acid Folding free Energy Changes (SAAFEC) program\cite{getov2016saafec} predicts the folding free energy changes due to missense mutation. SAAFEC is available as a web server and accessible via \url{http://compbio.clemson.edu/SAAFEC/}. SAAFEC runs on Clemson University’s Palmetto Supercomputer cluster. Once user click the Use SAAFEC button, it would direct to a page containing Input Parameter Form. To run a job in SAAFEC, user needs to provide following four job input parameters:
 \begin{enumerate}
 \item \textit{Location of Residue}: Residue number at which mutation takes place.
 \item \textit{Initial Residue (One letter abbreviation)}: Amino acid type of wild type residue.
@@ -956,7 +964,7 @@ The front page of SAAFEC provides a link to download a PDB file (1BNI.pdb), to b
 The above discussed SAAMBE, SAMPDI and SAAFEC methods are based on MMPBSA protocol along with knowledge-based energy terms. Essentially, the molecule (SAAFEC) or molecular complex (SAAMBE and SAMPDI) is energy minimized with NAMD. Then the corresponding MM energies are computed. Furthermore, the polar solvation energy is calculated with DelPhi. The non-polar solvation energy is estimated via Solvent Accessible Surface Area (SASA) approach. In addition, several terms are added in the energy formula as hydrogen bonds, estimation of entropy based on side chain rotamers, etc. All energy and knowledge-based terms are compiled into a energy equation with adjustable coefficients. The optimal values of these adjustable coefficients are obtained via multiple linear regression against experimental data\cite{petukh2016saambe,peng2017predicting,getov2016saafec}.
 
 \subsubsection{DelPhiPKa}
-DelPhiPKa\cite{wang2015pka} is a DelPhi based C++ program, which predicts the pKa’s of ionizable and polar groups in proteins, DNA and RNAs. The method also takes into account the salt concentration in the medium\cite{pahari2018delphipka}. DelPhiPKa web-server is built on DelPhiPKa program and user can access it at \url{http://compbio.clemson.edu/pka_web-server/}. The web-server requires the following input parameters for a successful run:
+DelPhiPKa\cite{wang2015pka} is a DelPhi based C++ program, which predicts the pKa’s of ionizable and polar groups in proteins, DNA and RNAs. The method also takes into account the salt concentration in the medium\cite{pahari2018delphipka}. DelPhiPKa web-server is built on DelPhiPKa program and user can access it at \url{http://compbio.clemson.edu/pka_webserver/}. The web-server requires the following input parameters for a successful run:
 \begin{enumerate}
     \item \textit{ Upload PDB File}: User need to upload a structure file of the desired protein/DNA/RNA in PDB format.
     \item \textit{ Force Field}: User must provide a force field parameter file. User can choose among three currently provided force field, which includes AMBER, CHARMM and PARSE. Program reads the charges and radii from the given force field parameter files.
