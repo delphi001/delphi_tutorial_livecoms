@@ -1,0 +1,33 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Scope}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Key definitions}{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Continuum electrostatics quantities}{subsection.1.2}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Space partitioning in case of traditional two-dielectric model}{subsection.1.2}% 5
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Space partitioning with the Gaussian-based smooth dielectric model}{subsection.1.2}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.4}{Finite difference algorithm}{subsection.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.3}{Energy partitioning}{section.1}% 8
+\BOOKMARK [1][-]{section.2}{Prerequisites}{}% 9
+\BOOKMARK [2][-]{subsection.2.1}{Background knowledge}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.2}{Software/system requirements}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Content and links}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Set of tutorials for DelPhi stand-alone package}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Computing solvation energy}{subsection.3.1}% 14
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Computing "saltation energy"}{subsection.3.1}% 15
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Computing electrostatic potential on a surface \(Zeta potential\)}{subsection.3.1}% 16
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Computing electrostatic potential, energy of interaction and forces between two sets of atoms}{subsection.3.1}% 17
+\BOOKMARK [3][-]{subsubsection.3.1.5}{How to do focusing?}{subsection.3.1}% 18
+\BOOKMARK [3][-]{subsubsection.3.1.6}{Electrostatic component of binding energy}{subsection.3.1}% 19
+\BOOKMARK [3][-]{subsubsection.3.1.7}{Salt dependence of binding energy using traditional two-dielectric model}{subsection.3.1}% 20
+\BOOKMARK [3][-]{subsubsection.3.1.8}{Salt dependence of the binding energy using Gaussian model}{subsection.3.1}% 21
+\BOOKMARK [3][-]{subsubsection.3.1.9}{Non-linear PBE's applications for electrostatic binding energy of peptide to membrane}{subsection.3.1}% 22
+\BOOKMARK [2][-]{subsection.3.2}{Set of tutorials for DelPhi associated resources}{section.3}% 23
+\BOOKMARK [3][-]{subsubsection.3.2.1}{DelPhi Force}{subsection.3.2}% 24
+\BOOKMARK [3][-]{subsubsection.3.2.2}{DelPhi Force Molecular Dynamics \(DFMD\)}{subsection.3.2}% 25
+\BOOKMARK [3][-]{subsubsection.3.2.3}{SAAMBE}{subsection.3.2}% 26
+\BOOKMARK [3][-]{subsubsection.3.2.4}{SAMPDI web-server}{subsection.3.2}% 27
+\BOOKMARK [3][-]{subsubsection.3.2.5}{SAAFEC}{subsection.3.2}% 28
+\BOOKMARK [3][-]{subsubsection.3.2.6}{DelPhiPKa}{subsection.3.2}% 29
+\BOOKMARK [3][-]{subsubsection.3.2.7}{PKAD}{subsection.3.2}% 30
+\BOOKMARK [1][-]{section.4}{Author Contributions}{}% 31
+\BOOKMARK [1][-]{section.5}{Potentially Conflicting Interests}{}% 32
+\BOOKMARK [1][-]{section.6}{Funding Information}{}% 33

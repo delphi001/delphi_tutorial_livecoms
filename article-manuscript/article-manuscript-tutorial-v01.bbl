@@ -1,0 +1,305 @@
+\begin{thebibliography}{39}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\urlprefix}{}
+\providecommand{\doiprefix}{https://doi.org/}
+
+\bibitem[{Xiao et~al.(2017)Xiao, Li and Diao, Jianxiong and Greene,
+  D’Artagnan and Wang, Junmei and Luo, Ray}]{xiao2017continuum}
+\textbf{\color{LiveCoMSMediumGrey} Xiao L}, Diao J, Greene D, Wang J, Luo R.
+\newblock A continuum Poisson--Boltzmann model for membrane channel proteins.
+\newblock Journal of chemical theory and computation.  2017; 13(7):3398--3412.
+
+\bibitem[{Li et~al.(2013)Li, Chuan and Li, Lin and Petukh, Marharyta and
+  Alexov, Emil}]{li2013progress}
+\textbf{\color{LiveCoMSMediumGrey} Li C}, Li L, Petukh M, Alexov E.
+\newblock Progress in developing Poisson-Boltzmann equation solvers.
+\newblock Computational and Mathematical Biophysics.  2013; 1:42--62.
+
+\bibitem[{Jurrus et~al.(2018)Jurrus, Elizabeth and Engel, Dave and Star, Keith
+  and Monson, Kyle and Brandi, Juan and Felberg, Lisa E and Brookes, David H
+  and Wilson, Leighton and Chen, Jiahui and Liles, Karina and
+  others}]{jurrus2018improvements}
+\textbf{\color{LiveCoMSMediumGrey} Jurrus E}, Engel D, Star K, Monson K, Brandi
+  J, Felberg LE, Brookes DH, Wilson L, Chen J, Liles K, et~al.
+\newblock Improvements to the APBS biomolecular solvation software suite.
+\newblock Protein Science.  2018; 27(1):112--128.
+
+\bibitem[{Nguyen et~al.(2017)Nguyen, Duc D and Wang, Bao and Wei,
+  Guo-Wei}]{nguyen2017accurate}
+\textbf{\color{LiveCoMSMediumGrey} Nguyen DD}, Wang B, Wei GW.
+\newblock Accurate, robust, and reliable calculations of Poisson--Boltzmann
+  binding energies.
+\newblock Journal of computational chemistry.  2017; 38(13):941--948.
+
+\bibitem[{Chakravorty et~al.(2018)Chakravorty, Arghya and Jia, Zhe and Peng,
+  Yunhui and Tajielyato, Nayere and Wang, Lisi and Alexov,
+  Emil}]{chakravorty2018gaussian}
+\textbf{\color{LiveCoMSMediumGrey} Chakravorty A}, Jia Z, Peng Y, Tajielyato N,
+  Wang L, Alexov E.
+\newblock Gaussian-Based Smooth Dielectric Function: A Surface-Free Approach
+  for Modeling Macromolecular Binding in Solvents.
+\newblock Frontiers in molecular biosciences.  2018; 5:25.
+
+\bibitem[{Jia et~al.(2017)Jia, Zhe and Li, Lin and Chakravorty, Arghya and
+  Alexov, Emil}]{jia2017treating}
+\textbf{\color{LiveCoMSMediumGrey} Jia Z}, Li L, Chakravorty A, Alexov E.
+\newblock Treating ion distribution with G aussian-based smooth dielectric
+  function in DelPhi.
+\newblock Journal of computational chemistry.  2017; 38(22):1974--1979.
+
+\bibitem[{Li et~al.(2014)Li, Lin and Li, Chuan and Alexov,
+  Emil}]{li2014modeling}
+\textbf{\color{LiveCoMSMediumGrey} Li L}, Li C, Alexov E.
+\newblock On the modeling of polar component of solvation energy using smooth
+  Gaussian-based dielectric function.
+\newblock Journal of Theoretical and Computational Chemistry.  2014;
+  13(03):1440002.
+
+\bibitem[{Li et~al.(2013)Li, Lin and Li, Chuan and Zhang, Zhe and Alexov,
+  Emil}]{li2013dielectric}
+\textbf{\color{LiveCoMSMediumGrey} Li L}, Li C, Zhang Z, Alexov E.
+\newblock On the dielectric “constant” of proteins: smooth dielectric
+  function for macromolecular modeling and its implementation in DelPhi.
+\newblock Journal of chemical theory and computation.  2013; 9(4):2126--2136.
+
+\bibitem[{Rocchia et~al.(2002)Rocchia, Walter and Sridharan, Sundaram and
+  Nicholls, Anthony and Alexov, Emil and Chiabrera, Alessandro and Honig,
+  Barry}]{rocchia2002rapid}
+\textbf{\color{LiveCoMSMediumGrey} Rocchia W}, Sridharan S, Nicholls A, Alexov
+  E, Chiabrera A, Honig B.
+\newblock Rapid grid-based construction of the molecular surface and the use of
+  induced surface charge to calculate reaction field energies: Applications to
+  the molecular systems and geometric objects.
+\newblock Journal of computational chemistry.  2002; 23(1):128--137.
+
+\bibitem[{Chakravorty et~al.(2019)Chakravorty, Arghya and Gallicchio, Emilio
+  and Alexov, Emil}]{chakravorty2019grid}
+\textbf{\color{LiveCoMSMediumGrey} Chakravorty A}, Gallicchio E, Alexov E.
+\newblock A grid-based algorithm in conjunction with a gaussian-based model of
+  atoms for describing molecular geometry.
+\newblock Journal of computational chemistry.  2019; 40(12):1290--1304.
+
+\bibitem[{Decherchi et~al.(2013)Decherchi, Sergio and Colmenares, Jos{\'e} and
+  Catalano, Chiara Eva and Spagnuolo, Michela and Alexov, Emil and Rocchia,
+  Walter}]{decherchi2013between}
+\textbf{\color{LiveCoMSMediumGrey} Decherchi S}, Colmenares J, Catalano CE,
+  Spagnuolo M, Alexov E, Rocchia W.
+\newblock Between algorithm and model: different molecular surface definitions
+  for the Poisson-Boltzmann based electrostatic characterization of
+  biomolecules in solution.
+\newblock Communications in computational physics.  2013; 13(1):61--89.
+
+\bibitem[{Klapper et~al.(1986)Klapper, Isaac and Hagstrom, Ray and Fine,
+  Richard and Sharp, Kim and Honig, Barry}]{klapper1986focusing}
+\textbf{\color{LiveCoMSMediumGrey} Klapper I}, Hagstrom R, Fine R, Sharp K,
+  Honig B.
+\newblock Focusing of electric fields in the active site of Cu-Zn superoxide
+  dismutase: Effects of ionic strength and amino-acid modification.
+\newblock Proteins: Structure, Function, and Bioinformatics.  1986;
+  1(1):47--59.
+
+\bibitem[{Davis and McCammon(1989)Davis, Malcolm E and McCammon, J
+  Andrew}]{davis1989solving}
+\textbf{\color{LiveCoMSMediumGrey} Davis ME}, McCammon JA.
+\newblock Solving the finite difference linearized Poisson-Boltzmann equation:
+  A comparison of relaxation and conjugate gradient methods.
+\newblock Journal of computational chemistry.  1989; 10(3):386--391.
+
+\bibitem[{Cortis and Friesner(1997)Cortis, Christian M and Friesner, Richard
+  A}]{cortis1997numerical}
+\textbf{\color{LiveCoMSMediumGrey} Cortis CM}, Friesner RA.
+\newblock Numerical solution of the Poisson--Boltzmann equation using
+  tetrahedral finite-element meshes.
+\newblock Journal of computational chemistry.  1997; 18(13):1591--1608.
+
+\bibitem[{Baker et~al.(2001)Baker, Nathan A and Sept, David and Joseph, Simpson
+  and Holst, Michael J and McCammon, J Andrew}]{baker2001electrostatics}
+\textbf{\color{LiveCoMSMediumGrey} Baker NA}, Sept D, Joseph S, Holst MJ,
+  McCammon JA.
+\newblock Electrostatics of nanosystems: application to microtubules and the
+  ribosome.
+\newblock Proceedings of the National Academy of Sciences.  2001;
+  98(18):10037--10041.
+
+\bibitem[{Shestakov et~al.(2002)Shestakov, AI and Milovich, JL and Noy,
+  Aleksandr}]{shestakov2002solution}
+\textbf{\color{LiveCoMSMediumGrey} Shestakov A}, Milovich J, Noy A.
+\newblock Solution of the nonlinear Poisson--Boltzmann equation using
+  pseudo-transient continuation and the finite element method.
+\newblock Journal of colloid and interface science.  2002; 247(1):62--79.
+
+\bibitem[{Miertu{\v{s}} et~al.(1981)Miertu{\v{s}}, S and Scrocco, E and Tomasi,
+  J}]{miertuvs1981electrostatic}
+\textbf{\color{LiveCoMSMediumGrey} Miertu{\v{s}} S}, Scrocco E, Tomasi J.
+\newblock Electrostatic interaction of a solute with a continuum. A direct
+  utilizaion of AB initio molecular potentials for the prevision of solvent
+  effects.
+\newblock Chemical Physics.  1981; 55(1):117--129.
+
+\bibitem[{Totrov and Abagyan(2001)Totrov, Maxim and Abagyan,
+  Ruben}]{totrov2001rapid}
+\textbf{\color{LiveCoMSMediumGrey} Totrov M}, Abagyan R.
+\newblock Rapid boundary element solvation electrostatics calculations in
+  folding simulations: successful folding of a 23-residue peptide.
+\newblock Peptide Science: Original Research on Biomolecules.  2001;
+  60(2):124--133.
+
+\bibitem[{Lu et~al.(2009)Lu, Benzhuo and Cheng, Xiaolin and Huang, Jingfang and
+  McCammon, J Andrew}]{lu2009adaptive}
+\textbf{\color{LiveCoMSMediumGrey} Lu B}, Cheng X, Huang J, McCammon JA.
+\newblock An adaptive fast multipole boundary element method for Poisson-
+  Boltzmann electrostatics.
+\newblock Journal of Chemical Theory and Computation.  2009; 5(6):1692--1699.
+
+\bibitem[{Sharp and Honig(1990)Sharp, Kim A and Honig,
+  Barry}]{sharp1990electrostatic}
+\textbf{\color{LiveCoMSMediumGrey} Sharp KA}, Honig B.
+\newblock Electrostatic interactions in macromolecules: theory and
+  applications.
+\newblock Annual review of biophysics and biophysical chemistry.  1990;
+  19(1):301--332.
+
+\bibitem[{Rocchia et~al.(2001)Rocchia, Walter and Alexov, Emil and Honig,
+  Barry}]{rocchia2001extending}
+\textbf{\color{LiveCoMSMediumGrey} Rocchia W}, Alexov E, Honig B.
+\newblock Extending the applicability of the nonlinear Poisson- Boltzmann
+  equation: multiple dielectric constants and multivalent ions.
+\newblock The Journal of Physical Chemistry B.  2001; 105(28):6507--6514.
+
+\bibitem[{Wang et~al.(2015{\natexlab{a}})Wang, Lin and Li, Lin and Alexov,
+  Emil}]{wang2015pka}
+\textbf{\color{LiveCoMSMediumGrey} Wang L}, Li L, Alexov E.
+\newblock pKa predictions for proteins, RNA s, and DNA s with the Gaussian
+  dielectric function using DelPhi pKa.
+\newblock Proteins: Structure, Function, and Bioinformatics.  2015;
+  83(12):2186--2197.
+
+\bibitem[{Wang et~al.(2015{\natexlab{b}})Wang, Lin and Zhang, Min and Alexov,
+  Emil}]{wang2015delphipka}
+\textbf{\color{LiveCoMSMediumGrey} Wang L}, Zhang M, Alexov E.
+\newblock DelPhiPKa web server: predicting pKa of proteins, RNAs and DNAs.
+\newblock Bioinformatics.  2015; 32(4):614--615.
+
+\bibitem[{Talley et~al.(2008)Talley, Kemper and Ng, Carmen and Shoppell,
+  Michael and Kundrotas, Petras and Alexov, Emil}]{talley2008electrostatic}
+\textbf{\color{LiveCoMSMediumGrey} Talley K}, Ng C, Shoppell M, Kundrotas P,
+  Alexov E.
+\newblock On the electrostatic component of protein-protein binding free
+  energy.
+\newblock PMC biophysics.  2008; 1(1):2.
+
+\bibitem[{Chakavorty et~al.(2016)Chakavorty, Arghya and Li, Lin and Alexov,
+  Emil}]{chakavorty2016electrostatic}
+\textbf{\color{LiveCoMSMediumGrey} Chakavorty A}, Li L, Alexov E.
+\newblock Electrostatic component of binding energy: interpreting predictions
+  from poisson--boltzmann equation and modeling protocols.
+\newblock Journal of computational chemistry.  2016; 37(28):2495--2507.
+
+\bibitem[{Pahari et~al.(2018)Pahari, Swagata and Sun, Lexuan and Basu, Sankar
+  and Alexov, Emil}]{pahari2018delphipka}
+\textbf{\color{LiveCoMSMediumGrey} Pahari S}, Sun L, Basu S, Alexov E.
+\newblock DelPhiPKa: Including salt in the calculations and enabling polar
+  residues to titrate.
+\newblock Proteins: Structure, Function, and Bioinformatics.  2018;
+  86(12):1277--1283.
+
+\bibitem[{Dolinsky et~al.(2007)Dolinsky, Todd J and Czodrowski, Paul and Li,
+  Hui and Nielsen, Jens E and Jensen, Jan H and Klebe, Gerhard and Baker,
+  Nathan A}]{dolinsky2007pdb2pqr}
+\textbf{\color{LiveCoMSMediumGrey} Dolinsky TJ}, Czodrowski P, Li H, Nielsen
+  JE, Jensen JH, Klebe G, Baker NA.
+\newblock PDB2PQR: expanding and upgrading automated preparation of
+  biomolecular structures for molecular simulations.
+\newblock Nucleic acids research.  2007; 35(suppl\_2):W522--W525.
+
+\bibitem[{Chakravorty et~al.(2017)Chakravorty, Arghya and Jia, Zhe and Li, Lin
+  and Alexov, Emil}]{chakravorty2017new}
+\textbf{\color{LiveCoMSMediumGrey} Chakravorty A}, Jia Z, Li L, Alexov E.
+\newblock A new DelPhi feature for modeling electrostatic potential around
+  proteins: Role of bound ions and implications for zeta-potential.
+\newblock Langmuir.  2017; 33(9):2283--2295.
+
+\bibitem[{Humphrey et~al.(1996)Humphrey, William and Dalke, Andrew and
+  Schulten, Klaus}]{humphrey1996vmd}
+\textbf{\color{LiveCoMSMediumGrey} Humphrey W}, Dalke A, Schulten K.
+\newblock VMD: visual molecular dynamics.
+\newblock Journal of molecular graphics.  1996; 14(1):33--38.
+
+\bibitem[{Sharp and Honig(1990)Sharp, Kim A and Honig,
+  Barry}]{sharp1990calculating}
+\textbf{\color{LiveCoMSMediumGrey} Sharp KA}, Honig B.
+\newblock Calculating total electrostatic energies with the nonlinear
+  Poisson-Boltzmann equation.
+\newblock Journal of Physical Chemistry.  1990; 94(19):7684--7692.
+
+\bibitem[{Li et~al.(2017)Li, Lin and Jia, Zhe and Peng, Yunhui and Chakravorty,
+  Arghya and Sun, Lexuan and Alexov, Emil}]{li2017delphiforce}
+\textbf{\color{LiveCoMSMediumGrey} Li L}, Jia Z, Peng Y, Chakravorty A, Sun L,
+  Alexov E.
+\newblock DelPhiForce web server: electrostatic forces and energy calculations
+  and visualization.
+\newblock Bioinformatics.  2017; 33(22):3661--3663.
+
+\bibitem[{Peng et~al.(2019)Peng, Yunhui and Yang, Ye and Li, Lin and Jia, Zhe
+  and Cao, Weiguo and Alexov, Emil}]{peng2019DFMD}
+\textbf{\color{LiveCoMSMediumGrey} Peng Y}, Yang Y, Li L, Jia Z, Cao W, Alexov
+  E.
+\newblock DFMD: Fast and Effective DelPhiForce Steered Molecular Dynamics
+  Approach to Model Ligand Approach Toward a Receptor: Application to Spermine
+  Synthase Enzyme.
+\newblock Frontiers in Molecular Biosciences.  2019; 6:74.
+\newblock \href{https://doi.org/10.3389/fmolb.2019.00074}{\doiprefix
+  \detokenize{10.3389/fmolb.2019.00074}}.
+
+\bibitem[{Phillips et~al.(2005)Phillips, James C and Braun, Rosemary and Wang,
+  Wei and Gumbart, James and Tajkhorshid, Emad and Villa, Elizabeth and Chipot,
+  Christophe and Skeel, Robert D and Kale, Laxmikant and Schulten,
+  Klaus}]{phillips2005scalable}
+\textbf{\color{LiveCoMSMediumGrey} Phillips JC}, Braun R, Wang W, Gumbart J,
+  Tajkhorshid E, Villa E, Chipot C, Skeel RD, Kale L, Schulten K.
+\newblock Scalable molecular dynamics with NAMD.
+\newblock Journal of computational chemistry.  2005; 26(16):1781--1802.
+
+\bibitem[{Onufriev et~al.(2000)Onufriev, Alexey and Bashford, Donald and Case,
+  David A}]{onufriev2000modification}
+\textbf{\color{LiveCoMSMediumGrey} Onufriev A}, Bashford D, Case DA.
+\newblock Modification of the generalized Born model suitable for
+  macromolecules.
+\newblock The Journal of Physical Chemistry B.  2000; 104(15):3712--3720.
+
+\bibitem[{Petukh et~al.(2015)Petukh, Marharyta and Li, Minghui and Alexov,
+  Emil}]{petukh2015predicting}
+\textbf{\color{LiveCoMSMediumGrey} Petukh M}, Li M, Alexov E.
+\newblock Predicting binding free energy change caused by point mutations with
+  knowledge-modified MM/PBSA method.
+\newblock PLoS computational biology.  2015; 11(7):e1004276.
+
+\bibitem[{Petukh et~al.(2016)Petukh, Marharyta and Dai, Luogeng and Alexov,
+  Emil}]{petukh2016saambe}
+\textbf{\color{LiveCoMSMediumGrey} Petukh M}, Dai L, Alexov E.
+\newblock SAAMBE: webserver to predict the charge of binding free energy caused
+  by amino acids mutations.
+\newblock International journal of molecular sciences.  2016; 17(4):547.
+
+\bibitem[{Peng et~al.(2017)Peng, Yunhui and Sun, Lexuan and Jia, Zhe and Li,
+  Lin and Alexov, Emil}]{peng2017predicting}
+\textbf{\color{LiveCoMSMediumGrey} Peng Y}, Sun L, Jia Z, Li L, Alexov E.
+\newblock Predicting protein--DNA binding free energy change upon missense
+  mutations using modified MM/PBSA approach: SAMPDI webserver.
+\newblock Bioinformatics.  2017; 34(5):779--786.
+
+\bibitem[{Getov et~al.(2016)Getov, Ivan and Petukh, Marharyta and Alexov,
+  Emil}]{getov2016saafec}
+\textbf{\color{LiveCoMSMediumGrey} Getov I}, Petukh M, Alexov E.
+\newblock SAAFEC: predicting the effect of single point mutations on protein
+  folding free energy using a knowledge-modified MM/PBSA approach.
+\newblock International journal of molecular sciences.  2016; 17(4):512.
+
+\bibitem[{Pahari et~al.(2019)Pahari, Swagata and Sun, Lexuan and Alexov,
+  Emil}]{pahari2019pkad}
+\textbf{\color{LiveCoMSMediumGrey} Pahari S}, Sun L, Alexov E.
+\newblock PKAD: a database of experimentally measured pKa values of ionizable
+  groups in proteins.
+\newblock Database.  2019; 2019.
+
+\end{thebibliography}
