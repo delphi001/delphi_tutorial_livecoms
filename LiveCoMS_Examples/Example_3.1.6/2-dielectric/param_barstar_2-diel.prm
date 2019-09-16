@@ -1,12 +1,28 @@
 scale=2.5
-perfil=70
-!gsize=187
 
+!   UNCOMMENT perfil=70 line, to enable different gsize in monomer (barnase and barstar)
+!   only one of two combinations of parameters should be used:
+!   (1) perfil or 
+!   (2) gsize and acenter
+!perfil=70
+
+
+!   UNCOMMENT 'gsize=187' and 'acent(28.459,36.960,8.674)' to enforce grid size and position same as the barnase-barstar complex run
+!   the gsize for complex and monomers must be same. Therefore, we can run complex with 'scale=2.5' and 
+!   'perfil=70' and find the gsize from generated log file using command below
+!   `grep 'Grid size' param_barnase-barstar_2-diel.log | awk -F":" '{print $2}'`
+!   above command gives 187, so set gsize=187 for barnase and barstar monomer paramter files.
+!   similarily, the coordinates of grid center can be obtained from the delphi run log files
+!   corresponding to complex (barnase-barstar) run as below
+!   `grep 'Grid box is centered (A)' param_barnase-barstar_2-diel.log | awk -F":" '{print $2}'`
+!   above command gives three numbers which correspond to x,y,z coordinates for acenter.
+gsize=187
+acent(28.459,36.960,8.674)
 
 in(pdb,file="../barstar.pdb")
 in(siz,file="../c22.siz")
 in(crg,file="../c22.crg")
-!acent(28.459,36.960,8.674)
+
 
 indi=2
 exdi=80.0
@@ -16,7 +32,6 @@ bndcon=2
 maxc=0.0001
 linit=3000
 maxwarn=-1
-!pressurecoeff=0.063
 
 ! ------ ENERGY OUTPUT ----- 
 energy(s,c,g, ion)

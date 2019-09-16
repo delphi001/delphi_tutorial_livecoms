@@ -1,0 +1,240 @@
+
+ Time> Program started on 2019-9-13 at 11:54:44
+                                                                    
+   ______________________DelPhi C++ V. 8.4________________________  
+  |                                                               | 
+  | DelPhi Fortran program was originally developed in Barry Honig| 
+  | lab to compute electrostatic potential and energies. The      | 
+  | current C++ version is object oriented code, capable of       | 
+  | performing the calculations in sequential, OpenMP and MPI     | 
+  | regimes and the MPI version utilizes distributed memory       | 
+  | technology. Particular novelty is the Gaussian-based smooth   | 
+  | dielectric function that accounts for heterogeneity of the    | 
+  | solute and solute-solvent interface.                          | 
+  |                                                               | 
+  | The following reference should be quoted if the use of Delphi | 
+  | V. 8.0 results to a publication:                              | 
+  |                                                               | 
+  |    Li, L.; Li, C. A.; Sarkar, S.; Zhang, J.; Witham, S.;      | 
+  |    Zhang, Z.; Wang, L.; Smith, N.; Petukh, M.; Alexov, E.     | 
+  |    Bmc Biophys 2012, 5.                                       | 
+  |                                                               | 
+  |               For questions and help, visit                   | 
+  |              http://compbio.clemson.edu/forum/                | 
+  |               or email to delphi@g.clemson.edu                | 
+  |                                                               | 
+  |             Jul 2018, by DelPhi Development Team              | 
+  |                        Chuan  Li                              | 
+  |                         Zhe Jia                               | 
+  |                    Arghya Chakravorty                         | 
+  |____________________                   ________________________| 
+                        DelPhi C++ V. 8.4                           
+                                                                    
+
+ Time> Program started on 2019-9-13 at 11:54:44
+ No DELPHI keyword, assuming Delphi Format number = 0
+   
+ Time> Read in and/or assign rad/chrg done at      2019-9-13 at 11:54:45
+
+ Direct mapping of epsilon                    : 1/Y
+ Grid size                                    : 187
+ Percent of box occupied                      : 70.7069892
+ Scale,in grids (1/A)                         : 2.5000000 
+ xmin,xmax (A)                                : 21.8760000 54.7620000
+ ymin,ymax (A)                                : 14.2420000 53.2460000
+ zmin,zmax (A)                                : -16.3790000 19.1370000
+ x,y,z range (A)                              : 32.8860000 39.0040000 35.5160000
+ System geometric center (A)                  : 38.3190000 33.7440000  1.3790000
+ Grid box is centered (A)                     : 28.4590000 36.9600000  8.6740000
+ Object centre offset (gu)                    : 0.0000000  0.0000000  0.0000000
+ Outer dielectric                             : 80.0000000
+ Dielectric in Medium 1                       : 2.0000000
+ First kind salt [C] (M)                      : 0.0000000
+ Valences salt 1 are                          : 1         1
+ Ionic strength (M)                           : 0.0000000
+ Debye length (A)                             : 1000000.0000000
+ Absolute temperature (K)                     : 297.3342119
+ Ion exclusion [r] (A)                        : 2.0000000
+ Probe[r] facing water (A)                    : 1.4000000
+ Probe[r] internal (A)                        : 1.4000000
+ Boundary conditions                          : DIPOLAR
+ # of linear iterations                       : 3000
+ Convergence by rms change                    : 0.0000000e+00 kT
+ Convergence by max change                    : 1.0000000e-04 kT
+ # of non-linear iterations                   : 0
+ Non-linear energy calc.                      : false
+ Manual relaxation para.                      : false
+ GAUSSIAN module                              : ON
+ GAUSSIAN sigma                               : 6.5000000e-01
+ GAUSSIAN surface cut off                     : 2.0000000e+01
+ Surface potential calculations               : OFF
+
+
+
+---------- delphicpp finishes IO on 2019-9-13 at 11:54:45
+
+
+
+
+---------- delphicpp finishes SPACE class on 2019-9-13 at 11:54:49
+
+
+
+ Number of atom coordinates read              : 1432
+ Total number of assigned charges             : 1425
+ Net assigned charge                          : -6.0000000e+00
+ Assigned positive charge                     : 1.7463000e+02
+ Centred at (gu)                              : 1.2011661e+02 8.6152605e+01 7.3720366e+01
+ Assigned negative charge                     : -1.8063000e+02
+ Centred at (gu)                              : 1.1933345e+02 8.6414913e+01 7.3715679e+01
+ Number of dielectric boundary points         : 116979
+
+ Time> iepsmp to db, and charging done on 2019-9-13 at 11:54:50
+
+ Number of grid points assigned charge        : 11329
+ Estimated iterations to convergence          : 468
+
+ Time> Setup time done on 2019-9-13 at 11:54:50
+
+ Time> Now iterating on 2019-9-13 at 11:54:50
+
+ ----------------------------------------------------------------
+       rms-change   max change       #iterations
+ ----------------------------------------------------------------
+        6.6355699e+00  2.5812737e+02  at  10    iterations
+        5.0289002e+00  1.6666329e+02  at  20    iterations
+        3.6794595e+00  9.2927936e+01  at  30    iterations
+        2.7047978e+00  5.7826782e+01  at  40    iterations
+        1.9838390e+00  4.0301150e+01  at  50    iterations
+        1.4556864e+00  2.6626088e+01  at  60    iterations
+        1.0652263e+00  1.6408822e+01  at  70    iterations
+        7.8583754e-01  1.3919427e+01  at  80    iterations
+        5.7362467e-01  8.6431634e+00  at  90    iterations
+        4.2729860e-01  5.3816303e+00  at  100   iterations
+        3.1676803e-01  3.7366041e+00  at  110   iterations
+        2.3638247e-01  2.6441038e+00  at  120   iterations
+        1.7600628e-01  1.7598384e+00  at  130   iterations
+        1.3234325e-01  1.3214722e+00  at  140   iterations
+        9.9388343e-02  9.3811671e-01  at  150   iterations
+        7.4755178e-02  6.9403785e-01  at  160   iterations
+        5.6585495e-02  4.5100478e-01  at  170   iterations
+        4.2714413e-02  3.3689060e-01  at  180   iterations
+        3.2470867e-02  2.3921104e-01  at  190   iterations
+        2.4685901e-02  1.6907650e-01  at  200   iterations
+        1.8873988e-02  1.2937809e-01  at  210   iterations
+        1.4474129e-02  9.6448929e-02  at  220   iterations
+        1.1092508e-02  7.3716966e-02  at  230   iterations
+        8.5202694e-03  4.9415485e-02  at  240   iterations
+        6.5618866e-03  3.9309640e-02  at  250   iterations
+        5.0476542e-03  2.9265612e-02  at  260   iterations
+        3.8829170e-03  2.2926989e-02  at  270   iterations
+        2.9972060e-03  1.7424464e-02  at  280   iterations
+        2.3174505e-03  1.2718837e-02  at  290   iterations
+        1.7924153e-03  9.1961823e-03  at  300   iterations
+        1.3860004e-03  7.0626189e-03  at  310   iterations
+        1.0724472e-03  5.4585967e-03  at  320   iterations
+        8.2969485e-04  4.2253217e-03  at  330   iterations
+        6.4277376e-04  3.3156294e-03  at  340   iterations
+        4.9784830e-04  2.5290315e-03  at  350   iterations
+        3.8585820e-04  1.9144255e-03  at  360   iterations
+        2.9907981e-04  1.4624924e-03  at  370   iterations
+        2.3195781e-04  1.1009409e-03  at  380   iterations
+        1.7989629e-04  8.1750087e-04  at  390   iterations
+        1.3951664e-04  6.3296052e-04  at  400   iterations
+        1.0819323e-04  5.2019315e-04  at  410   iterations
+        8.3904100e-05  3.8920849e-04  at  420   iterations
+        6.5069459e-05  2.9928552e-04  at  430   iterations
+        5.0488320e-05  2.2898737e-04  at  440   iterations
+        3.9177014e-05  1.7829659e-04  at  450   iterations
+        3.0407649e-05  1.3436096e-04  at  460   iterations
+        2.3602939e-05  1.0360902e-04  at  470   iterations
+        1.8317231e-05  8.0470054e-05  at  480   iterations
+ ----------------------------------------------------------------
+ Info> Iteration ended with final rms-change of 1.8317231e-05
+ Info> Run converged in the provided limits
+
+ Time> Finished qdiffx linear iterations 2019-9-13 at 11:54:59
+ ----------------------------------------------------------------
+
+
+
+---------- delphicpp finishes SOLVER class on 2019-9-13 at 11:54:59
+
+
+
+
+---------- delphicpp finishes ENERGY class on 2019-9-13 at 11:54:59
+
+
+ Time> iepsmp to db, and charging done on 2019-9-13 at 11:55:0
+
+ Number of grid points assigned charge        : 11329
+ Estimated iterations to convergence          : 459
+
+ Time> Setup time done on 2019-9-13 at 11:55:0
+
+ Time> Now iterating on 2019-9-13 at 11:55:0
+
+ ----------------------------------------------------------------
+       rms-change   max change       #iterations
+ ----------------------------------------------------------------
+        3.5477871e-01  2.4663088e+01  at  10    iterations
+        2.4236610e-01  1.4354364e+01  at  20    iterations
+        1.6799413e-01  8.2562956e+00  at  30    iterations
+        1.1726574e-01  5.4774757e+00  at  40    iterations
+        8.2053475e-02  2.9158091e+00  at  50    iterations
+        5.7655698e-02  1.6931391e+00  at  60    iterations
+        4.0658920e-02  1.0125482e+00  at  70    iterations
+        2.8885654e-02  4.9893118e-01  at  80    iterations
+        2.0457828e-02  4.8687536e-01  at  90    iterations
+        1.4631861e-02  1.9509907e-01  at  100   iterations
+        1.0427494e-02  1.8177603e-01  at  110   iterations
+        7.4510851e-03  1.2653927e-01  at  120   iterations
+        5.3216629e-03  8.2034768e-02  at  130   iterations
+        3.8200274e-03  5.2663270e-02  at  140   iterations
+        2.7374168e-03  4.0222911e-02  at  150   iterations
+        1.9623644e-03  2.9282751e-02  at  160   iterations
+        1.4122782e-03  2.0560847e-02  at  170   iterations
+        1.0113121e-03  1.3508856e-02  at  180   iterations
+        7.2734552e-04  9.6706222e-03  at  190   iterations
+        5.2315157e-04  8.6286860e-03  at  200   iterations
+        3.7708863e-04  4.7017290e-03  at  210   iterations
+        2.7185877e-04  3.6497230e-03  at  220   iterations
+        1.9588914e-04  2.6924521e-03  at  230   iterations
+        1.4117278e-04  1.7427795e-03  at  240   iterations
+        1.0205432e-04  1.6071891e-03  at  250   iterations
+        7.3734272e-05  1.4224352e-03  at  260   iterations
+        5.3154583e-05  9.6999597e-04  at  270   iterations
+        3.8418454e-05  6.1700692e-04  at  280   iterations
+        2.7841713e-05  5.2841334e-04  at  290   iterations
+        2.0149265e-05  4.6429797e-04  at  300   iterations
+        1.4599391e-05  3.3971655e-04  at  310   iterations
+        1.0590712e-05  1.7083133e-04  at  320   iterations
+        7.6696326e-06  1.7380212e-04  at  330   iterations
+        5.5717036e-06  9.3176504e-05  at  340   iterations
+ ----------------------------------------------------------------
+ Info> Iteration ended with final rms-change of 5.5717036e-06
+ Info> Run converged in the provided limits
+
+ Time> Finished qdiffx linear iterations 2019-9-13 at 11:55:7
+ ----------------------------------------------------------------
+
+ Energy> Total grid energy                             :      7165.57 kT
+ Energy> Corrected reaction field energy               :    -45662.87 kT
+
+
+---------- delphicpp finishes SITE class on 2019-9-13 at 11:55:7
+
+
+
+ Time> Total CPU time is  22.42   sec 
+
+ Time> Delphi exited on 2019-9-13 at 11:55:7
+
+
+ .........  PROGRAM EXITS SUCCESSFULLY : WITH TOTAL 1 WARNING(S) ........
+
+ .....................  SHOWING 1 OUT OF 1 WARNING(S) ...................
+   [1;34m
+[WARNING #1] "LYS    1" HAS A NET CHARGE OF 2
+[0m

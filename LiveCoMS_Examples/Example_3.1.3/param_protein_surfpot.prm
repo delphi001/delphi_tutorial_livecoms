@@ -1,0 +1,49 @@
+scale=2.0
+perfil=70.0
+
+in(pdb,file="lysozyme.pdb")
+in(crg,file="charmm22.crg")
+in(siz,file="charmm22.siz")
+
+!internal dielectric
+indi=4
+
+!external dielectric
+exdi=80.0
+
+!probe radius
+prbrad=1.4
+
+!surface potentials can be calculated using 
+!non-zero salt concentrations as well
+!salt=0.1
+salt=0
+
+!potential at boundaries=dipolar
+bndcon=2
+
+!other run parameters
+relpar=1.0
+maxc=0.0001
+linit=800
+
+
+! SURFACE POTENTIAL AND DISTANCE
+! DOES NOT WORK WHEN GAUSSIAN=ON
+! IF GAUSSIAN=1 AND SP=1, THEN 
+! GAUSSIAN OVERRIDES.
+
+!SP=1
+SURFPOT=1
+
+!SD=4 (must be > 0 and < 10)
+SURFDIST=4
+
+! ZPHI output format outputs the potential on the 
+! X-Y-Z coordinates of the grid-points lying on the
+! surface. The potentials are in kT/e units.
+out(zphi,file="lysozyme_surface.zeta")
+
+!other output formats can be used as well
+energy(s,g,c)
+

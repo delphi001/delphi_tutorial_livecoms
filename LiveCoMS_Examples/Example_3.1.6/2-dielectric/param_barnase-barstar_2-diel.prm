@@ -7,8 +7,6 @@ in(siz,file="../c22.siz")
 in(crg,file="../c22.crg")
 
 
-
-
 indi=2
 exdi=80.0
 prbrad=1.4

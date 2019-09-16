@@ -1,6 +1,6 @@
 scale=2.5
 perfil=70
-!gsize=751
+!gsize=187
 
 
 in(pdb,file="../${molecule}.pdb")

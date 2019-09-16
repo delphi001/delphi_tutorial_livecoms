@@ -1,4 +1,4 @@
 Total grid energy      :       59388.54 kT 
 Corrected reaction field energy : -1265.7 kT
 Total coulombic energy  :  -19433.73 kT 
-Total required energy (everything calculated but grid and self_reaction energies):    -20699.43 kT 
+Total required energy (everything calculated but grid) :    -20699.43 kT 
