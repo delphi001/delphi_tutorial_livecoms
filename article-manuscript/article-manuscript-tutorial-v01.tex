@@ -88,7 +88,7 @@ Electrostatics play an indispensable role in practically any process in molecula
 \end{frontmatter}
 
 \section{Introduction}
-Poisson-Boltzmann equation (PBE) is widely used to describe the electrostatic potential distribution in the systems made of biological macromolecules in the water phase in the presence of mobile ions\cite{xiao2017continuum,li2013progress,jurrus2018improvements,nguyen2017accurate}. Since in this approach the macromolecules are considered using their atomistic 3D structures, it represents an excellent trade off between the speed and the necessary details for accurate description of the relevant phenomena. The traditional implementation of PBE in molecular biology considers that biological macromolecules are low dielectric cavities immersed in water phase which is described as a continuum medium with large dielectric constant. In this protocol, Ions are modeled as point charges that obey the Boltzmann distribution and can be present outside of the so-called Stern layer (Figure \ref{fig:Figure_1}a). This implementation of PBE will be termed two-dielectric PBE. In parallel, we have implemented a Gaussian-based smooth dielectric function in DelPhi that treats the solute and solvent on the same footage and the entire computational space is described via continuous dielectric function\cite{chakravorty2018gaussian,jia2017treating,li2014modeling,li2013dielectric}. Thus, the macromolecules are considered to be inhomogeneous objects and there is no sharp boundary between solute-solvent. Ions in such a scenario are considered as point charges obeying Boltzmann distribution, but the argument of the Boltzmann function has a desolvation penalty which does not allow ions to propagate into the macromolecular interior unless there is a cavity (Figure \ref{fig:Figure_1}b). This approach will be termed Gaussian PBE. Both approaches have been used in various computational algorithms aimed at computing biologically important quantities and these resources will be described here as well along with appropriate tutorials.
+Poisson-Boltzmann equation (PBE) is widely used to describe the electrostatic potential distribution in the systems made of biological macromolecules in the water phase in the presence of mobile ions\cite{xiao2017continuum,li2013progress,jurrus2018improvements,nguyen2017accurate}. Since in this approach the macromolecules are considered using their atomistic 3D structures, it represents an excellent trade-off between the speed and the necessary details for accurate description of the relevant phenomena. The traditional implementation of PBE in molecular biology considers that biological macromolecules are low dielectric cavities immersed in water phase which is described as a continuum medium with large dielectric constant. In this protocol, Ions are modeled as point charges that obey the Boltzmann distribution and can be present outside of the so-called Stern layer (Figure \ref{fig:Figure_1}a). This implementation of PBE will be termed two-dielectric PBE. In parallel, we have implemented a Gaussian-based smooth dielectric function in DelPhi that treats the solute and solvent on the same footage and the entire computational space is described via continuous dielectric function\cite{chakravorty2018gaussian,jia2017treating,li2014modeling,li2013dielectric}. Thus, the macromolecules are considered to be inhomogeneous objects and there is no sharp boundary between solute-solvent. Ions in such a scenario are considered as point charges obeying Boltzmann distribution, but the argument of the Boltzmann function has a desolvation penalty which does not allow ions to propagate into the macromolecular interior unless there is a cavity (Figure \ref{fig:Figure_1}b). This approach will be termed Gaussian PBE. Both approaches have been used in various computational algorithms aimed at computing biologically important quantities and these resources will be described here as well along with appropriate tutorials.
 
 The DelPhi software and associated resources are available free of charge for either download as a stand-alone code or used as web-servers. The general access URL is \url{http://compbio.clemson.edu}. 
 
@@ -148,7 +148,7 @@ In between these two regions,  exists the ion-exclusion layer (shown as $ \Omega
 \end{equation}
 The ion-exclusion layer or the Stern layer has the same dielectric properties as the solvent region or $ \Omega_3 $ (i.e. $ \epsilon_3 $). Therefore, $ \epsilon_2=\epsilon_3 $ . This indicates the role of the molecular surface as the surface that separates two dielectric media. The molecular surface can be constructed using various approaches but they are out of the scope of this article\cite{rocchia2002rapid,chakravorty2019grid,decherchi2013between}. 
 
-Briefly, Van der Waals (vdW) surface is the surface made of atomc vdW surfaces exposed to the solvent. If one runs a water probe, considered to be sphere with radius 1.4 \text{\AA}, and follow the center of the probe, the resulting surface is termed solvent accessible surface (SAS). Moving SAS 1.4 \text{\AA} towards vdW surface results in molecular surface. Finally, the ion accessible surface, which defines Stern layer, is the surface made of ions centers, represented as sphere with typical radius of 2.0 \text{\AA}.
+Briefly, Van der Waals (vdW) surface is the surface made of atomc vdW surfaces exposed to the solvent. If one runs a water probe, considered to be sphere with radius 1.4 \text{\AA}, and follow the center of the probe, the resulting surface is termed solvent accessible surface (SAS). Following the inward\textendash facing surface of the probe results in molecular surface. Finally, the ion accessible surface, which defines Stern layer, is the surface made of ions centers, represented as sphere with typical radius of 2.0 \text{\AA}.
 
 \subsubsection{Space partitioning with the Gaussian-based smooth dielectric model}
 The Gaussian-based smooth dielectric model is designed to deliver a continuous distribution of dielectric values in space as opposed to representing it as a union of two media with distinct dielectric constants. 
@@ -428,7 +428,7 @@ After the run is completed, one finds the output information in the log file:
 Energy> Corrected reaction field energy : -3583.05 kT
 \end{verbatim}
 
-Note that "corrected reaction field energy" values are quite different for traditional two-dielectric and Gaussian-based methods. This is not surprising, since traditional two-dielectric approach is intending to deliver solvation energy of a rigid molecule, while Gaussian-based method intends to mimic the effects of conformational changes.
+Note that "corrected reaction field energy" values are quite different for traditional two-dielectric and Gaussian-based methods. This is not surprising, since traditional two-dielectric approach is intending to deliver solvation energy of a rigid molecule, while Gaussian-based method intends to mimic the effects of conformational changes. Note that using traditional two-dielectric model with higher than 1.0  dielectric constant represents a case of treating conformational changes uniformly, i.e. uniform flexibility. However, macromolecules are not homogeneous objects. Instead, Gaussian-based model assigns local dielectric values depending on atomic packing and thus reflects inhomogeneous nature of proteins.
 
 \subsubsection{Computing "saltation energy"}
 
@@ -525,7 +525,7 @@ OUT(ZPHI, FILE=”_NAME_OF_A_FILE_”)
 
 Along with \texttt{SURFPOT=1} and \texttt{SURFDIST=7} (for example), a zphi format file by the name mentioned via the string replacing \texttt{\_NAME\_OF\_A\_FILE\_} is printed out. A folder with all necessary files is provided as \ttvar{Example_3.1.3/}. 
 
-A \texttt{zphi} format file contains 4 columns – 3 for the x, y and z coordinates of the grid-points (each 10 character long) and 1 for the potential values (15 character long). The units of the coordinates and potential are Å and $ k_BT/e $, respectively. All the lines in the file starting with '\#REMARK' string provide auxiliary information. For example, at the end of the file, DelPhi prints the average value of the potentials on the grid points on that surface as well as the geometric center of the computational box, in the following way:
+A \texttt{zphi} format file contains 4 columns, 3 for the x, y and z coordinates of the grid-points (each 10 character long) and 1 for the potential values (15 character long). The units of the coordinates and potential are Å and $ k_BT/e $, respectively. All the lines in the file starting with '\#REMARK' string provide auxiliary information. For example, at the end of the file, DelPhi prints the average value of the potentials on the grid points on that surface as well as the geometric center of the computational box, in the following way:
 
 \begin{verbatim}
 #REMARK SIMPLE AVERAGE SURFACE 
@@ -585,11 +585,11 @@ The output \ttvar{frc} file i.e. \ttvar{atoms.frc} contains necessary lines with
 
 \subsubsection{How to do focusing?}
 
-The focusing method is used for computing electrostatic potential and electric field for a molecular system at higher precision by using two or more runs where first run is done with moderate grid resolution for entire molecular system (typically \texttt{scale=1} or \texttt{scale=2}) followed by second run with fine grid resolution (typically \texttt{scale=4}) for only most relevant region of the system.  Thus, the two runs focusing scheme allows to obtain electrostatic potential and electric field with comparable precision to single high grid resolution (\texttt{scale=4}) run incurring comparably lesser computational resources. The schematic representation of focusing is shown in Figure \ref{fig:focusing}. Another advantage of this scheme is that for larger molecular systems high grid resolutions may require very large number of grids hence large memory is needed for computation which may not be available on the computer being used. However, focusing scheme drastically reduces the number of grid points. If the first run is done with scale=1 the memory needed would be \ttvar{~}1/64\textsuperscript{th} of the memory needed for run with \texttt{scale=4}. 
+The focusing method is used for computing electrostatic potential and electric field for a molecular system at higher precision by using two or more runs where first run is done with moderate grid resolution for entire molecular system (typically \texttt{scale=1} or \texttt{scale=2}) followed by second run with fine grid resolution (typically \texttt{scale=4}) for only most relevant region of the system.  Thus, the two runs focusing scheme allows to obtain electrostatic potential and electric field with comparable precision to single high grid resolution (\texttt{scale=4}) run incurring comparably lesser computational resources. The schematic representation of focusing is shown in Figure \ref{fig:focusing}. Another advantage of this scheme is that for larger molecular systems high grid resolutions may require very large number of grids hence large memory is needed for computation which may not be available on the computer being used. However, focusing scheme drastically reduces the number of grid points. If the first run is done with \ttvar{scale=1} the memory needed would be \ttvar{~}1/64\textsuperscript{th} of the memory needed for run with \texttt{scale=4}. 
 
 \begin{figure}[hbt!]
 \includegraphics[width=\linewidth]{Figure_11.png}
-\caption{A cartoon representation of scheme of focusing run. As shown in left panel the first DelPhi run (parent run) computes the potential and electric force at a lower \texttt{scale=1} for the whole system, followed by the second high \ttvar{scale=4} DelPhi run (child run, shown in right panel). The child run focuses on only region of importance defined by the \ttvar{acenter} marked by black dot, considering only a subset of grids of parent run, but with fine grids, the grid potentials of parent run are used as boundary condition for child run.}
+\caption{A cartoon representation of scheme of focusing run. As shown in left panel, the first DelPhi run (parent run) computes the potential and electric force at a lower \texttt{scale=1} for the whole system, followed by the second high \ttvar{scale=4} DelPhi run (child run, shown in right panel). The child run focuses on only region of importance defined by the \ttvar{acenter} marked by black dot, considering only a subset of grids of parent run, but with fine grids, the grid potentials of parent run are used as boundary condition for child run.}
 \label{fig:focusing}
 %% If the optional argument in the square brackets is ``none'', then the caption *will not appear in the main figure at all* and only the full caption will appear under the supplementary figure at the end of the manuscript.
 \end{figure}
@@ -615,7 +615,7 @@ The output is written to file named \texttt{frc.out}. The file \texttt{frc.out} 
 \begin{verbatim}
 ATOM DESCRIPTOR  GRID PT.   GRID FIELDS: (Ex, Ey, Ez)  
 N    ASP   39    4.1756   0.6405   -0.3778   -0.3490
-total energy = -3.39614 kt
+total energy = -3.39614 kT
 \end{verbatim}
 
 
@@ -632,8 +632,8 @@ To demonstrate how to use DelPhi for computing electrostatic component of protei
 \end{figure*}
 
 \textbf{Electrostatic component of binding energy using traditional two-dielectric approach}.
-The electrostatic component of binding energy can be obtained by two methods, Method-1 uses difference in grid energies, and Method-2 uses energy partitioning. In this process, three DelPhi runs are required as follows; the first run will be on the complex, second on the barnase and the third on the barstar molecules. One should keep the molecules at the same positions in all runs (this is mandatory for Method 1 calculations, since it uses grid energy differences and artificial grid energy terms must be canceled out). The scheme for two method is shown in Figure \ref{fig:elec_comp_bind_energy}.
-The files used in this example are present in \ttvar{Example_3.1.6/} and \ttvar{Example_3.1.6/2-dielectric/} directories, change current working directory to \ttvar{Example_3.1.6/2-dielectric/}. Now we can do the DelPhi run using following command.
+The electrostatic component of binding energy can be obtained by two methods, Method-1 uses difference in grid energies, and Method-2 uses energy partitioning. In this process, three DelPhi runs are required as follows; the first run will be on the complex, second on the barnase and the third on the barstar molecules. One should keep the molecules at the same positions in all runs (this is mandatory for Method 1 calculations, since it uses grid energy differences and artificial grid energy terms must be canceled out). Note that this requirement can be bypassed if one uses dummy atoms that encompass the entire complex and keep them the same for bound and unbound states. The scheme for two method is shown in Figure \ref{fig:elec_comp_bind_energy}.
+The files used in this example are present in \ttvar{Example_3.1.6/} and \ttvar{Example_3.1.6/2-dielectric/} directories, and the user should change current working directory to \ttvar{Example_3.1.6/2-dielectric/}. Now we can do the DelPhi run using following command.
 
 \begin{verbatim}
 $DELPHI_EXE param_barnase-barstar_2-diel.prm \
@@ -682,14 +682,14 @@ Now the electrostatic component of binding energy using Method-1 can be obtained
 The electrostatic component of binding energy using Method-2 can be obtained from partitioned energies as follows
 \begin{equation}
 \begin{aligned}
-\Delta G(bind) &= G_{Coulombic} + G_{\text{reaction field}} + G_{ions}\\
+\Delta G(bind) &= G_{Coulombic} + G_{\text{reaction field}}\\
                &= G_{ARET}(complex) - G_{ARET}(barnase) - G_{ARET}(barstar) \\
                &= -46727.80 - (-26030.23 + -20699.43) kT \\
                &= 1.86 kT \\
 \text{where ARET} &= \text{all required energy terms} \\
 \end{aligned}
-\end{equation}            
-Note that the calculated electrostatic component of binding energy via Method-1 and Method-2 is different. This is due to the fact that Method-1 does not fully cancel so termed ``artificial grid energy'' arising from real charges partitioning onto the grid. Thus, we recommend using Method-2, the energy partitioning method in case of energy calculations with zero salt. The reason is that current version of DelPhi does not support the option of explicit calculations of the energy of interactions between mobile ions and permanent charges (see \cite{rocchia2001extending} for more details).
+\end{equation}
+Note that the calculated electrostatic component of binding energy via Method-1 and Method-2 is different. This is due to the fact that Method-1 does not fully cancel so termed ``artificial grid energy'' arising from real charges partitioning onto the grid. Thus, we recommend using Method-2, the energy partitioning method. Note that this example is provided for a case of zero salt concentration. If one wants the electrostatic component of the binding energy to be calculated at salt concentration different from zero, Method-1 is the same. However, Method-2 should include an additional term to account for the salt contribution to the energy. This energy term should be calculated as the grid energy difference of the system with and without salt (see \ref{sec:slat-dependence-of-binding-energy-using-two-dielectric-model} and \ref{sec:salt-dependence-of-the-binding-energy-using-Gaussian-model}).
 
 \textbf{Electrostatic component of binding energy Gaussian approach}.
 In the Gaussian approach there is no strict solvent-solute boundary which separates the mediums of two different dielectric, rather the regions in solute and solvent are described with smooth dielectric function. Because of this fact, energy partitioning described in previous paragraph is not applicable. Therefore, the grid energy of the system which implicitly accounts Coulombic and polar component of the solvation energy is used in this case. However, to be able to obtain electrostatic component of binding, we must use the same point as grid center and same number of grid sizes and scale for complex and monomers. To keep the same point as grid center, one can compute the center of complex and use \ttvar{acenter} input command as \texttt{acenter(xc, yc, zc)} (where \ttvar{xc}, \ttvar{yc}, \ttvar{zc} are the x, y, z coordinates of center for the complex) in all the three calculations. In addition, we are required to activate the Gaussian module by providing \texttt{gaussian=1} in the parameter and the \texttt{sigma=0.65} parameter for the gaussian.
@@ -712,7 +712,7 @@ $DELPHI_EXE param_barstar_gauss.prm \
 The total grid energies for barnase-barstar complex, barnase and barstar are found from the respective .dat files and the electrostatic component of binding is computed as below via Method-1. 15975.45 - (8825.55 + 7165.57) kT = -15.67 kT. In the present case, note that the electrostatic component of binding energy is very different from the energy calculated with traditional two-dielectric approach. This is due to different dielectric distribution applied in these two approaches. One should use the traditional two-dielectric if modeling involves rigid structures (energy minimized or snapshots from MD simulations). The Gaussian approach is applicable for cases when one wants to use single structure to generate ensemble average quantity (see \cite{chakravorty2018gaussian} for more details).
 
 
-\subsubsection{Salt dependence of binding energy using traditional two-dielectric model}
+\subsubsection{Salt dependence of binding energy using traditional two-dielectric model} \label{sec:slat-dependence-of-binding-energy-using-two-dielectric-model}
 Charges of salt ions introduce extra sources of electric fields and affect the electrostatic interactions between the molecules. This example is designed to capture this salt dependence of binding energy using traditional two-dielectric model. The required files for this example are provided in folders \ttvar{Example_3.1.7/} and \ttvar{Example_3.1.7/saltation/}. The electrostatic component of binding energy using traditional two-dielectric approach via difference of grid energies  is used. In order to calculate the salt dependence of binding energy we are needed to compute binding energy twice, once at zero salt concentration and second time at desired non-zero salt concentration. The difference of binding energy between non-zero salt case and zero-salt case is the required salt dependence of the binding energy at given salt concentration. However, to find out the relationship between the change in binding energy due to varying salt concentration, here binding energy is calculated at multiple salt concentrations starting from 0.02M to 0.2M in steps of 0.02M and difference from zero-salt binding energy is recorded. The salt dependence of binding energy is plotted against the logarithm of the salt concentration, in addition the linear fit in the two quantities are also performed and coefficients of fit are reported in Figure \ref{fig:plot_saltation_pp_binding}.
 
 \begin{figure}[hbt!]
@@ -735,10 +735,10 @@ python3 plot-saltation.py
 \end{verbatim}
 
             
-\subsubsection{Salt dependence of the binding energy using Gaussian model}
+\subsubsection{Salt dependence of the binding energy using Gaussian model} \label{sec:salt-dependence-of-the-binding-energy-using-Gaussian-model}
 As mentioned above charges of salt ions introduce extra sources of electric field and affect the electrostatic interactions between the molecules.  Take the example of the protein-protein complex, `COLICIN E9 DNAse Domain with its Cognate Immunity Protein Im9' (PDB ID: 1EMV) involving the interaction of two helical (all-$ \alpha $) chains, A and B. The salt dependence of binding free energy can be given by the change of binding free energy under variance of salt concentrations in the solvent. Step one, the ‘total grid energy’ is to be computed for both the free chains (A, B) as well as the complex (AB), two times; first, at `zero' salt and then at another salt concentration, e.g. physiological salt (0.15 M). Let these terms be $ \Delta G_{nz_{AB}}$, $ \Delta G_{nz_A}$, $ \Delta G_{nz_B}$ (for AB, A and B chains at non-zero salt), $ \Delta G_{z_{AB}}$, $ \Delta G_{z_A} $, and $ \Delta G_{z_B}$ (at zero salt). From these terms, the de-saltation energy component is:
 \begin{equation}
- \Delta\Delta G_{saltation}= \Delta\Delta G_{salt_{AB}}  - \left( \Delta\Delta G_{salt_A}  + \Delta\Delta G_{salt_B} \right)
+ \Delta\Delta\Delta G_{de-saltation}= \Delta\Delta G_{salt_{AB}}  - \left( \Delta\Delta G_{salt_A}  + \Delta\Delta G_{salt_B} \right)
 \end{equation}
 where,
 \begin{equation}
@@ -780,7 +780,7 @@ Salt: 0.15M
 \Delta \Delta G_{salt_{complex}} - (\Delta G_{nz_{complex}} + \Delta G_{z_{complex}}) &: -1204.04 \nonumber \\
 \Delta\Delta G_{salt_{mol1}} - (\Delta G_{nz_{mol1}} + \Delta G_{z_{mol1}}) &: -444.961 \nonumber \\
 \Delta\Delta G_{salt_{mol2}} - (\Delta G_{nz_{mol2}} + \Delta G_{z_{mol2}}) &: -776.19 \nonumber \\
-\Delta\Delta G_{saltation} &: 17.11 \nonumber 
+\Delta\Delta\Delta G_{de-saltation} &: 17.11 \nonumber 
 \end{aligned}
 \end{equation}
 
@@ -797,7 +797,7 @@ The DelPhi run for the present example case can be done by executing the command
 bash binding.sh
 \end{verbatim} 
 
-The script will execute 12 DelPhi runs, each set of 4 runs will calculate the energy of 5-lys, membrane itself and the complex. In order to improve the resolution computation efficient focusing scheme is used for solving non-linear Poisson-Boltzmann equation (NLPBE). Note that in present case, simplified charges are used for lipids, so some of the atoms do not have partial charges.
+The script will execute 12 DelPhi runs, each set of 4 runs will calculate the energy of 5-lys, membrane itself and the complex. In order to improve the resolution in computationally efficient way focusing scheme is used for solving non-linear Poisson-Boltzmann equation (NLPBE). Note that in present case, simplified charges are used for lipids, so some of the atoms do not have partial charges.
 
 The total non-linear grid energies for complex ($ \Delta G_{cplx}(4 \text{\AA}) $), membrane ($ \Delta G_{mbrn}(4 \text{\AA}) $) and peptide ($ \Delta G_{pept}(4 \text{\AA}) $) can be obtained from log files \texttt{lys5\_r4\_2.log}, \texttt{r4\_2.log} and \texttt{lys5\_2.log} respectively. These values are 285679.17 kT, 283099.28 kT and 2587.42 kT respectively. Thus, the binding energy $\Delta\Delta G_{binding}(4 \text{\AA}) $ is:
 
@@ -812,7 +812,7 @@ Note that in case of NLPBE, the electrostatic energy has two additional componen
 \subsubsection{DelPhi Force}
 
 DelPhiForce\cite{li2017delphiforce} is developed and made available within DelPhi distribution to calculate electric field, forces, and energy for a two-molecule system. It can be downloaded from the DelPhi webpage at \url{http:// compbio.clemson.edu/downloadDir/delphiforce.tar.gz}. The DelPhiForce web server is available at \url{http://compbio.clemson.edu/delphi-force/}. Using DelPhiForce output files, the electrostatic forces can be visualized in VMD\cite{humphrey1996vmd}. Once \texttt{DelPhiForce.tar.gz} is downloaded. In the \texttt{DelPhiForce/bin} folder, there are several files e.g. 
-\texttt{DelPhiForrce.sh}, \texttt{ForceGen.sh}, \texttt{draw\_arrow.tcl} which will be used in this example.
+\texttt{DelPhiForce.sh}, \texttt{ForceGen.sh}, \texttt{draw\_arrow.tcl} which will be used in this example.
 
 The two input files required to run DelPhiForce are reference molecule (\ttvar{file1}) and probe molecule (\ttvar{file2}), both of which are in \texttt{.pqr} format. To run the DelPhiForce, go to the example folder, copy all files from the DelPhiForce/bin/ folder to it, then run DelPhiForce using command below:
 
@@ -851,10 +851,10 @@ Then open the \ttvar{file1} in VMD. The electrostatic force will be displayed.  
 
 The DFMD method\cite{peng2019DFMD} combines accurate long-range electrostatic force calculations via DelPhiForce with a major molecular dynamics simulation package NAMD\cite{phillips2005scalable}.  As a result, the DFMD delivers correct electrostatic forces and applies them in the MD simulations resulting in fast and accurate binding protocol. Typical implementation of Generalized Born (GB)\cite{onufriev2000modification} model in MD involves cut-offs, for both the calculations of Born radii and pair-wise energies. Removing the cut-offs makes MD simulations very slow. However, if the cut-offs are applied, the GB calculated energies are incorrect in case of receptor-ligand separated by large distance, which motivated us to use DelPhiForce to calculate corresponding electrostatic forces and promoted development of DFMD. It can be downloaded from \url{http://compbio.clemson.edu/downloads}
 
-In DFMD, ligand is placed at a distance away from the receptor assuring that long-range electrostatic force are dominating the driving of binding. Then the electrostatic forces acting on the each atom of the ligand by the receptor are computed with DelPhiForce\cite{li2017delphiforce}. The forces are given to steered MD module of NAMD and then short steered MD simulation is carried out. A new position and orientation after the shot simulation are subjected to DelPhiForce to update the atomic forces and iterations are then repeated for another cycle.
+In DFMD, ligand is placed at a distance away from the receptor assuring that long-range electrostatic force are dominating the driving of binding. Then the electrostatic forces acting on the each atom of the ligand by the receptor are computed with DelPhiForce\cite{li2017delphiforce}. The forces are given to steered MD module of NAMD and then short steered MD simulation is carried out. A new position and orientation after the short simulation are subjected to DelPhiForce to update the atomic forces and iterations are then repeated for another cycle.
 
 Files needed in user’s directory:
-Input pdb files for receptor, Input pdb files for target, and Amber prepi and frcmod files for ligands: These files are topology files for MD simulation of ligand and can be generated by antechamber in Amber tools. These files should be put in SOURCE/parameters. The \texttt{DelhiForce\_MD.py} also needed to read the MD parameters files in SOURCE folder. If the path to the SOURCE folder is changed, the new path should be specified using original arguments \texttt{–p}.
+Input pdb files for receptor, Input pdb files for target, and Amber prepi and frcmod files for ligands: These files are topology files for MD simulation of ligand and can be generated by antechamber in Amber tools. These files should be put in SOURCE/parameters. The \texttt{DelhiForce\_MD.py} also needed to read the MD parameters files in SOURCE folder. If the path to the SOURCE folder is changed, the new path should be specified using argument \texttt{–p}.
 
 Parameters of DFMD simulations:
 \begin{enumerate}
@@ -894,7 +894,7 @@ receptor_PDB \
 target_PDB
 \end{verbatim}
 
-\item During the running of the simulations, all the steered MD output raw files are in the out folder. For the convenience of visualization and analysis of the trajectory, the short trajectories of each short cycle are automatically concatenated and the concatenated DCD files of the entire simulation are provided in \texttt{./DCD/combine.dcd}.
+\item During the run of the simulations, all the steered MD output raw files are stored in the out folder. For the convenience of visualization and analysis of the trajectory, short trajectories of each short cycle are automatically concatenated and the concatenated DCD files of the entire simulation are provided in \texttt{./DCD/combine.dcd}.
 \item VMD is recommended to analyze the DCD files. To visualize the simulation trajectories, type the command:
 
 \texttt{mol load complex.prmtop dcd ./DCD/combine.dcd}
@@ -917,9 +917,9 @@ The user input section is categorized into three sections:
 	    
 	    \item Chain: chain ID at which mutation occurs.
 	    
-	    \item Original amino acid: amino acid type in wild type protein.
+	    \item Original amino acid: amino acid in wild type protein.
 	    
-	    \item Mutated amino acid: amino acid type in mutant protein.
+	    \item Mutated amino acid: amino acid in mutant protein.
     \end{enumerate}
 \end{enumerate}
 Once the user submits the job, it is directed to a different page and the job status is displayed as ``Your job is still running and will come back later''. If all the correct information is supplied, after the job finishes successfully, the result page displays “Job Status: Your job run successfully”. Following three downloadable output result files are generated and user can click the link to download them.
@@ -939,18 +939,18 @@ Protein–DNA interactions are essential for many important cellular processes a
 
 \textit{Required input files}: To use the web-server, users are required to upload the input pdb files of protein-DNA complex. The HETATM and ligands will be omitted from the structure before the calculations. In addition, users are also required to correctly specify the original residue name, the mutant residue name and the residue number in the input pdb.
 
-\textit{Output results}: The result will be output in the webpage, which automated refreshes every minute. The change of binding free energy due to mutations are reported in unit kcal/mol with the destabilizing effects represented as positive value. In addition, energy terms which were used in the benchmarking are also reported. 
+\textit{Output results}: The result will be output in the webpage, which automatically refreshes every minute. The change of binding free energy due to mutations are reported in unit kcal/mol with the destabilizing effects represented as positive value. In addition, energy terms which were used in the benchmarking are also reported. 
 
 The front page of SAMPDI provides a link to download a PDB file (IMSE.pdb), which is a structure of protein-DNA complex. Here this PDB file is used for training purposes. The link guides the user how to use the file, and what are expected results. In summary, if one submits PDB file (IMSE.pdb) and request residue ASN at position 139 to be mutated to GLU, the SAMPDI predicts that this mutation will de-stabilize the complex by $ \Delta\Delta G_{pred} =$ 0.67 kcal/mol. The corresponding experimentally determined $ \Delta\Delta G_{exp} $ is 1.3 kcal/mol, which is very close to predicted one.
 
 \subsubsection{SAAFEC} Single Amino Acid Folding free Energy Changes (SAAFEC) program\cite{getov2016saafec} predicts the folding free energy changes due to missense mutation. SAAFEC is available as a web server and accessible via \url{http://compbio.clemson.edu/SAAFEC/}. SAAFEC runs on Clemson University’s Palmetto Supercomputer cluster. Once user click the Use SAAFEC button, it would direct to a page containing Input Parameter Form. To run a job in SAAFEC, user needs to provide following four job input parameters:
 \begin{enumerate}
 \item \textit{Location of Residue}: Residue number at which mutation takes place.
-\item \textit{Initial Residue (One letter abbreviation)}: Amino acid type of wild type residue.
-\item \textit{Mutated Residue (One letter abbreviation)}: Amino acid type of mutant. 
+\item \textit{Initial Residue (One letter abbreviation)}: Amino acid in wild type.
+\item \textit{Mutated Residue (One letter abbreviation)}: Amino acid in mutant. 
 \item \textit{Chain}: The chain ID where the mutation occurs.
 \end{enumerate}
-As a final parameter, user must upload the PDB file of the desired structure in the Upload your PDB file box. On clicking the Next button, it would direct user to a page that includes File upload and input parameter form for SAAFEC run. The page shows all the Input Details that user already provided. The page also provides a link that directs to the result page. If the job is still running, user will be informed by showing ``The SAAFEC job is still being executed''. Once the job is completed and if all the user-provided inputs are correct, the page shows the Output Results. User can also download the same information by clicking Download Result File. Overall, following three downloadable result files are generated after completion of a successful job:
+As a final parameter, user must upload the PDB file of the desired structure in the Upload your PDB file box. On clicking the Next button, it would direct user to a page that includes File upload and input parameter form for SAAFEC run. The page shows all the Input Details that user already provided. The page also provides a link that directs to the result page. If the job is still running, user will be informed by showing ``The SAAFEC job is still being executed''. Once the job is completed and if all the user-provided inputs are correct, the page shows the Output Results. User can also download the same information by clicking Download Result File. Overall, following three downloadable result files are generated after successful completion of a job:
 
 \textit{Download MT Structure}: Energy minimized 3D structure of the mutated protein.
 	
@@ -961,7 +961,7 @@ As a final parameter, user must upload the PDB file of the desired structure in 
 
 The front page of SAAFEC provides a link to download a PDB file (1BNI.pdb), to be used for training purposes. The link guides the user how to use the file, and what are expected results. In summary, if one submits PDB file (1BNI.pdb) and request residue  HIS (H) at position 18 of chain A to be mutated to ASP (D), the SAAFEC predicts that this mutation will change folding free energy $ \Delta\Delta G_{pred} = \Delta G_{pred}(WT) - \Delta G_{pred}(MT) $ by -3.07 kcal/mol. The corresponding experimentally determined $ \Delta\Delta G_{exp} $ is  -1.87 kcal/mol, which is very close to predicted one.
 
-The above discussed SAAMBE, SAMPDI and SAAFEC methods are based on MMPBSA protocol along with knowledge-based energy terms. Essentially, the molecule (SAAFEC) or molecular complex (SAAMBE and SAMPDI) is energy minimized with NAMD. Then the corresponding MM energies are computed. Furthermore, the polar solvation energy is calculated with DelPhi. The non-polar solvation energy is estimated via Solvent Accessible Surface Area (SASA) approach. In addition, several terms are added in the energy formula as hydrogen bonds, estimation of entropy based on side chain rotamers, etc. All energy and knowledge-based terms are compiled into a energy equation with adjustable coefficients. The optimal values of these adjustable coefficients are obtained via multiple linear regression against experimental data\cite{petukh2016saambe,peng2017predicting,getov2016saafec}.
+The above discussed SAAMBE, SAMPDI and SAAFEC methods are based on MMPBSA protocol along with knowledge-based energy terms. Essentially, the molecule (SAAFEC) or molecular complex (SAAMBE and SAMPDI) is energy minimized with NAMD. Then the corresponding MM energies are computed. Furthermore, the polar solvation energy is calculated with DelPhi. The non-polar solvation energy is estimated via Solvent Accessible Surface Area (SASA) approach. In addition, several terms are added in the energy formula as hydrogen bonds, estimation of entropy based on side chain rotamers, etc. All energy and knowledge-based terms are compiled into an energy equation with adjustable coefficients. The optimal values of these adjustable coefficients are obtained via multiple linear regression against experimental data\cite{petukh2016saambe,peng2017predicting,getov2016saafec}.
 
 \subsubsection{DelPhiPKa}
 DelPhiPKa\cite{wang2015pka} is a DelPhi based C++ program, which predicts the pKa’s of ionizable and polar groups in proteins, DNA and RNAs. The method also takes into account the salt concentration in the medium\cite{pahari2018delphipka}. DelPhiPKa web-server is built on DelPhiPKa program and user can access it at \url{http://compbio.clemson.edu/pka_webserver/}. The web-server requires the following input parameters for a successful run:
@@ -999,9 +999,9 @@ The link to the result page pops up instantly when user submit their jobs. At th
 \textit{Task Finished Time}: The time when job finishes.
 
 Once the job is completed, server provides pKa results along with eight following downloadable items:
-\textit{Log File}: log.txt It contains the information of whether each step of the algorithm ran successfully. If any error occurs, user can have the information in the log file.
+\textit{Log File}: log.txt, it contains the information of whether each step of the algorithm ran successfully. If any error occurs, user can have the information in the log file.
 
-\textit{Input PDB}: input.pdb This is the PDB file user uploaded.
+\textit{Input PDB}: input.pdb is the PDB file user uploaded.
 
 \textit{pKa Result}: pKa.csv The file contains pKa value of each ionizable or polar residue with electrostatic energy components (polar solvation and de-solvation energy) for its protonated as well as de-protonated states.
 
@@ -1018,7 +1018,7 @@ Once the job is completed, server provides pKa results along with eight followin
 A link is provided on the front page, so the user can download a PDB file and submit it to DelPhiPKa. The link also provides a table with predicted and experimental pKa's for this protein.
 
 \subsubsection{PKAD}
-PKAD is a database of experimentally measured pKa values of titratable residues in proteins. The database\cite{pahari2019pkad} is available as downloadable file and accessible as a web server at \url{http://compbio.clemson.edu/pkad}. PKAD database can be used as a test set for development of new pKa’s prediction methods and improvement of existing algorithms. The database includes of 1350 protein residues from 157 wild type proteins and of 232 residues from 45 mutant proteins. The structures of the wild type proteins are available in PDB Database and the PDB ID is supplied in the web server. Following information are mentioned in the PKAD web-server as a separate column and user can search and group the experimental pKa’s according to the desired biophysical characteristics, amino acid types etc. All the data are divided into two categories: i) Wild type proteins and ii) Mutant proteins. User can select any of the data set based on their requirement. In each data set, each page shows 10 rows. User can move to the next page by selecting Next. User also can directly download the entire data set by selecting Download CSV option. User can choose to see only those rows which have experimental pKa values in a certain range, just by inserting the values in pKa Range Search box. Similarly, user have the option to filter pKa values and the corresponding information based on percentage solvent accessible surface area (\%SASA). This way, user can have the pKa values only for buried or only for surface accessible residues. In this case, user need to input the range of their desired \%SASA in the \%SASA Range Search box. User may search the entire data set by providing PDB ID in the Search box. If user select Wild type proteins, there are 13 columns in the data set and in each column, following information are available:
+PKAD is a database of experimentally measured pKa values of titratable residues in proteins. The database\cite{pahari2019pkad} is available as downloadable file and accessible as a web server at \url{http://compbio.clemson.edu/pkad}. PKAD database can be used as a test set for development of new pKa’s prediction methods and improvement of existing algorithms. The database includes of 1350 protein residues from 157 wild type proteins and of 232 residues from 45 mutant proteins. The structures of the wild type proteins are available in PDB database and the PDB ID is supplied in the web server. Following information are mentioned in the PKAD web-server as a separate column and user can search and group the experimental pKa’s according to the desired biophysical characteristics, amino acid types etc. All the data are divided into two categories: i) Wild type proteins and ii) Mutant proteins. User can select any of the data set based on their requirement. In each data set, each page shows 10 rows. User can move to the next page by selecting Next. User also can directly download the entire data set by selecting Download CSV option. User can choose to see only those rows which have experimental pKa values in a certain range, just by inserting the values in pKa Range Search box. Similarly, user have the option to filter pKa values and the corresponding information based on percentage solvent accessible surface area (\%SASA). This way, user can have the pKa values only for buried or only for surface accessible residues. In this case, user need to input the range of their desired \%SASA in the \%SASA Range Search box. User may search the entire data set by providing PDB ID in the Search box. If user select Wild type proteins, there are 13 columns in the data set and in each column, following information are available:
 
 \textit{Record ID}: Denotes unique number against each entry. These number are from 1 to 1345 in sequence.
 
