@@ -3,7 +3,7 @@
 %%% ADAPTED FROM ELIFE ARTICLE TEMPLATE (8/10/2017)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% PREAMBLE
-\documentclass[9pt,tutorial]{livecoms}
+\documentclass[9pt,tutorial,ASAPversion]{livecoms}
 % Use the 'onehalfspacing' option for 1.5 line spacing
 % Use the 'doublespacing' option for 2.0 line spacing
 % Use the 'lineno' option for adding line numbers.
@@ -13,7 +13,8 @@
 % Omit the bestpractices option to remove the marking as a LiveCoMS paper.
 % Please note that these options may affect formatting.
 
-\usepackage{lipsum} % Required to insert dummy text
+%\usepackage{lipsum} % Required to insert dummy text
+
 \usepackage[version=4]{mhchem}
 \usepackage{siunitx}
 \DeclareSIUnit\Molar{M}
@@ -59,13 +60,13 @@
 %%% Fill out these parameters when available
 %%% These are used when the "pubversion" option is invoked
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pubDOI{10.XXXX/YYYYYYY}
-\pubvolume{<volume>}
-\pubissue{<issue>}
-\pubyear{<year>}
-\articlenum{<number>}
-\datereceived{Day Month Year}
-\dateaccepted{Day Month Year}
+\pubDOI{10.33011/livecoms.1.2.10841}
+\pubvolume{1}
+\pubissue{2}
+\pubyear{2019}
+\articlenum{10841}
+\datereceived{25 June 2019}
+\dateaccepted{27 October 2019}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ARTICLE START
@@ -274,7 +275,7 @@ The second energy term is the polar solvation energy, which in DelPhi is called 
 \end{equation}
 where $ \sigma_j $ are induced surface charges. 
 
-The third term represents the energy of interactions between permanent charges and mobile ions. Formally it could be described by a formula similar to Eqn. \ref{eqn:G_rxn}, where instead of induced charges one takes excess ion density. However, this approach was abandoned in the newest DelPhi version because it is very slow and requires small “percent fill”. Instead, we recommend using grid energy difference between runs with salt and without salt. 
+The third term represents the energy of interactions between permanent charges and mobile ions. Formally it could be described by a formula similar to Eqn. \ref{eqn:G_rxn}, where instead of induced charges one takes excess ion density. However, while this approach is still supported in the newest DelPhi version, it is very slow and requires small “percent fill”. Therefore, we recommend using grid energy difference between runs with and without salt instead. 
 
 Finally, if one invokes non-linear PBE, two additional energy terms should be added to the total electrostatic energy. Following the work of Sharp and Honig\cite{sharp1990electrostatic}, they are termed ``osmotic pressure'' and ``electrostatic stress''.
 
@@ -1080,8 +1081,22 @@ None.
 %%%%%%%
 The work on DelPhi was supported by a grant from NIH, R01GM093937. 
 
+\section*{Author Information}
+\makeorcid
+\begin{tabular}{lcl}
+	Shailesh Kumar Panday  &:& 0000-0003-3099-8679 \\
+	Mihiri H.B. Shashikala &:& 0000-0001-7812-9902 \\
+	Mahesh Koirala         &:& 0000-0001-5787-1972 \\
+	Swagata Pahari         &:& 0000-0001-9192-9250 \\
+	Arghya Chakrvorty      &:& 0000-0002-4467-1135 \\
+	Yunhui Peng            &:& 0000-0001-9768-4127 \\
+	Lin Li                 &:& 0000-0001-6447-2398 \\
+	Zhe Jia                &:& 0000-0001-7709-9692 \\
+	Chuan Li               &:& 0000-0003-2414-4781 \\
+	Emil Alexov            &:& 0000-0001-5346-0156 \\
+\end{tabular}
 
-\bibliography{manuscript-v01}
+\bibliography{LiveCoMS_Article_V1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% APPENDICES
